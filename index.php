@@ -148,13 +148,15 @@ class Human
 {
     public $name;
     public $health;
+    public $attack;
     public $superattack;
 
-    public function __construct($name = '', $health = 100, $superattack = 0)
+    public function __construct($name = '', $health = 100, $attack = 0, $superattack = 0)
     {
 //        var_dump("Я родился! " . self::class);
         $this->name = $name;
         $this->health = $health;
+        $this->attack = $attack;
         $this->superattack = $superattack;
 //        echo "Я родился! " . self::class;
     }
@@ -169,14 +171,14 @@ class Human
         echo "У {$this->name}a осталось {$this->health} здоровья  <br>";
     }
 
-    public function attack(Warrior $target) {
-        $target->health -= $this->superattack;
-        echo "$this->name наносит урон {$target->name}у на {$this->superattack} урона.<br>";
+    public function attack(Human $target) {
+        $target->health -= $this->attack;
+        echo "$this->name наносит урон {$target->name}у на {$this->attack} урона.<br>";
     }
 
     //echo "$human1->name з и наносит несколько ударов и суперудар <br>";
 
-    public function supeAttack(Warrior $target) {
+    public function superAttack(Warrior $target) {
         $target->health -= $this->superattack;
         echo "$this->name заковывает врага {$target->name} и наносит урон на {$this->superattack} .<br>";
     }
@@ -204,11 +206,6 @@ class Warrior extends Human {
 
     }
 
-    public function attack(Human $target) {
-        $target->health -= $this->attack;
-        echo "Воин наносит урон {$target->name} на {$this->attack} урона.<br>";
-    }
-
     public function superattack(Human $target) {
         $target->health -= $this->superattack;
         echo "$this->name наносит суперудар вихрем, урон {$target->name} на {$this->superattack} урона.<br>";
@@ -220,11 +217,12 @@ class Warrior extends Human {
 
 class Healer extends Human
 {
-    public $attack;
-    public $massHealt;
 
-    public function __construct($name, $health) {
+    public $healerAttack;
+
+    public function __construct($name, $health, $healerAttack) {
         parent::__construct($name, $health);
+        $this->healerAttack = $healerAttack;
     }
 
     public function healerAttack(Human $target) {
@@ -234,33 +232,27 @@ class Healer extends Human
 
 }
 
-
-
-
 //..................................Схватка........................................................
 
 echo " <h2>Боевая схватка Грута и Священой жрицы против босса Конана: </h2>";
 
 
-$human1 = new Human("Грут", 100);
-$warrior1 = new Warrior("Конан", 500, 20, 40);
-$healer1 = new Healer("Священная жрица", 60);
+$human1 = new Human("Грут", 100, 60);
+$warrior1 = new Warrior("Конан", 500, 30, 40);
+$healer1 = new Healer("Священная жрица", 60, 20);
 
-
+echo $warrior1->sayName();
 $warrior1->attack($human1);
 $human1->health();
 echo "Грут в гневе, он говорит: ";
 $human1->sayName();
-$human1->superattack = 60;
 $human1->attack($warrior1);
 $warrior1->health();
 echo "Воин наносит ответный удар: <br> ";
 $warrior1->attack($human1);
 $human1->health();
-$healer1->healerAttack = 20;
 $healer1->healerAttack($human1);
 $human1->health();
-
 $warrior1->superattack($human1);
 echo "А также вихрем попадает по {$healer1->name} <br>";
 $warrior1->superattack($healer1);
@@ -271,7 +263,7 @@ $healer1->healerAttack = 15;
 $healer1->healerAttack($human1);
 $healer1->healerAttack($healer1);
 $human1->superattack = 80;
-$human1->supeAttack($warrior1);
+$human1->superAttack($warrior1);
 $warrior1->health();
 echo "$warrior1->name не двигается <br>";
 $human1->attack($warrior1);
@@ -286,6 +278,11 @@ $warrior1->superattack($healer1);
 echo "{$human1->name} и {$healer1->name} увернулись от удара <br>";
 $human1->health();
 $healer1->health();
+$human1->attack($warrior1);
+$warrior1->health();
+$warrior1->attack($human1);
+$human1->health();
+echo "{$human1->name} собирается с духом и наносит сокрушающий удар {$warrior1->name}у <br>";
 $human1->attack($warrior1);
 $warrior1->health();
 echo "$warrior1->name Побеждён";
