@@ -49,9 +49,6 @@ class Laptops extends Goods
     public function __construct($name, $price, $brand, $display, $model, $processor, $memory, $color)
     {
         parent::__construct($name, $price, $brand);
-        $this->name = $name;
-        $this->price = $price;
-        $this->brand = $brand;
         $this->display = $display;
         $this->model = $model;
         $this->processor = $processor;
