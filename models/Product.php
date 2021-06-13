@@ -4,10 +4,10 @@ namespace app\models;
 
 class Product extends Model
 {
-    public $id;
-    public $name;
-    public $description;
-    public $price;
+    protected $id;
+    protected $name;
+    protected $description;
+    protected $price;
 
     protected function getTableName() {
         return 'product';

@@ -4,9 +4,9 @@ namespace app\models;
 
 class Headline extends Model
 {
-    public $id;
-    public $title;
-    public $text;
+    protected $id;
+    protected $title;
+    protected $text;
 
     protected function getTableName() {
         return 'headline';

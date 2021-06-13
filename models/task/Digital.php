@@ -1,6 +1,5 @@
 <?php
 
-
 namespace app\models\task;
 
 class Digital extends Product

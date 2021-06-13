@@ -4,9 +4,9 @@ namespace app\models;
 
 class Gallery extends Model
 {
-    public $id;
-    public $image;
-    public $views;
+    protected $id;
+    protected $image;
+    protected $views;
 
     protected function getTableName() {
         return 'gallery';

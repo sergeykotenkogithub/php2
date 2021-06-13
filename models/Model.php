@@ -8,6 +8,15 @@ use app\interfaces\IModel;
 abstract class Model implements IModel
 {
     protected $db;
+
+    public function __set($name, $value) {
+        $this->$name = $value;
+    }
+
+    public function __get($name) {
+       return $this->$name;
+    }
+
     abstract protected function getTableName();
 
     public function __construct(Db $db)

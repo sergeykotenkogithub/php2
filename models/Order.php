@@ -4,13 +4,13 @@ namespace app\models;
 
 class Order extends Model
 {
-   public $id;
-   public $hash;
-   public $email;
-   public $date;
-   public $user_id;
-   public $status;
-   public $total;
+    protected $id;
+    protected $hash;
+    protected $email;
+    protected $date;
+    protected $user_id;
+    protected $status;
+    protected $total;
 
     protected function getTableName() {
         return 'order';
