@@ -6,9 +6,9 @@ class One extends Product
 {
     public static $total = 0;
 
-    function ThisPrice()
+    function ThisPrice($quantity)
     {
-        $result = $this->originalPrice;
+        $result = $this->originalPrice * $quantity;
         One::$total += $result;
         return $result;
     }
