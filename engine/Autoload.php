@@ -1,6 +1,6 @@
 <?php
 
-namespace engine;
+namespace app\engine;
 
 class Autoload
 {
