@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-class Basket
+class Basket extends Model
 {
     public $id;
     public $goods_id;
@@ -10,4 +10,8 @@ class Basket
     public $quantity;
     public $price;   //общая стоимость цены
     public $price_origin; // начальная стоимость цены
+
+    protected function getTableName() {
+        return 'basket';
+    }
 }

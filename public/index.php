@@ -3,15 +3,17 @@
 
 use app\models\{Basket, Feedback, Gallery, Headline, Order, Product, User};
 use app\models\example\Product as ExampleProduct;
+use app\engine\Db;
+use app\interfaces\IModel;
 
 //..........Абсолютный путь для работы в Windows и Linux(nginx).........
 
 define( 'ROOT', str_replace( "\\", "/", realpath( dirname( __DIR__ ) ) ) );
 
-//................Автозагрузка...............
+//................Автозагрузка и Db...............
 
 include ROOT . "/engine/Autoload.php";
-spl_autoload_register( [new autoload\Autoload(), 'loadClass']);
+spl_autoload_register( [new engine\Autoload(), 'loadClass']);
 
 //....................Тест....................
 
@@ -19,21 +21,31 @@ $productExample = new ExampleProduct(); // Для теста, чтоб узна�
 
 //.................Классы модели...............
 
-$basket = new Basket(); // Корзина
-$feedback = new Feedback(); // Отзывы
-$gallery = new Gallery(); // Галлерея
-$news = new Headline(); // Новости
-$order = new Order(); // Заказы
-$product = new Product(); // Товары
-$user = new User(); // Пользователи
+$basket = new Basket(new Db()); // Корзина
+$feedback = new Feedback(new Db()); // Отзывы
+$gallery = new Gallery(new Db()); // Галлерея
+$news = new Headline(new Db()); // Новости
+$order = new Order(new Db()); // Заказы
+$product = new Product(new Db()); // Товары
+$user = new User(new Db()); // Пользователи
+
+$db = new Db(); // База данных
 
 //.....................Проверка................
 
-var_dump($productExample);
-var_dump($basket);
-var_dump($feedback);
-var_dump($gallery);
-var_dump($news);
-var_dump($order);
-var_dump($product);
-var_dump($user);
+function getModel(IModel $model, $id) {
+    $model->getOne($id);
+    echo "<br>";
+    $model->getAll();
+    echo "<br>";
+    echo "...........................................................................";
+    echo "<br>";
+}
+
+getModel($basket, 5);
+getModel($feedback, 15);
+getModel($gallery, 1);
+getModel($news, 2);
+getModel($order, 18);
+getModel($product, 8);
+getModel($user, 3);

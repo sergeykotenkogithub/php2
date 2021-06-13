@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-class Order
+class Order extends Model
 {
    public $id;
    public $hash;
@@ -11,4 +11,8 @@ class Order
    public $user_id;
    public $status;
    public $total;
+
+    protected function getTableName() {
+        return 'order';
+    }
 }
