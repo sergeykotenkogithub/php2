@@ -9,7 +9,13 @@ class Weight extends Product
 
     function ThisPrice ($weight) {
         $resultWeight = $weight / 1000;
-        $result = $resultWeight * $this->originalPrice;
+        if ($weight > 50000) {
+            $price = $this->originalPrice * 0.9;
+            $result = $resultWeight * $price;
+        }
+        else {
+            $result = $resultWeight * $this->originalPrice;
+        }
         Weight::$total += $result;
         return $result;
     }

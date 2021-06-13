@@ -66,56 +66,58 @@ $weightParams = 1200;
 $weight = $taskProductWeight->ThisPrice($weightParams);
 
 echo "<br>";
-echo "У штучного товара цена: {$one} рублей";
+echo "У штучного товара цена: {$one} рублей при количестве 1 штуки";
 echo "<br>";
-echo "У цифрового товара цена: {$digital} рублей";
+echo "У цифрового товара цена: {$digital} рублей при количестве 1 штуки";
 echo "<br>";
-echo "У весого товара цена: {$weight} рублей за {$weightParams} кг";
+echo "У весого товара цена: {$weight} рублей за {$weightParams} грамм";
 echo "<br>";
 echo "<br>";
 
 //...........Проверка общей стримости..................
 
-// Штучный
-echo ".........Штучный................";
-echo "<br>";
-echo "После первого вызова " . $taskProductOne::$total;
-echo "<br>";
-echo "Второй вызов " . $taskProductOne->ThisPrice();
-echo "<br>";
-echo "Третий вызов " . $taskProductOne->ThisPrice();
-echo "<br>";
-echo "Общая стоимость:" . $taskProductOne::$total;
-echo "<br>";
-echo "<br>";
-
-// Цифровой
-echo ".........Цифровой................";
-echo "<br>";
-echo "После первого вызова " . $taskProductDigital::$total;
-echo "<br>";
-echo "Второй вызов " . $taskProductDigital->ThisPrice();
-echo "<br>";
-echo "Третий вызов " . $taskProductDigital->ThisPrice();
-echo "<br>";
-echo "Четвёртый вызов " . $taskProductDigital->ThisPrice();
-echo "<br>";
-echo "Общая стоимость:" .  $taskProductDigital::$total;
-echo "<br>";
-echo "<br>";
-
-// Весовой
-echo ".........Весовой................";
-echo "<br>";
-echo "После первого вызова " . $taskProductWeight::$total;
-echo "<br>";
-echo "Второй вызов " . $taskProductWeight->ThisPrice(1900);
-echo "<br>";
-echo "Общая стоимость:" . $taskProductWeight::$total;
-echo "<br>";
-echo "<br>";
-echo ".........Общая стоимость................";
-echo "<br>";
-// Общая стоимость выручки
-$result = $taskProductOne::$total + $taskProductDigital::$total + $taskProductWeight::$total;
-echo "Общая стоимость: {$taskProductOne::$total}(Штучный) + {$taskProductDigital::$total}(Цифровой) + {$taskProductWeight::$total}(Весовой) = {$result} рублей";
+//// Штучный
+//echo ".........Штучный................";
+//echo "<br>";
+//echo "После первого вызова " . $taskProductOne::$total;
+//echo "<br>";
+//echo "Второй вызов " . $taskProductOne->ThisPrice();
+//echo "<br>";
+//echo "Третий вызов " . $taskProductOne->ThisPrice();
+//echo "<br>";
+//echo "Общая стоимость:" . $taskProductOne::$total;
+//echo "<br>";
+//echo "<br>";
+//
+//// Цифровой
+//echo ".........Цифровой................";
+//echo "<br>";
+//echo "После первого вызова " . $taskProductDigital::$total;
+//echo "<br>";
+//echo "Второй вызов " . $taskProductDigital->ThisPrice();
+//echo "<br>";
+//echo "Третий вызов " . $taskProductDigital->ThisPrice();
+//echo "<br>";
+//echo "Четвёртый вызов " . $taskProductDigital->ThisPrice();
+//echo "<br>";
+//echo "Общая стоимость:" .  $taskProductDigital::$total;
+//echo "<br>";
+//echo "<br>";
+//
+//// Весовой
+//echo ".........Весовой................";
+//echo "<br>";
+//echo "После первого вызова " . $taskProductWeight::$total;
+//echo "<br>";
+//echo "Второй вызов " . $taskProductWeight->ThisPrice(1900);
+//echo "<br>";
+//echo "Вызов со скидкой " . $taskProductWeight->ThisPrice(51000);
+//echo "<br>";
+//echo "Общая стоимость: " . $taskProductWeight::$total;
+//echo "<br>";
+//echo "<br>";
+//echo ".........Общая стоимость................";
+//echo "<br>";
+//// Общая стоимость выручки
+//$result = $taskProductOne::$total + $taskProductDigital::$total + $taskProductWeight::$total;
+//echo "Общая стоимость: {$taskProductOne::$total}(Штучный) + {$taskProductDigital::$total}(Цифровой) + {$taskProductWeight::$total}(Весовой) = {$result} рублей";
