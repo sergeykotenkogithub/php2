@@ -5,7 +5,6 @@ namespace app\models\task;
 
 class Weight extends Product
 {
-    public static $total = 0;
     public static $totalDiscount;
 
     function ThisPrice ($weight) {
