@@ -7,9 +7,9 @@ use app\engine\Db;
 use app\interfaces\IModel;
 use app\models\task\{One, Digital, Weight};
 
-//..........Абсолютный путь для работы в Windows и Linux(nginx).........
+//.....Конфигурационый файл
 
-define( 'ROOT', str_replace( "\\", "/", realpath( dirname( __DIR__ ) ) ) );
+include dirname( __DIR__ ) . "/config/config.php";
 
 //................Автозагрузка и Db...............
 
