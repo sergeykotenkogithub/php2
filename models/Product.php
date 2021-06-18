@@ -8,12 +8,14 @@ class Product extends Model
     protected $name;
     protected $description;
     protected $price;
+    protected $image;
 
-    public function __construct($name = '', $description = '', $price = '')
+    public function __construct($name = '', $description = '', $price = '', $image = '')
     {
         $this->name = $name;
         $this->description = $description;
         $this->price = $price;
+        $this->image = $image;
     }
 
     protected function getTableName() {

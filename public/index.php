@@ -24,7 +24,7 @@ $productExample = new ExampleProduct(); // Для теста, чтоб узна�
 $basket = new Basket( ); // Корзина
 $feedback = new Feedback( ); // Отзывы
 $gallery = new Gallery( ); // Галлерея
-$news = new Headline( ); // Новости
+//$news = new Headline( ); // Новости
 $order = new Order( ); // Заказы
 $product = new Product( ); // Товары
 $user = new User(); // Пользователи
@@ -33,12 +33,9 @@ $user = new User(); // Пользователи
 
 //$pd = $product->getOne(1);
 
-$product = new Product("Книга", "Грокаем алгоритмы", 500000);
-$product->insert();
-
-var_dump($product->insert());
-
-var_dump($product);
+//$product = new Product("Книга", "Грокаем алгоритмы", 500000, '133.jpg');
+$news = new Headline('Заголовок', 'Новость'); // Новости
+$news->insert();
 
 //$product = $user->getOne(5);
 //var_dump($product->getOne('1'));

@@ -45,16 +45,19 @@ abstract class Model implements IModel
         foreach ($this as $key => $value) {
             if ($key == 'id') continue;
             $myArray[] = $key;
-            $myArray2[] = $value;
-
+            $myArray2[] = "'{$value}'";
         };
+
         $separated_key = implode(", ", $myArray);
         $separated_value = implode(", ", $myArray2);
 
-//        $sql = "INSERT INTO `{$this->getTableName()}`($separated_key) VALUES(:separated_value)";
-        $sql = "INSERT INTO `goods`(`name`, `description`, `price`, `image`) VALUES('sda', 'sdsaaa', :price, '133.jpg')";
+        $sql = "INSERT INTO `{$this->getTableName()}`($separated_key) VALUES($separated_value)";
+
         $this->id = Db::getInstance()->lastInsertId();
-        return Db::getInstance()->executeSql($sql, ['price' => 620]);
+        var_dump($sql);
+
+        return Db::getInstance()->executeSql($sql, ['separated_valssue' => "ss"]);
+
     }
 
     public function update() {
