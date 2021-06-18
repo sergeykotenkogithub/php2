@@ -9,6 +9,13 @@ class User extends Model
     protected $pass;
     protected $hash;
 
+    public function __construct($login = '', $pass = '', $hash = '')
+    {
+        $this->login = $login;
+        $this->pass = $pass;
+        $this->hash = $hash;
+    }
+
     protected function getTableName() {
         return 'users';
     }

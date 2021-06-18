@@ -1,10 +1,10 @@
 <?php
 
-// Нижний уровень для работы с запросами
+//.................Нижний уровень для работы с запросами................................................................
 
 namespace app\engine;
-
 use app\interfaces\IDb;
+use app\traits\TSingletone;
 
 class Db implements IDb
 {
@@ -16,6 +16,12 @@ class Db implements IDb
         'database' => 'gallerybase',
         'charset' => 'utf8'
     ];
+
+    //............Патерн Сингтон.......................................................
+
+    use TSingletone;
+
+    //..........................Соеденение........................................................
 
     protected $connection = null;
 
@@ -41,6 +47,8 @@ class Db implements IDb
         );
     }
 
+    //......................Запросы........................................
+
     // id последнего insert
     public function lastInsertId() {
 
@@ -52,6 +60,13 @@ class Db implements IDb
         return $stmt;
     }
 
+    public function queryOneObject($sql, $params, $class) {
+        //Statement
+        $stmt = $this->query($sql, $params);
+        $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE , $class);
+        return $stmt->fetch();
+    }
+
     public function queryOne($sql, $params = []) {
         return $this->query($sql, $params)->fetch();
     }
@@ -60,8 +75,16 @@ class Db implements IDb
         return $this->query($sql, $params)->fetchAll();
     }
 
+//    public function executeSqlObject($sql, $params) {
+//
+//        $stmt = $this->query($sql, $params);
+////        $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE , $class);
+//        return $stmt->rowCount();
+//    }
+
     public function executeSql($sql, $params = []) {
         // UPDATE, INSERT, DELETE
         return $this->query($sql, $params)->rowCount();
     }
+
 }

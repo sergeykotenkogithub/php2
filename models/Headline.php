@@ -8,6 +8,12 @@ class Headline extends Model
     protected $title;
     protected $text;
 
+    public function __construct($title = '', $text = '')
+    {
+        $this->title = $title;
+        $this->text = $text;
+    }
+
     protected function getTableName() {
         return 'news';
     }

@@ -3,7 +3,6 @@
 
 use app\models\{Basket, Feedback, Gallery, Headline, Order, Product, User};
 use app\models\example\Product as ExampleProduct; // Просто тестовый
-use app\engine\Db;
 use app\interfaces\IModel;
 use app\models\task\{One, Digital, Weight};
 
@@ -22,37 +21,27 @@ $productExample = new ExampleProduct(); // Для теста, чтоб узна�
 
 //.................Классы модели...............
 
-$db = new Db(); // База данных
-
-$basket = new Basket($db ); // Корзина
-$feedback = new Feedback($db ); // Отзывы
-$gallery = new Gallery($db ); // Галлерея
-$news = new Headline($db); // Новости
-$order = new Order($db ); // Заказы
-$product = new Product($db ); // Товары
-$user = new User($db ); // Пользователи
-
-//var_dump($basket->getOne(69));
-//var_dump($user->getOne(2));
-//var_dump($user->getAll());
-//var_dump($basket->getAll());
-var_dump($user->getAll());
+$basket = new Basket( ); // Корзина
+$feedback = new Feedback( ); // Отзывы
+$gallery = new Gallery( ); // Галлерея
+$news = new Headline( ); // Новости
+$order = new Order( ); // Заказы
+$product = new Product( ); // Товары
+$user = new User(); // Пользователи
 
 //.....................Проверка................
 
-//function getModel(IModel $model, $id) {
-//    $model->getOne($id);
-//    echo "<br>";
-//    $model->getAll();
-//    echo "<br>";
-//    echo "...........................................................................";
-//    echo "<br>";
-//}
-//
-//getModel($basket, 5);
-//getModel($feedback, 15);
-//getModel($gallery, 1);
-//getModel($news, 2);
-//getModel($order, 18);
-//getModel($product, 8);
-//getModel($user, 3);
+//$pd = $product->getOne(1);
+
+$product = new Product("Книга", "Грокаем алгоритмы", 500000);
+$product->insert();
+
+var_dump($product->insert());
+
+var_dump($product);
+
+//$product = $user->getOne(5);
+//var_dump($product->getOne('1'));
+//var_dump($product);
+
+// Сделать чтобы $user->getOne(5) вернул объект с данными
