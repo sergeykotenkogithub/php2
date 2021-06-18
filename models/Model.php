@@ -36,28 +36,26 @@ abstract class Model implements IModel
         return Db::getInstance()->queryAll($sql);
     }
 
-//    public function insert() {
-//        $sql = "SELECT * FROM {$this->getTableName()}";
-//        return Db::getInstance()->queryAll($sql);
-//    }
-
     public function insert() {
         foreach ($this as $key => $value) {
             if ($key == 'id') continue;
             $myArray[] = $key;
-            $myArray2[] = "'{$value}'";
+//            $myArray2[] = "'{$value}'";
+            $myArray2[] = ":{$value}";
+            $myArray3[] = ":{$key}";
+            $full_params[$key] = $value;
         };
 
         $separated_key = implode(", ", $myArray);
         $separated_value = implode(", ", $myArray2);
+        $separated_key2 = implode(", ", $myArray3);
 
-        $sql = "INSERT INTO `{$this->getTableName()}`($separated_key) VALUES($separated_value)";
+        var_dump($separated_key2);
 
+        $sql = "INSERT INTO `{$this->getTableName()}`($separated_key) VALUES($separated_key2)";
         $this->id = Db::getInstance()->lastInsertId();
-        var_dump($sql);
 
-        return Db::getInstance()->executeSql($sql, ['separated_valssue' => "ss"]);
-
+        return Db::getInstance()->executeSql($sql, $full_params);
     }
 
     public function update() {

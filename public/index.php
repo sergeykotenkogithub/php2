@@ -31,8 +31,6 @@ $user = new User(); // Пользователи
 
 //.....................Проверка................
 
-//$pd = $product->getOne(1);
-
 //$product = new Product("Книга", "Грокаем алгоритмы", 500000, '133.jpg');
 $news = new Headline('Заголовок', 'Новость'); // Новости
 $news->insert();
@@ -40,5 +38,4 @@ $news->insert();
 //$product = $user->getOne(5);
 //var_dump($product->getOne('1'));
 //var_dump($product);
-
 // Сделать чтобы $user->getOne(5) вернул объект с данными

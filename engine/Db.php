@@ -82,9 +82,20 @@ class Db implements IDb
 //        return $stmt->rowCount();
 //    }
 
-    public function executeSql($sql, $params = []) {
+    public function executeSql($sql, $params) {
         // UPDATE, INSERT, DELETE
-        return $this->query($sql, $params)->rowCount();
+//        var_dump($params);
+
+        $stmt = $this->query($sql, $params);
+//        $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE , $class);
+        return $stmt->rowCount();
+
+//        return $this->query($sql, $params)->rowCount();
     }
+
+//    public function executeSql($sql, $params = []) {
+//        // UPDATE, INSERT, DELETE
+//        return $this->query($sql, $params)->rowCount();
+//    }
 
 }
