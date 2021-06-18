@@ -75,27 +75,12 @@ class Db implements IDb
         return $this->query($sql, $params)->fetchAll();
     }
 
-//    public function executeSqlObject($sql, $params) {
-//
-//        $stmt = $this->query($sql, $params);
-////        $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE , $class);
-//        return $stmt->rowCount();
-//    }
-
     public function executeSql($sql, $params) {
         // UPDATE, INSERT, DELETE
-//        var_dump($params);
 
         $stmt = $this->query($sql, $params);
-//        $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE , $class);
+        // $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE , $class);
         return $stmt->rowCount();
-
-//        return $this->query($sql, $params)->rowCount();
     }
-
-//    public function executeSql($sql, $params = []) {
-//        // UPDATE, INSERT, DELETE
-//        return $this->query($sql, $params)->rowCount();
-//    }
 
 }

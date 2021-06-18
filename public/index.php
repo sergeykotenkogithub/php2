@@ -35,7 +35,9 @@ $user = new User(); // Пользователи
 $news = new Headline('Заголовок', 'Новость'); // Новости
 $news->insert();
 
-//$product = $user->getOne(5);
-//var_dump($product->getOne('1'));
-//var_dump($product);
+//$news = new User('Новый', '$2sdsaassasa'); // Новости
+//$news->insert();
+
+//.................Задание.......................
+
 // Сделать чтобы $user->getOne(5) вернул объект с данными
