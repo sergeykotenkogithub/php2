@@ -9,6 +9,6 @@ class Headline extends Model
     protected $text;
 
     protected function getTableName() {
-        return 'headline';
+        return 'news';
     }
 }

@@ -10,6 +10,6 @@ class User extends Model
     protected $hash;
 
     protected function getTableName() {
-        return 'user';
+        return 'users';
     }
 }

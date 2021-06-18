@@ -2,6 +2,7 @@
 
 
 namespace app\models;
+
 use app\engine\Db;
 use app\interfaces\IModel;
 
@@ -25,28 +26,28 @@ abstract class Model implements IModel
     }
 
     public function getOne($id) {
-        $sql = "SELECT * FROM {$this->getTableName()} WHERE id={$id}";
-        echo $this->db->queryOne($sql);
+        $sql = "SELECT * FROM {$this->getTableName()} WHERE id = :id";
+        return $this->db->queryOne($sql, ['id' => $id]);
     }
 
     public function getAll() {
         $sql = "SELECT * FROM {$this->getTableName()}";
-        echo $this->db->queryAll($sql);
+        return $this->db->queryAll($sql);
     }
 
     public function insert() {
         $sql = "SELECT * FROM {$this->getTableName()}";
-        echo $this->db->queryAll($sql);
+        return $this->db->queryAll($sql);
     }
 
     public function update() {
         $sql = "SELECT * FROM {$this->getTableName()}";
-        echo $this->db->queryAll($sql);
+        return $this->db->queryAll($sql);
     }
 
     public function delete() {
         $sql = "SELECT * FROM {$this->getTableName()}";
-        echo $this->db->queryAll($sql);
+        return $this->db->queryAll($sql);
     }
 
 }

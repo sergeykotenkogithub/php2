@@ -6,8 +6,7 @@ class Autoload
 {
     function loadClass($className)
     {
-         $strReplace = str_replace(["app\\","\\"], [ROOT . DS, DS], $className) . ".php";
-
+        $strReplace = str_replace(["app\\","\\"], [ROOT . DS, DS], $className) . ".php";
          /*
             //.....Вопрос: ?........
             // ПОЧЕМУ если так записать то все слеши будут нормальными, тоесть такими: /, а если в варианте выше то: \ ?

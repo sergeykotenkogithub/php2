@@ -32,30 +32,27 @@ $order = new Order($db ); // Заказы
 $product = new Product($db ); // Товары
 $user = new User($db ); // Пользователи
 
-
-
-// 3 Задание:
-
-$taskProductOne = new One();
-$taskProductDigital = new Digital();
-$taskProductWeight = new Weight();
-
+//var_dump($basket->getOne(69));
+//var_dump($user->getOne(2));
+//var_dump($user->getAll());
+//var_dump($basket->getAll());
+var_dump($user->getAll());
 
 //.....................Проверка................
 
-function getModel(IModel $model, $id) {
-    $model->getOne($id);
-    echo "<br>";
-    $model->getAll();
-    echo "<br>";
-    echo "...........................................................................";
-    echo "<br>";
-}
-
-getModel($basket, 5);
-getModel($feedback, 15);
-getModel($gallery, 1);
-getModel($news, 2);
-getModel($order, 18);
-getModel($product, 8);
-getModel($user, 3);
+//function getModel(IModel $model, $id) {
+//    $model->getOne($id);
+//    echo "<br>";
+//    $model->getAll();
+//    echo "<br>";
+//    echo "...........................................................................";
+//    echo "<br>";
+//}
+//
+//getModel($basket, 5);
+//getModel($feedback, 15);
+//getModel($gallery, 1);
+//getModel($news, 2);
+//getModel($order, 18);
+//getModel($product, 8);
+//getModel($user, 3);

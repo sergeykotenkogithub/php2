@@ -10,6 +10,6 @@ class Product extends Model
     protected $price;
 
     protected function getTableName() {
-        return 'product';
+        return 'goods';
     }
 }

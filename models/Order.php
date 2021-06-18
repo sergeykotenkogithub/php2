@@ -13,6 +13,6 @@ class Order extends Model
     protected $total;
 
     protected function getTableName() {
-        return 'order';
+        return 'orders';
     }
 }
