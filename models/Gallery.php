@@ -8,13 +8,13 @@ class Gallery extends Model
     protected $image;
     protected $views;
 
-    public function __construct($image = '', $views = '')
+    public function __construct($image = null, $views = null)
     {
         $this->image = $image;
         $this->views = $views;
     }
 
-    protected function getTableName() {
+    protected static function getTableName() {
         return 'gallery';
     }
 }

@@ -4,13 +4,13 @@ namespace app\models;
 
 class Product extends Model
 {
-    protected $id;
-    protected $name;
-    protected $description;
-    protected $price;
-    protected $image;
+    public $id;
+    public $name;
+    public $description;
+    public $price;
+    public $image;
 
-    public function __construct($name = '', $description = '', $price = '', $image = '')
+    public function __construct($name = null, $description = null, $price = null, $image = null)
     {
         $this->name = $name;
         $this->description = $description;
@@ -18,7 +18,7 @@ class Product extends Model
         $this->image = $image;
     }
 
-    protected function getTableName() {
+    protected static function getTableName() {
         return 'goods';
     }
 }

@@ -12,7 +12,7 @@ class Order extends Model
     protected $status;
     protected $total;
 
-    public function __construct($hash = '', $email = '', $date = '', $user_id = '', $status = '', $total = '')
+    public function __construct($hash = null, $email = null, $date = null, $user_id = null, $status = null, $total = null)
     {
         $this->hash = $hash;
         $this->email = $email;
@@ -22,7 +22,7 @@ class Order extends Model
         $this->total = $total;
     }
 
-    protected function getTableName() {
+    protected static function getTableName() {
         return 'orders';
     }
 }

@@ -6,7 +6,7 @@ use app\models\example\Product as ExampleProduct; // Просто тестовы
 use app\interfaces\IModel;
 use app\models\task\{One, Digital, Weight};
 
-//.....Конфигурационый файл
+//.....Конфигурационый файл.....................
 
 include dirname( __DIR__ ) . "/config/config.php";
 
@@ -29,15 +29,30 @@ $order = new Order( ); // Заказы
 $product = new Product( ); // Товары
 $user = new User(); // Пользователи
 
+
+//..................Для того чтобы PhpStorm распознавал................
+
+/** @var Product $product */
+
 //.....................Проверка................
 
-//$product = new Product("Книга", "Грокаем алгоритмы", 500000, '133.jpg');
-$news = new Headline('Заголовок', 'Новость'); // Новости
-$news->insert();
+//
+//$product = new Product('Xfs','sqqqw', 620, '1.jpg');
+//$product->insert();
 
-//$news = new User('Новый', '$2sdsaassasa'); // Новости
-//$news->insert();
+
+//var_dump($product);
+
+// Update
+$product = Product::getOne(15);
+$product->price = 22225;
+$product->update();
+
+
+
+
+
 
 //.................Задание.......................
 
-// Сделать чтобы $user->getOne(5) вернул объект с данными
+// Сделать update

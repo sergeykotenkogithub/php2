@@ -9,6 +9,8 @@ use app\interfaces\IModel;
 abstract class Model implements IModel
 {
 
+
+
     //...........Сетеры и Гетеры.......................
 
     public function __set($name, $value) {
@@ -21,18 +23,20 @@ abstract class Model implements IModel
 
     //..........Получает название таблицы................
 
-    abstract protected function getTableName();
+    abstract protected static function getTableName();
 
     //..............Запросы..............................
 
-    public function getOne($id) {
-        $sql = "SELECT * FROM {$this->getTableName()} WHERE id = :id";
+    public static function getOne($id) {
+        $tableName = static::getTableName();
+        $sql = "SELECT * FROM {$tableName} WHERE id = :id";
         // return Db::getInstance()->queryOne($sql, ['id' => $id]);
         return Db::getInstance()->queryOneObject($sql, ['id' => $id], static::class);
     }
 
     public function getAll() {
-        $sql = "SELECT * FROM {$this->getTableName()}";
+        $tableName = static::getTableName();
+        $sql = "SELECT * FROM {$tableName}";
         return Db::getInstance()->queryAll($sql);
     }
 
@@ -46,20 +50,32 @@ abstract class Model implements IModel
 
         $separated_key = implode(", ", $myArray);
         $separated_value = implode(", ", $myArray2);
+        $tableName = static::getTableName();
 
-        $sql = "INSERT INTO `{$this->getTableName()}`($separated_key) VALUES($separated_value)";
+        $sql = "INSERT INTO `{$tableName}`($separated_key) VALUES($separated_value)";
 
         Db::getInstance()->executeSql($sql, $full_params);
         $this->id = Db::getInstance()->lastInsertId();
+
+        return $this;
     }
 
     public function update() {
-        $sql = "SELECT * FROM {$this->getTableName()}";
-        return Db::getInstance()->queryAll($sql);
+
+//        UPDATE `goods` SET `id`=[value-1],`name`=[value-2],`description`=[value-3],`price`=[value-4],`image`=[value-5] WHERE 1
+
+//        foreach ($this as $key => $value) {
+//            if ($key == 'id') continue;
+//
+//        }
+        var_dump($this);
+
+        $tableName = static::getTableName();
     }
 
     public function delete() {
-        $sql = "SELECT * FROM {$this->getTableName()}";
-        return Db::getInstance()->queryAll($sql);
+        $tableName = static::getTableName();
+        $sql = "DELETE FROM {$tableName} WHERE id = :id";
+        return Db::getInstance()->executeSql($sql, ['id' => $this->id]);
     }
 }

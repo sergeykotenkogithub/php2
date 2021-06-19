@@ -17,7 +17,7 @@ class Db implements IDb
         'charset' => 'utf8'
     ];
 
-    //............Патерн Сингтон.......................................................
+    //........................Патерн Сингтон.......................................................
 
     use TSingletone;
 
@@ -51,7 +51,7 @@ class Db implements IDb
 
     // id последнего insert
     public function lastInsertId() {
-
+        return $this->connection->lastInsertId();
     }
 
     private function query($sql, $params) {
@@ -61,7 +61,8 @@ class Db implements IDb
     }
 
     public function queryOneObject($sql, $params, $class) {
-        //Statement
+        //Statement - $stmt
+        var_dump($class);
         $stmt = $this->query($sql, $params);
         $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE , $class);
         return $stmt->fetch();

@@ -10,7 +10,7 @@ class Feedback extends Model
     protected $goods_id;
     protected $it_is; // К чему относится отзыв, к продукту или товару
 
-    public function __construct($name = '', $feedback = '', $goods_id = '', $it_is = '')
+    public function __construct($name = null, $feedback = null, $goods_id = null, $it_is = null)
     {
         $this->name = $name;
         $this->feedback = $feedback;
@@ -18,7 +18,7 @@ class Feedback extends Model
         $this->it_is = $it_is;
     }
 
-    protected function getTableName() {
+    protected static function getTableName() {
         return 'feedback';
     }
 }

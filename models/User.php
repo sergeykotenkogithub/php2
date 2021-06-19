@@ -4,19 +4,19 @@ namespace app\models;
 
 class User extends Model
 {
-    protected $id;
+    public $id;
     protected $login;
     protected $pass;
     protected $hash;
 
-    public function __construct($login = '', $pass = '', $hash = '')
+    public function __construct($login = null, $pass = null, $hash = null)
     {
         $this->login = $login;
         $this->pass = $pass;
         $this->hash = $hash;
     }
 
-    protected function getTableName() {
+    protected static function getTableName() {
         return 'users';
     }
 }

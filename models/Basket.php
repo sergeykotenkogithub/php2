@@ -11,7 +11,7 @@ class Basket extends Model
     protected $price;   //общая стоимость цены
     protected $price_origin; // начальная стоимость цены
 
-    public function __construct($goods_id = '', $session_id = '', $quantity = '', $price = '', $price_origin = '')
+    public function __construct($goods_id = null, $session_id = null, $quantity = null, $price = null, $price_origin = null)
     {
         $this->goods_id = $goods_id;
         $this->session_id = $session_id;
@@ -20,7 +20,7 @@ class Basket extends Model
         $this->price_origin = $price_origin;
     }
 
-    protected function getTableName() {
+    protected static function getTableName() {
         return 'basket';
     }
 }
