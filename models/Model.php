@@ -38,23 +38,44 @@ abstract class Model implements IModel
     }
 
     public function insert() {
-        foreach ($this as $key => $value) {
-            if ($key == 'id') continue;
-            $myArray[] = $key;
-            $myArray2[] = ":{$key}";
-            $full_params[$key] = $value;
-        };
 
-        $separated_key = implode(", ", $myArray);
-        $separated_value = implode(", ", $myArray2);
-        $tableName = static::getTableName();
+//        var_dump($this->props);
+//        var_dump($this);
 
-        $sql = "INSERT INTO `{$tableName}`($separated_key) VALUES($separated_value)";
+//        $props = [
+//            'title' => false,
+//            'text' => false
+//        ];
+        $props = [
+            'title' => [
+                'value' => 'aa',
+                'boolean' => 'ss'
+            ]
+//            'title' => false,
+//            'text' => false
+        ];
 
-        Db::getInstance()->executeSql($sql, $full_params);
-        $this->id = Db::getInstance()->lastInsertId();
+//        var_dump($props);
+        var_dump($props['title']['value']);
 
-        return $this;
+
+//        foreach ($this as $key => $value) {
+//            if ($key == 'id') continue;
+//            $myArray[] = $key;
+//            $myArray2[] = ":{$key}";
+//            $full_params[$key] = $value;
+//        };
+//
+//        $separated_key = implode(", ", $myArray);
+//        $separated_value = implode(", ", $myArray2);
+//        $tableName = static::getTableName();
+//
+//        $sql = "INSERT INTO `{$tableName}`($separated_key) VALUES($separated_value)";
+//
+//        Db::getInstance()->executeSql($sql, $full_params);
+//        $this->id = Db::getInstance()->lastInsertId();
+//
+//        return $this;
     }
 
     public function update() {
@@ -62,20 +83,17 @@ abstract class Model implements IModel
         foreach ($this->props as $key => $value) {
             if ($key == 'id') continue;
             if ($value == true) {
-                $myArray[] = $key;
+                $set .= "{$key} = :{$key}, ";
+                $full_params[$key] = $this->$key;
             }
         }
 
-        foreach ($myArray as $key => $value) {
-            $one .= "{$value} = '{$this->$value}', ";
-            $two[$value] = $this->$value;
-        }
+        $trimmedSet = rtrim($set, " ,"); // Избавляет от запятой и пробела в конце
 
-        $trimmed = rtrim($one, " ,");
         $tableName = static::getTableName();
-        $sql = "UPDATE `{$tableName}` SET {$trimmed} WHERE id = {$this->id}";// ВЕРНО!
+        $sql = "UPDATE `{$tableName}` SET {$trimmedSet} WHERE id = {$this->id}";
 
-        Db::getInstance()->executeSql($sql, $two);
+        Db::getInstance()->executeSql($sql, $full_params);
     }
 
     public function delete() {

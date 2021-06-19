@@ -38,31 +38,26 @@ $user = new User(); // Пользователи
 //.....................Проверка................
 
 //
-//$product = new Product('Xfs','sqqqw', 620, '1.jpg');
+//$product = new Product('Xfs','sqqqw', 500, '1.jpg');
 //$product->insert();
-//$news = new Headline('Xfs','sqqqw');
-//$news->insert();
-
-
+$news = new Headline('Xfs','sqqqw');
+$news->insert();
 //var_dump($product);
-
-// Update
-
-$news = Headline::getOne(65);
-$news->setTitle('2a');
-$news->setText('a2');
-//$news->title = 'ssqq';
-$news->update();
-
 //$product = Headline::getOne(15);
 //$product->price = 22225;
 //$product->update();
 
+//........... Проверка Update....................
+
+//$news = Headline::getOne(65);
+//$news->setTitle('2s');
+//$news->update();
+//
+//$news = Headline::getOne(65);
+//$news->setText('tTTaa Text');
+//$news->update();
 
 
-
-
-
-//.................Задание.......................
-
-// Сделать update
+//$product = Product::getOne(15);
+//$product->setName('Name');
+//$product->update();

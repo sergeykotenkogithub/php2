@@ -4,15 +4,15 @@ namespace app\models;
 
 class Headline extends Model
 {
-//    protected $id;
-//    protected $title;
-//    protected $text;
+//    public $id;
+//    public $title;
+//    public $text;
 
-    public $id;
-    public $title;
-    public $text;
+    protected $id;
+    protected $title;
+    protected $text;
 
-    // Сетеры и Гетеры
+    //................Сетеры и Гетеры................................
 
     public function setTitle($title)
     {
@@ -31,7 +31,7 @@ class Headline extends Model
         'text' => false
     ];
 
-
+    //.................................................................
 
     public function __construct($title = false, $text = false)
     {
