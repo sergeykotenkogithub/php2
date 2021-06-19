@@ -8,18 +8,15 @@ use app\interfaces\IModel;
 
 abstract class Model implements IModel
 {
-
-
-
     //...........Сетеры и Гетеры.......................
 
-    public function __set($name, $value) {
-        $this->$name = $value;
-    }
-
-    public function __get($name) {
-       return $this->$name;
-    }
+//    public function __set($name, $value) {
+//        $this->$name = $value;
+//    }
+//
+//    public function __get($name) {
+//       return $this->$name;
+//    }
 
     //..........Получает название таблицы................
 
@@ -62,15 +59,23 @@ abstract class Model implements IModel
 
     public function update() {
 
-//        UPDATE `goods` SET `id`=[value-1],`name`=[value-2],`description`=[value-3],`price`=[value-4],`image`=[value-5] WHERE 1
+        foreach ($this->props as $key => $value) {
+            if ($key == 'id') continue;
+            if ($value == true) {
+                $myArray[] = $key;
+            }
+        }
 
-//        foreach ($this as $key => $value) {
-//            if ($key == 'id') continue;
-//
-//        }
-        var_dump($this);
+        foreach ($myArray as $key => $value) {
+            $one .= "{$value} = '{$this->$value}', ";
+            $two[$value] = $this->$value;
+        }
 
+        $trimmed = rtrim($one, " ,");
         $tableName = static::getTableName();
+        $sql = "UPDATE `{$tableName}` SET {$trimmed} WHERE id = {$this->id}";// ВЕРНО!
+
+        Db::getInstance()->executeSql($sql, $two);
     }
 
     public function delete() {

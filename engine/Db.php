@@ -62,7 +62,6 @@ class Db implements IDb
 
     public function queryOneObject($sql, $params, $class) {
         //Statement - $stmt
-        var_dump($class);
         $stmt = $this->query($sql, $params);
         $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE , $class);
         return $stmt->fetch();
