@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-class Basket extends Model
+final class Basket extends DBModel
 {
     protected $id;
     protected $goods_id;

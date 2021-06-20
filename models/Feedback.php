@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-class Feedback extends Model
+final class Feedback extends DBModel
 {
     protected $id;
     protected $name;

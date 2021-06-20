@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-class Gallery extends Model
+final class Gallery extends DBModel
 {
     protected $id;
     protected $image;

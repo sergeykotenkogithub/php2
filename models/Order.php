@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-class Order extends Model
+final class Order extends DBModel
 {
     protected $id;
     protected $hash;

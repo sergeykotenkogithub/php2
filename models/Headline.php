@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-class Headline extends Model
+final class Headline extends DBModel
 {
     //..............Массив таблиц в Mysql............................
 
