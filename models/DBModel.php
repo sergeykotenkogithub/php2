@@ -24,7 +24,15 @@ abstract class DBModel extends Model
     public static function getAll() {
         $tableName = static::getTableName();
         $sql = "SELECT * FROM {$tableName}";
-        return Db::getInstance()->queryAll($sql);
+        return Db::getInstance()->queryAll($sql, static::class);
+    }
+
+    public static function getLimit($limit) {
+        $tableName = static::getTableName();
+        $sql = "SELECT * FROM {$tableName} LIMIT 0, {$limit}";
+        return Db::getInstance()->queryAll($sql, static::class, ['id' => $limit]);
+//        $sql = "SELECT * FROM {$tableName} LIMIT 0, :limit";
+//        return Db::getInstance()->queryLimit($sql, ['limit' => $limit]);
     }
 
     public function insert() {
@@ -50,7 +58,6 @@ abstract class DBModel extends Model
     }
 
     public function update() {
-
         foreach ($this->props as $key => $value) {
             if ($key == 'id') continue;
             if ($value['boolean'] == true) {

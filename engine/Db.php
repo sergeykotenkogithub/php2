@@ -5,6 +5,7 @@
 namespace app\engine;
 use app\interfaces\IDb;
 use app\traits\TSingletone;
+use http\Params;
 
 class Db implements IDb
 {
@@ -60,6 +61,13 @@ class Db implements IDb
         return $stmt;
     }
 
+    public function queryLimit($sql, $limit) {
+        $stmt = $this->getConnection()->prepare($sql);
+        $stmt->bindValue(1, $limit, \PDO::PARAM_INT);
+        $stmt->execute($limit);
+        return $stmt;
+    }
+
     public function queryOneObject($sql, $params, $class) {
         //Statement - $stmt
         $stmt = $this->query($sql, $params);
@@ -71,8 +79,10 @@ class Db implements IDb
         return $this->query($sql, $params)->fetch();
     }
 
-    public function queryAll($sql, $params = []) {
-        return $this->query($sql, $params)->fetchAll();
+    public function queryAll($sql, $class, $params = [] ) {
+        $stmt = $this->query($sql, $params);
+        $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE , $class);
+        return $stmt->fetchAll();
     }
 
     public function executeSql($sql, $params) {

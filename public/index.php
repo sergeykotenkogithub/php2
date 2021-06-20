@@ -62,7 +62,7 @@ $user = new User(); // Пользователи
 
 //........... Проверка Update....................
 
-//$news = Headline::getOne(65);
+//$news = Headline::getOne(71);
 //$news->setTitle('2s');
 //$news->setText('2sdWWW');
 //$news->update();
