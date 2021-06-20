@@ -4,39 +4,39 @@ namespace app\models;
 
 class Headline extends Model
 {
-//    public $id;
-//    public $title;
-//    public $text;
+    //..............Массив таблиц в Mysql............................
 
-    protected $id;
-    protected $title;
-    protected $text;
+    public $props = [
+        'title' => [
+            'value' => null,
+            'boolean' => false
+        ],
+        'text' => [
+            'value' => null,
+            'boolean' => false
+        ]
+    ];
 
     //................Сетеры и Гетеры................................
 
     public function setTitle($title)
     {
         $this->title = $title;
-        $this->props['title'] = true;
+        $this->props['title']['boolean'] = true;
     }
 
     public function setText($text)
     {
         $this->text = $text;
-        $this->props['text'] = true;
+        $this->props['text']['boolean'] = true;
     }
-
-    public $props = [
-        'title' => false,
-        'text' => false
-    ];
 
     //.................................................................
 
-    public function __construct($title = false, $text = false)
+    public function __construct($title = null, $text = null)
     {
-        $this->title = $title;
-        $this->text = $text;
+        $this->props['title']['value'] = $title;
+        $this->props['text']['value'] = $text;
     }
 
     protected static function getTableName() {

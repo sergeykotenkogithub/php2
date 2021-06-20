@@ -39,50 +39,31 @@ abstract class Model implements IModel
 
     public function insert() {
 
-//        var_dump($this->props);
-//        var_dump($this);
+        foreach ($this->props as $key => $value) {
+            if ($key == 'id') continue;
+            $myArray[] = $key;
+            $myArray2[] = ":{$key}";
+            $full_params[$key] = $value['value'];
 
-//        $props = [
-//            'title' => false,
-//            'text' => false
-//        ];
-        $props = [
-            'title' => [
-                'value' => 'aa',
-                'boolean' => 'ss'
-            ]
-//            'title' => false,
-//            'text' => false
-        ];
+        };
 
-//        var_dump($props);
-        var_dump($props['title']['value']);
+        $separated_key = implode(", ", $myArray);
+        $separated_value = implode(", ", $myArray2);
+        $tableName = static::getTableName();
 
+        $sql = "INSERT INTO `{$tableName}`($separated_key) VALUES($separated_value)";
 
-//        foreach ($this as $key => $value) {
-//            if ($key == 'id') continue;
-//            $myArray[] = $key;
-//            $myArray2[] = ":{$key}";
-//            $full_params[$key] = $value;
-//        };
-//
-//        $separated_key = implode(", ", $myArray);
-//        $separated_value = implode(", ", $myArray2);
-//        $tableName = static::getTableName();
-//
-//        $sql = "INSERT INTO `{$tableName}`($separated_key) VALUES($separated_value)";
-//
-//        Db::getInstance()->executeSql($sql, $full_params);
-//        $this->id = Db::getInstance()->lastInsertId();
-//
-//        return $this;
+        Db::getInstance()->executeSql($sql, $full_params);
+        $this->id = Db::getInstance()->lastInsertId();
+
+        return $this;
     }
 
     public function update() {
 
         foreach ($this->props as $key => $value) {
             if ($key == 'id') continue;
-            if ($value == true) {
+            if ($value['boolean'] == true) {
                 $set .= "{$key} = :{$key}, ";
                 $full_params[$key] = $this->$key;
             }

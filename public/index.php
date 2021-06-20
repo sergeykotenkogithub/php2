@@ -35,24 +35,23 @@ $user = new User(); // Пользователи
 /** @var Product $product */
 /** @var Headline $news */
 
-//.....................Проверка................
+//.....................Проверка Insert................
 
-//
+
 //$product = new Product('Xfs','sqqqw', 500, '1.jpg');
 //$product->insert();
-$news = new Headline('Xfs','sqqqw');
-$news->insert();
-//var_dump($product);
-//$product = Headline::getOne(15);
-//$product->price = 22225;
-//$product->update();
+
+//$news = new Headline('2sa','sqqqw');
+//$news->insert();
 
 //........... Проверка Update....................
 
 //$news = Headline::getOne(65);
 //$news->setTitle('2s');
+//$news->setText('2sdWWW');
 //$news->update();
-//
+
+
 //$news = Headline::getOne(65);
 //$news->setText('tTTaa Text');
 //$news->update();
