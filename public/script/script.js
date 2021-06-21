@@ -1,10 +1,10 @@
 // Максимальная высота экрана
 
-// let scrollHeight = Math.max(
-//     document.body.scrollHeight, document.documentElement.scrollHeight,
-//     document.body.offsetHeight, document.documentElement.offsetHeight,
-//     document.body.clientHeight, document.documentElement.clientHeight
-// );
+let scrollHeight = Math.max(
+    document.body.scrollHeight, document.documentElement.scrollHeight,
+    document.body.offsetHeight, document.documentElement.offsetHeight,
+    document.body.clientHeight, document.documentElement.clientHeight
+);
 //
 // const windowScrollTop = window.pageYOffset;
 
@@ -15,7 +15,7 @@
 
 window.addEventListener('scroll', () => {
 
-    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollable = scrollHeight - window.innerHeight;
     const scrolled = window.scrollY;
 
     if (Math.ceil(scrolled) === scrollable) {
@@ -30,6 +30,7 @@ window.addEventListener('scroll', () => {
             document.getElementById('countBasket2').innerText = `${answer.count}`;
             // document.getElementById('countBasket').value = answer.count;
             console.log(answer.count);
+            console.log(answer.after);
         })();
     }
 

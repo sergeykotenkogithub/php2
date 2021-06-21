@@ -11,7 +11,10 @@ class AsyncController extends Controller
             $count = $_GET['count'];
             $count += 2; // 2
             $after = $count + 2;
-            echo json_encode(['count' => $count]);
+            echo json_encode([
+               'count' => $count,
+                'age' => $after,
+                ]);
             die();
         }
     }
