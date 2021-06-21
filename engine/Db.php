@@ -63,9 +63,9 @@ class Db implements IDb
 
     public function queryLimit($sql, $limit) {
         $stmt = $this->getConnection()->prepare($sql);
-        $stmt->bindValue(1, $limit, \PDO::PARAM_INT);
-        $stmt->execute($limit);
-        return $stmt;
+        $stmt->bindValue(1, $limit, \PDO::PARAM_INT); // 1 это замена ?, 2 будет указывать на второй ?
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
 
     public function queryOneObject($sql, $params, $class) {

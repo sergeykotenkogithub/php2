@@ -29,10 +29,8 @@ abstract class DBModel extends Model
 
     public static function getLimit($limit) {
         $tableName = static::getTableName();
-        $sql = "SELECT * FROM {$tableName} LIMIT 0, {$limit}";
-        return Db::getInstance()->queryAll($sql, static::class, ['id' => $limit]);
-//        $sql = "SELECT * FROM {$tableName} LIMIT 0, :limit";
-//        return Db::getInstance()->queryLimit($sql, ['limit' => $limit]);
+        $sql = "SELECT * FROM {$tableName} LIMIT 0, ?";
+        return Db::getInstance()->queryLimit($sql, $limit);
     }
 
     public function insert() {
