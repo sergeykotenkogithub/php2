@@ -11,10 +11,6 @@ final class ProductController extends Controller
         echo $this->render('index');
     }
 
-//    public function actionApi() {
-//
-//    }
-
     public function actionCatalog() {
         $page = $_GET['page'] ?? 1;
         $catalog = Product::getLimit($page * 2);
