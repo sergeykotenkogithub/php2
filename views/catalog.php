@@ -1,16 +1,59 @@
 <h2>Каталог</h2>
 
+<!--<div>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>-->
+<!--</div>-->
+
+
 <?php foreach ($catalog as $item): ?>
-<!---->
-<!--    <div>-->
-<!--        <h3><a href="/?c=product&a=card&id=--><?//=$item->id?><!--">--><?//=$item->name?><!--</a></h3>-->
-<!--        <p>price: --><?//=$item->price?><!--</p>-->
-<!--        <button>Купить</button>-->
-<!--    </div>-->
-    <div>
-        <h3><a href="/?c=product&a=card&id=<?=$item['id']?>"><?=$item['name']?></a></h3>
-        <p>price: <?=$item['price']?></p>
-        <button>Купить</button>
+
+    <div class="goods">
+<!--        <div>-->
+<!--            <img src="" alt="">-->
+<!--        </div>-->
+        <div>
+            <a href="/?c=product&a=card&id=<?=$item->id?>"><?=$item->name?></a>
+        </div>
+        <div>
+            <p>price: <?=$item->price?></p>
+            <button>Купить</button>
+        </div>
+
     </div>
 
 <?php endforeach;?>
