@@ -38,8 +38,10 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dolor doloribus ducimus eius illum iure laudantium, necessitatibus odit perferendis qui reiciendis rerum sequi, tempore, unde voluptas voluptate. Blanditiis, reiciendis?</p>
 </div>
-<input id="hiddenPage" type="text" value="0">
+<!--<input id="hiddenPage" type="text" value="0">-->
+
 <div hidden id="countBasket">0</div>
+<div id="countBasket2">0</div>
 <!--<div id="countBasket2">0</div>-->
 
 <?php foreach ($catalog as $item): ?>

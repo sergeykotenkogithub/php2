@@ -8,25 +8,32 @@
 //
 // const windowScrollTop = window.pageYOffset;
 
-let a = document.getElementById('hiddenPage').value
-console.log(a);
 
-// window.addEventListener('scroll', () => {
-//
-//     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-//     const scrolled = window.scrollY;
-//
-//     if (Math.ceil(scrolled) === scrollable) {
-//         // console.log('Ура');
-//         (async () => {
-//             // const response = await fetch(`/?action=buy&price=${price}&id=${id}`);
-//             const response = await fetch(`/?c=async&a=catalog&page=two`);
-//             const answer = await response.json();
-//             document.getElementById('countBasket').innerText = `(${answer.count})`;
-//         })();
-//     }
-//
-// })
+
+// let a = document.getElementById('countBasket').value = 2;
+// console.log(txt);
+
+window.addEventListener('scroll', () => {
+
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = window.scrollY;
+
+    if (Math.ceil(scrolled) === scrollable) {
+        let a = document.getElementById('countBasket')
+        let txt = a.innerText;
+        // console.log('Ура');
+        (async () => {
+            // const response = await fetch(`/?action=buy&price=${price}&id=${id}`);
+            const response = await fetch(`/?c=async&a=catalog&page=two&count=${txt}`);
+            const answer = await response.json();
+            document.getElementById('countBasket').innerText = `${answer.count}`;
+            document.getElementById('countBasket2').innerText = `${answer.count}`;
+            // document.getElementById('countBasket').value = answer.count;
+            console.log(answer.count);
+        })();
+    }
+
+})
 
 //
 // let goodsBtn = document.querySelectorAll('.goodsBuy')
