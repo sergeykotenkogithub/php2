@@ -51,6 +51,7 @@ $user = new User(); // Пользователи
 /** @var Headline $news */
 /** @var Basket $basket */
 
+
 //.....................Проверка Insert................
 
 

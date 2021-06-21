@@ -4,10 +4,10 @@ namespace app\models;
 
 final class User extends DBModel
 {
-    public $id;
-    protected $login;
-    protected $pass;
-    protected $hash;
+//    public $id;
+//    protected $login;
+//    protected $pass;
+//    protected $hash;
 
     //..................Сетеры и гетеры........................
 
