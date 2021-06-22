@@ -2,7 +2,6 @@
 
 <?php foreach ($catalog as $item): ?>
 
-<!--    <a href="/?c=product&a=card&id=--><?//=$item->id?>
     <div id="addAsyncCatalog" class="goods">
 
         <a href="/?c=product&a=card&id=<?=$item->id?>">

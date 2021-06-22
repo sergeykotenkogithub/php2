@@ -1,5 +1,7 @@
 // const windowScrollTop = window.pageYOffset; - высота
 
+// Асинхрон для Каталога
+
 window.addEventListener('scroll', () => {
 
     // Максимальная высота экрана
@@ -15,7 +17,6 @@ window.addEventListener('scroll', () => {
     if (Math.ceil(scrolled) === scrollable) {
         let count = document.getElementById('count')
         let txt = count.innerText;
-         console.log('Ура');
         (async () => {
             const response = await fetch(`/?c=async&a=catalog&page=two&count=${txt}`);
             const answer = await response.json();

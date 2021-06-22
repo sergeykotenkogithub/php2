@@ -10,9 +10,8 @@
 </head>
 <body>
 
-    <?=$menu?>
-
     <div class="wrapper">
+        <?=$menu?>
         <?=$content?>
     </div>
 
