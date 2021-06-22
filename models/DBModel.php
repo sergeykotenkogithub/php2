@@ -33,6 +33,12 @@ abstract class DBModel extends Model
         return Db::getInstance()->queryLimit($sql, $limit, static::class);
     }
 
+    public static function getLimitAjax($before, $after) {
+        $tableName = static::getTableName();
+        $sql = "SELECT * FROM {$tableName} LIMIT ?, ?";
+        return Db::getInstance()->queryLimitAjax($sql,$before, $after);
+    }
+
     public function insert() {
 
         foreach ($this->props as $key => $value) {

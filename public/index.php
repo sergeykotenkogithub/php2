@@ -57,7 +57,7 @@ $user = new User(); // Пользователи
 //.....................Проверка Insert................
 
 
-//$product = new Product('Кеды','ы883', 500, '1.jpg');
+//$product = new Product('Кофе','Хороший', 500, 'apple.jpg');
 //$product->insert();
 //
 //$news = new Headline('592sa','sqqqw');
