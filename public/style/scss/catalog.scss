@@ -1,0 +1,24 @@
+.goods {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding: 20px;
+  div {
+    padding-bottom: 15px;
+  }
+}
+
+.goods__name {
+  display: flex;
+  justify-content: center;
+}
+
+.goods__img{
+  width: 300px;
+  padding-bottom: 15px;
+}
+
+.goods__buy {
+  display: flex;
+  justify-content: space-around;
+}
