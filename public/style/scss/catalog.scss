@@ -1,7 +1,5 @@
 .goods {
   display: flex;
-  flex-direction: column;
-  width: 300px;
   padding: 20px;
   div {
     padding-bottom: 15px;
@@ -29,4 +27,20 @@
 
 .goods__price {
   font-size: 20px;
+}
+
+.goods__description {
+  color: black;
+  padding-left: 15px;
+}
+
+.goods__description {
+  height: 100px;
+  p {
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 25px;
+  }
 }
