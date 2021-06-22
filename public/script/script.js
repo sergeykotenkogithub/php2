@@ -24,7 +24,6 @@ window.addEventListener('scroll', () => {
             const response = await fetch(`/?c=async&a=catalog&page=two&count=${txt}`);
             const answer = await response.json();
             document.getElementById('count').innerText = `${answer.count}`;
-            document.getElementById('count2').innerText = `${answer.count}`;
 
             // Добавление в DOM
 
