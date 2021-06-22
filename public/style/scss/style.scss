@@ -20,3 +20,8 @@ a {
 .wrapper {
   padding: 0 15px;
 }
+
+.rub:after {
+  content: "₽";
+  padding-left: 5px;
+}

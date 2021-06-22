@@ -31,17 +31,46 @@ window.addEventListener('scroll', () => {
 
             $answerCatalog.forEach(function(item) {
                 let addCatalog = document.getElementById('addCatalog')
-                let div = document.createElement('div');
-                let div2 = document.createElement('div');
-                let img = document.createElement('img');
-                img.className = "goods__img"
-                // let src = document.createElement('img');
-                img.src = `/img/goods/${item['image']}`;
+                // let div = document.createElement('div');
+                // let div2 = document.createElement('div');
+                // let img = document.createElement('img');
+                // img.className = "goods__img"
+                // // let src = document.createElement('img');
+                // img.src = `/img/goods/${item['image']}`;
                 // div.className = "goods";
+                // addCatalog.insertAdjacentHTML('beforebegin', `<a href=/?c=product&a=card&id${item['id']}>`);
+                addCatalog.insertAdjacentHTML('beforeend',
+                `                    
+                    <div id="addAsyncCatalog" class="goods">                    
+                        <a href=/?c=product&a=card&id=${item['id']}>
+                            <img class="goods__img" src=/img/goods/${item['image']}>
+                        </a>                        
+                        <div class="goods__buy">
+                            <p class="goods__name"> ${item['name']} </p>
+                            <p class="goods__price rub">Цена: ${item['price']}</p>
+                            <a class="goods__iconBuy" href="#"><img src="/img/icon/cart.svg" alt=""></a>
+                        </div>                        
+                    </div>                        
+                `);
+
+                // <div id="addAsyncCatalog" className="goods">
+                //
+                //     <a href="/?c=product&a=card&id=<?=$item->id?>">
+                //         <img className="goods__img" src="/img/goods/<?=$item->image?>" alt="">
+                //     </a>
+                //
+                //     <div className="goods__buy">
+                //         <p className="goods__name"> <?=$item->name?> </p>
+                //         <p className="goods__price rub">Цена: <?=$item->price?></p>
+                //         <a className="goods__iconBuy" href="#"><img src="/img/icon/cart.svg" alt=""></a>
+                //     </div>
+                //
+                // </div>
+
                 // div.innerHTML = item['name'];
                 // div2.insertAdjacentHTML()
                 // d.insertAdjacentHTML('afterend', `<div>${item['name']}</div>`);
-                addCatalog.appendChild(img)
+                // addCatalog.appendChild()
             })
         })();
     }
