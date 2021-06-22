@@ -2,6 +2,8 @@
 
 // Асинхрон для Каталога
 
+let inProgress = false; // чтобь пока идёт асинхрон запово не шёл запрос
+
 window.addEventListener('scroll', () => {
 
     // Максимальная высота экрана
@@ -12,12 +14,13 @@ window.addEventListener('scroll', () => {
     );
 
     const scrollable = scrollHeight - window.innerHeight;
-    const scrolled = window.scrollY;
+    const scrolled = window.scrollY + 400; // 400 - чтобы заранее было
 
-    if (Math.ceil(scrolled) === scrollable) {
+    if (Math.ceil(scrolled) >= scrollable && !inProgress) {
         let count = document.getElementById('count')
         let txt = count.innerText;
         (async () => {
+            inProgress = true;
             const response = await fetch(`/?c=async&a=catalog&page=two&count=${txt}`);
             const answer = await response.json();
             document.getElementById('count').innerText = `${answer.count}`;
@@ -53,6 +56,7 @@ window.addEventListener('scroll', () => {
                          </a>                           
                     </div>                  
                 `);
+                inProgress = false;
             })
         })();
     }

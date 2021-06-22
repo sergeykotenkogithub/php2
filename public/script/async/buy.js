@@ -1,4 +1,4 @@
-let goodsBtn = document.querySelectorAll('.goodsBuy')
+let goodsBtn = document.querySelectorAll('.goods__btn')
 goodsBtn.forEach((elem) =>{
     elem.addEventListener('click', () => {
         let id = elem.getAttribute('data-id');

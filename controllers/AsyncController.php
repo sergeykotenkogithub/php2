@@ -12,8 +12,8 @@ class AsyncController extends Controller
         if($_GET['page'] == 'two') {
             $count = $_GET['count'];
             $count += 2;         // 2 4 6 8
-            $after = $count + 2; // 4 6 8 10
-            $catalog = Product::getLimitAjax($count, $after);
+//            $after = $count + 2; // 4 6 8 10
+            $catalog = Product::getLimitAjax($count, $count);
             echo json_encode([
                'count' => $count,
                'catalog' => $catalog
@@ -24,8 +24,10 @@ class AsyncController extends Controller
 
     public function actionBuy() {
         if($_GET['a'] == 'buy') {
-            $b = $_GET['id'];
+            $id = $_GET['id'];
+            $price = $_GET['price'];
         }
-        echo json_encode(['count' => $b]);
+//        Product:
+        echo json_encode(['count' => $id]);
     }
 }

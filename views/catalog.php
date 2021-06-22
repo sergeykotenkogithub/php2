@@ -11,16 +11,15 @@
             </a>
 
             <div class="goods__buy">
-                <p class="goods__name"> <?=$item->name?> </p>
                 <p class="goods__price rub">Цена: <?=$item->price?></p>
-<!--                <a class="goods__iconBuy" href="#"><img src="/img/icon/cart.svg" alt=""></a>-->
-                <button class="goodsBuy buy" data-id="<?=$item->id?>" data-price="<?=$item->price?>">Купить</button>
+                <button class="goods__btn" data-id="<?=$item->id?>" data-price="<?=$item->price?>"><img src="/img/icon/cart.svg" alt="cart"></button>
             </div>
         </div>
 
         <a href="/?c=product&a=card&id=<?=$item->id?>">
             <div>
                 <div class="goods__description">
+                    <p class="goods__name"> <?=$item->name?> </p>
                     <p>
                         <?=$item->description?>
                     </p>
@@ -38,5 +37,5 @@
 
 <!--<a href="/?c=product&a=catalog&page=--><?//=$page?><!--">Ещё</a>-->
 
-<script src="/script/script.js?<?php echo uniqid();?>"></script>
+<script src="/script/async/scrollCatalog.js?<?php echo uniqid();?>"></script>
 <script src="/script/async/buy.js?<?php echo uniqid();?>"></script>
