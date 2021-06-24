@@ -11,6 +11,7 @@ final class ProductController extends Controller
         echo $this->render('index');
     }
 
+    // Если надо с кнопкой ещё
     public function actionCatalog() {
         $page = $_GET['page'] ?? 2;
         // $page = $_GET['page'] ?? 1; Для кнопки ещё

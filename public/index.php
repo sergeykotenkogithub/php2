@@ -3,6 +3,8 @@
 
 use app\models\{Basket, Feedback, Gallery, Headline, Order, Product, User};
 use app\interfaces\IModel;
+use app\engine\Render;
+use app\engine\TwigRender;
 
 //.....Конфигурационый файл.....................
 
@@ -21,7 +23,8 @@ $actionName = $_GET['a'];
 $controllerClass = CONTROLLER_NAMESPACE . ucfirst($controllerName) . "Controller";
 
 if (class_exists($controllerClass)) {
-    $controller = new $controllerClass();
+//    $controller = new $controllerClass(new Render()); // - старый контроллер
+    $controller = new $controllerClass(new TwigRender()) ;
     $controller->runAction($actionName);
 } else {
     echo "404";

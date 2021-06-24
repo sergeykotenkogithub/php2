@@ -2,6 +2,8 @@
 
 namespace app\models;
 
+use app\engine\Db;
+
 final class Basket extends DBModel
 {
     protected $id;
@@ -88,7 +90,15 @@ final class Basket extends DBModel
 
     }
 
+    public static function getBasket() {
+        $sql =  "SELECT basket.id as basket_id, goods.id as goods_id, goods.name as name, basket.price as price, basket.session_id as session_id, goods.image as image, basket.quantity FROM basket, goods WHERE basket.goods_id=goods.id AND session_id='d7gu0h0qcqro5852kmr432lm9bvifusg'";
+//        return Db::getInstance()->queryAll($sql);
+        return Db::getInstance()->queryAll($sql, static::class);
+    }
+
     protected static function getTableName() {
         return 'basket';
     }
+
+
 }
