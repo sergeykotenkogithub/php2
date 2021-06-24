@@ -11,8 +11,8 @@ class AsyncController extends Controller
     public function actionCatalog() {
         if($_GET['page'] == 'two') {
             $count = $_GET['count'];
-            $count += 2;
-            $catalog = Product::getLimitAjax($count, 2);  // первая смещение,  вторая цифра это количество записей которое показывается.
+            $count += PRODUCT_PER_PAGE;
+            $catalog = Product::getLimitAjax($count, PRODUCT_PER_PAGE);  // первая смещение,  вторая цифра это количество записей которое показывается.
             echo json_encode([
                'count' => $count,
                'catalog' => $catalog

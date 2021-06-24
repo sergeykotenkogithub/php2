@@ -3,19 +3,27 @@
 
 namespace app\models;
 
-use app\engine\Db;
 use app\interfaces\IModel;
 
 abstract class Model implements IModel
 {
     //...........Сетеры и Гетеры.......................
 
-//    public function __set($name, $value) {
-//        $this->$name = $value;
-//    }
-//
-//    public function __get($name) {
-//       return $this->$name;
-//    }
+    protected $props = [];
+
+    public function __set($name, $value) {
+        if(isset($this->props[$name])) {
+            $this->props[$name] = true;
+            $this->$name = $value;
+        }
+    }
+
+    public function __get($name) {
+        if(isset($this->$name)) {
+            return $this->$name;
+        } else {
+            die('Не верное обращение к полю');
+        }
+    }
 
 }

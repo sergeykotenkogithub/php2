@@ -41,47 +41,62 @@ abstract class DBModel extends Model
 
     public function insert() {
 
+        $params = [];
+        $columns = [];
+
         foreach ($this->props as $key => $value) {
-            if ($key == 'id') continue;
-            $myArray[] = $key;
-            $myArray2[] = ":{$key}";
-            $full_params[$key] = $value['value'];
-
-        };
-
-        $separated_key = implode(", ", $myArray);
-        $separated_value = implode(", ", $myArray2);
+            $params[":{$key}"] = $this->$key;
+            $columns[] = $key;
+        }
+        $columns = implode(', ', $columns);
+        $value = implode(', ', array_keys($params));
         $tableName = static::getTableName();
 
-        $sql = "INSERT INTO `{$tableName}`($separated_key) VALUES($separated_value)";
+        $sql = "INSERT INTO `{$tableName}`({$columns}) VALUES ({$value})";
 
-        Db::getInstance()->executeSql($sql, $full_params);
-        $this->id = Db::getInstance()->lastInsertId();
+        DB::getInstance()->executeSql($sql, $params);
+        $this->id = DB::getInstance()->lastInsertId();
 
         return $this;
     }
 
     public function update() {
+
+        $params = [];
+        $columns = [];
+
         foreach ($this->props as $key => $value) {
-            if ($key == 'id') continue;
-            if ($value['boolean'] == true) {
-                $set .= "{$key} = :{$key}, ";
-                $full_params[$key] = $this->$key;
-            }
+            if (!$value) continue;
+            $params["{$key}"] = $this->$key;
+            $columns[] = "`{$key}` = :{$key}";
+            //$boolean для того чтобы поменять значение после запроса, если вдруг запрос не выполниться
+            $boolean[$key] = $this->props[$key];
+        }
+        $columns = implode(", ", $columns);
+        $tableName = static::getTableName();
+        $params['id'] = $this->id;
+        $sql = "UPDATE `{$tableName}` SET {$columns} WHERE id = :id";
+
+        // Меняется флаг с true на false
+        foreach ($boolean as $key => $value) {
+            $this->props[$key] = false;
         }
 
-        $trimmedSet = rtrim($set, " ,"); // Избавляет от запятой и пробела в конце
-
-        $tableName = static::getTableName();
-        $sql = "UPDATE `{$tableName}` SET {$trimmedSet} WHERE id = {$this->id}";
-
-        Db::getInstance()->executeSql($sql, $full_params);
+        Db::getInstance()->executeSql($sql, $params);
     }
 
     public function delete() {
         $tableName = static::getTableName();
         $sql = "DELETE FROM {$tableName} WHERE id = :id";
         return Db::getInstance()->executeSql($sql, ['id' => $this->id]);
+    }
+
+    public function save() {
+        if (is_null($this->id)) {
+            return $this->insert();
+        } else {
+            return $this->update();
+        }
     }
 
 }

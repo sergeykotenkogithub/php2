@@ -4,7 +4,7 @@ namespace app\models;
 
 final class Basket extends DBModel
 {
-//    protected $id;
+    protected $id;
 //    protected $goods_id;
 //    protected $session_id;
 //    protected $quantity;
@@ -13,37 +13,37 @@ final class Basket extends DBModel
 
     //.................Сетеры и гетеры....................................
 
-    public function setGoodsId($goods_id)
-    {
-        $this->goods_id = $goods_id;
-        $this->props['goods_id']['boolean'] = true;
-    }
-
-
-    public function setSessionId($session_id)
-    {
-        $this->session_id = $session_id;
-        $this->props['session_id']['boolean'] = true;
-    }
-
-
-    public function setQuantity($quantity)
-    {
-        $this->quantity = $quantity;
-        $this->props['quantity']['boolean'] = true;
-    }
-
-    public function setPrice($price): void
-    {
-        $this->price = $price;
-        $this->props['price']['boolean'] = true;
-    }
-
-    public function setPriceOrigin($price_origin)
-    {
-        $this->price_origin = $price_origin;
-        $this->props['price_origin']['boolean'] = true;
-    }
+//    public function setGoodsId($goods_id)
+//    {
+//        $this->goods_id = $goods_id;
+//        $this->props['goods_id']['boolean'] = true;
+//    }
+//
+//
+//    public function setSessionId($session_id)
+//    {
+//        $this->session_id = $session_id;
+//        $this->props['session_id']['boolean'] = true;
+//    }
+//
+//
+//    public function setQuantity($quantity)
+//    {
+//        $this->quantity = $quantity;
+//        $this->props['quantity']['boolean'] = true;
+//    }
+//
+//    public function setPrice($price): void
+//    {
+//        $this->price = $price;
+//        $this->props['price']['boolean'] = true;
+//    }
+//
+//    public function setPriceOrigin($price_origin)
+//    {
+//        $this->price_origin = $price_origin;
+//        $this->props['price_origin']['boolean'] = true;
+//    }
 
 
     public $props = [

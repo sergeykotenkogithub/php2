@@ -2,9 +2,7 @@
 //................Псевдонимы................
 
 use app\models\{Basket, Feedback, Gallery, Headline, Order, Product, User};
-use app\models\example\Product as ExampleProduct; // Просто тестовый
 use app\interfaces\IModel;
-use app\models\task\{One, Digital, Weight};
 
 //.....Конфигурационый файл.....................
 
@@ -29,12 +27,7 @@ if (class_exists($controllerClass)) {
     echo "404";
 }
 
-//............................................................................//
-
-
-//....................Тест......................................................
-
-$productExample = new ExampleProduct(); // Для теста, чтоб узнать работает ли в других папках
+//.........................Проверка............................................................
 
 //.................Классы модели...............
 
@@ -56,8 +49,7 @@ $user = new User(); // Пользователи
 
 //.....................Проверка Insert................
 
-
-//$product = new Product('Кофе','Хороший', 500, 'apple.jpg');
+//$product = new Product('Ананас','Белый', 25500, 'apple.jpg');
 //$product->insert();
 //
 //$news = new Headline('592sa','sqqqw');
@@ -65,20 +57,15 @@ $user = new User(); // Пользователи
 
 //........... Проверка Update....................
 
-//$news = Headline::getOne(71);
-//$news->setTitle('2s');
-//$news->setText('2sdWWW');
-//$news->update();
+//$product = Product::getOne(42);
+//$product->price = 25;
+//$product->name = "Сок";
+//$product->save();
 
-
-//$news = Headline::getOne(65);
-//$news->setText('tTTaa Text');
-//$news->update();
-
-
-//$product = Product::getOne(15);
-//$product->setName('Name');
-//$product->update();
+//$product = Product::getOne(42);
+//$product->price = 1500;
+//$product->name = "Кофе";
+//$product->save();
 
 //........... Проверка Delete....................
 
