@@ -1,0 +1,23 @@
+.menu {
+  padding: 30px 0 30px 0px;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 25px;
+  a {
+    padding-right: 30px;
+    color:  cornflowerblue;
+  }
+}
+
+.shopping {
+  width: 30px;
+}
+
+.menu__basket {
+  position: relative;
+}
+
+.menu__span {
+  position: absolute;
+  right: 0;
+}

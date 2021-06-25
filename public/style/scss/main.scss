@@ -1,0 +1,16 @@
+// Главная страница
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 100px;
+  align-items: center;
+  div:first-child {
+    font-size: 25px;
+    padding-bottom: 20px;
+  }
+  div:last-child {
+    font-size: 22px;
+  }
+}
