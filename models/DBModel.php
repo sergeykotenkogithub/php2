@@ -101,6 +101,8 @@ abstract class DBModel extends Model
         } else {
             return $this->update();
         }
+        return $this;
     }
+
 
 }

@@ -4,6 +4,7 @@
 
 let inProgress = false; // чтобь пока идёт асинхрон запово не шёл запрос
 
+
 window.addEventListener('scroll', () => {
     // Максимальная высота экрана
     let scrollHeight = Math.max(
@@ -22,6 +23,7 @@ window.addEventListener('scroll', () => {
             inProgress = true;
             const response = await fetch(`/?c=async&a=catalog&page=two&count=${txt}`);
             const answer = await response.json();
+
             document.getElementById('count').innerText = `${answer.count}`;
 
             // Добавление в DOM
@@ -73,7 +75,8 @@ function start() {
 
     let goodsBtn = document.querySelectorAll('.goods__btn')
     goodsBtn.forEach((elem) => {
-        elem.addEventListener('click', () => {
+        elem.addEventListener('click', (e) => {
+            e.preventDefault();
             let id = elem.getAttribute('data-id');
             let price = elem.getAttribute('data-price');
             (async () => {
@@ -84,6 +87,7 @@ function start() {
                 console.log('Сработало')
             })();
         })
+
     })
 
 }
