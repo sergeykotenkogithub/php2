@@ -1,5 +1,5 @@
 let goodsBtn = document.querySelectorAll('.goods__btn')
-goodsBtn.forEach((elem) =>{
+goodsBtn.forEach((elem) => {
     elem.addEventListener('click', () => {
         let id = elem.getAttribute('data-id');
         let price = elem.getAttribute('data-price');
@@ -8,6 +8,7 @@ goodsBtn.forEach((elem) =>{
             const response = await fetch(`/?c=async&a=buy&price=${price}&id=${id}`);
             const answer = await response.json();
             document.getElementById('countBasket').innerText = `(${answer.count})`;
+            console.log('Сработало')
         })();
     })
 })
