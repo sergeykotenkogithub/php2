@@ -5,7 +5,6 @@
 let inProgress = false; // чтобь пока идёт асинхрон запово не шёл запрос
 
 window.addEventListener('scroll', () => {
-
     // Максимальная высота экрана
     let scrollHeight = Math.max(
         document.body.scrollHeight, document.documentElement.scrollHeight,
@@ -65,4 +64,28 @@ window.addEventListener('scroll', () => {
         })();
     }
 })
+
+start()
+
+
+
+function start() {
+
+    let goodsBtn = document.querySelectorAll('.goods__btn')
+    goodsBtn.forEach((elem) => {
+        elem.addEventListener('click', () => {
+            let id = elem.getAttribute('data-id');
+            let price = elem.getAttribute('data-price');
+            (async () => {
+                // const response = await fetch(`/async/?action=buy&price=${price}&id=${id}`);
+                const response = await fetch(`/?c=async&a=buy&price=${price}&id=${id}`);
+                const answer = await response.json();
+                document.getElementById('countBasket').innerText = `(${answer.count})`;
+                console.log('Сработало')
+            })();
+        })
+    })
+
+}
+
 
