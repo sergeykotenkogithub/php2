@@ -10,15 +10,9 @@ final class BasketController extends Controller
     public function actionBasket() {
         $basket = Basket::getBasket();
             echo $this->render('basket', [
-            'basket' => $basket
+            'basket' => $basket,
+                "test" => 'ТЕСТ'
         ]);
     }
 
-//    public function actionIndex() {
-//        $basket = Basket::getBasket();
-//        var_dump($basket);
-////        echo $this->render('basket', [
-////            'basket' => $basket
-////        ]);
-//    }
 }

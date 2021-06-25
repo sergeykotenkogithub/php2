@@ -13,7 +13,9 @@ include dirname( __DIR__ ) . "/config/config.php";
 //................Автозагрузка и Db...............
 
 include ROOT . "/engine/Autoload.php";
+require_once '../vendor/autoload.php'; // Twig Автозагрузка
 spl_autoload_register( [new app\engine\Autoload(), 'loadClass']);
+
 
 //..................Роутер.........................
 

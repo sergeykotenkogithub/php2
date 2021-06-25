@@ -14,12 +14,10 @@ abstract class Controller
     private $defaultAction = 'index';
     private $layout = 'main';
     private $useLayout = true;
-
     private $render;
 
     public function __construct(IRenderer $render)
     {
-//        $this->render = new Render();
         $this->render = $render;
     }
 

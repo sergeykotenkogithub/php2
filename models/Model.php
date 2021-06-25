@@ -18,6 +18,14 @@ abstract class Model implements IModel
         }
     }
 
+    public function __isset($name) {
+        if(isset($this->$name)) {
+            return $this->$name;
+        } else {
+            die('Не верное обращение к полю');
+        }
+    }
+
     public function __get($name) {
         if(isset($this->$name)) {
             return $this->$name;
