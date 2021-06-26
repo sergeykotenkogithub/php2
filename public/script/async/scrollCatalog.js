@@ -5,7 +5,22 @@
 let inProgress = false; // чтобь пока идёт асинхрон запово не шёл запрос
 
 
-window.addEventListener('scroll', () => {
+// if (inProgress) {
+
+
+
+// }
+
+
+
+
+
+window.addEventListener('scroll', (e) => {
+
+
+
+
+
     // Максимальная высота экрана
     let scrollHeight = Math.max(
         document.body.scrollHeight, document.documentElement.scrollHeight,
@@ -16,13 +31,22 @@ window.addEventListener('scroll', () => {
     const scrollable = scrollHeight - window.innerHeight;
     const scrolled = window.scrollY + 400; // 400 - чтобы заранее было
 
+
+
+
+
+
+
     if (Math.ceil(scrolled) >= scrollable && !inProgress) {
         let count = document.getElementById('count')
         let txt = count.innerText;
+
         (async () => {
             inProgress = true;
+
+
             const response = await fetch(`/?c=async&a=catalog&page=two&count=${txt}`);
-            const answer = await response.json();
+            const answer = await response.json().then(start());
 
             document.getElementById('count').innerText = `${answer.count}`;
 
@@ -63,13 +87,10 @@ window.addEventListener('scroll', () => {
                 `);
                 inProgress = false;
             })
+
         })();
     }
 })
-
-start()
-
-
 
 function start() {
 
@@ -83,9 +104,24 @@ function start() {
                 // const response = await fetch(`/async/?action=buy&price=${price}&id=${id}`);
                 const response = await fetch(`/?c=async&a=buy&price=${price}&id=${id}`);
                 const answer = await response.json();
-                document.getElementById('countBasket').innerText = `(${answer.count})`;
-                console.log('Сработало')
+
+                console.log('ssd');
+
+                // if (inProgress) {
+                //     let goodsBtn = document.querySelectorAll('.goods__btn')
+                //     goodsBtn.forEach((elem) => {
+                //         elem.addEventListener('click', handle );
+                //     })
+                //     function handle() {
+                //         // console.log(e.currentTarget)
+                //         console.log('Сработало')
+                //     }
+
+                // document.getElementById('countBasket').innerText = `(${answer.count})`;
+
+
             })();
+
         })
 
     })
