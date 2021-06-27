@@ -94,6 +94,11 @@ final class Db implements IDb
         return $stmt->fetchAll();
     }
 
+    public function queryAllArray($sql, $params = [] ) {
+        $stmt = $this->query($sql, $params);
+        return $stmt->fetchAll();
+    }
+
     public function executeSql($sql, $params) {
         // UPDATE, INSERT, DELETE
 

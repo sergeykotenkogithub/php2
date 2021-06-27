@@ -34,20 +34,32 @@ final class User extends DBModel
         $user = User::getOneWhere('login', $login);
         if (password_verify($pass, $user->pass )) {
             $_SESSION['login'] = $login;
+            $_SESSION['id'] = $user->id;
             return true;
         }
-//        return true;
-//        else {
-//            die('Неверный логин или пароль');
-//        }
+        else {
+            return false;
+        }
     }
 
     public static function isAuth() {
+        if (isset($_COOKIE['hash']) && !isset($_SESSION['login'])) {
+            $hash = $_COOKIE["hash"];
+            $result = User::getOneWhere('hash', $hash);
+            if ($result) {
+                $user = $result->login;
+                if (!empty($user)) {
+                    $_SESSION['login'] = $user;
+                    return true;
+                }
+            }
+        }
         return isset($_SESSION['login']);
     }
 
     public static function isAdmin() {
-        return $_SESSION['login'] == 'admin';
+        $login = $_SESSION['login'];
+        return User::getOneAndWhere('login', $login, 'role', 'admin');
     }
 
     public static function getName() {

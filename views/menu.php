@@ -4,14 +4,15 @@
 <form action="/auth/login/" method="post">
     <input type="text" name="login" placeholder="Логин">
     <input type="text" name="pass" placeholder="Пароль">
-    <div class="save">
-        <div>Save</div><input class="login__checkbox" type="checkbox" name="save">
-    </div>
+<!--    <div class="save">-->
+<!--        <div>Save</div><input class="login__checkbox" type="checkbox" name="save">-->
+        Save<input class="login__checkbox" type="checkbox" name="save">
+<!--    </div>-->
     <input type="submit" name="submit" value="Войти">
 </form>
 <?php endif; ?>
 
-<?= $noauth ?>
+<?= $noAuth ?>
 
 <?php if ($isAdmin): ?>
 Это точно Админ

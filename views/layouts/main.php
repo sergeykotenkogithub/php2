@@ -12,7 +12,6 @@
 
     <div class="wrapper">
         <?=$menu?>
-        <?=$message?>
         <?=$content?>
     </div>
 
