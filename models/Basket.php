@@ -7,11 +7,11 @@ use app\engine\Db;
 final class Basket extends DBModel
 {
     protected $id;
-//    protected $goods_id;
-//    protected $session_id;
-//    protected $quantity;
-//    protected $price;   //общая стоимость цены
-//    protected $price_origin;
+    protected $goods_id;
+    protected $session_id;
+    protected $quantity;
+    protected $price;   //общая стоимость цены
+    protected $price_origin;
 
     //.................Сетеры и гетеры....................................
 

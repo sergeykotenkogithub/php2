@@ -21,8 +21,17 @@ abstract class DBModel extends Model
         return Db::getInstance()->queryOneObject($sql, ['id' => $id], static::class);
     }
 
-    public static function getWhere($name, $value) {
-            // Where 'login' = 'admin'
+    // Where 'login' = 'admin'
+    public static function getOneWhere($name, $value) {
+        $tableName = static::getTableName();
+        $sql = "SELECT * FROM {$tableName} WHERE `{$name}` = :value";
+        return Db::getInstance()->queryOneObject($sql, ['value' => $value], static::class);
+    }
+
+    public static function getOneWhereAdmin($name, $value) {
+        $tableName = static::getTableName();
+        $sql = "SELECT * FROM {$tableName} WHERE `{$name}` = :value AND id = 1";
+        return Db::getInstance()->queryOneObject($sql, ['value' => $value], static::class);
     }
 
     public static function getAll() {

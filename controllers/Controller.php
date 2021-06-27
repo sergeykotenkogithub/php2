@@ -3,10 +3,9 @@
 
 namespace app\controllers;
 
-
-use app\engine\Render;
 use app\engine\TwigRender;
 use app\interfaces\IRenderer;
+use app\models\User;
 
 abstract class Controller
 {
@@ -35,7 +34,12 @@ abstract class Controller
     public function render($template, $params = []) {
         if ($this->useLayout) {
             return $this->renderTemplate("layouts/{$this->layout}", [
-                'menu' => $this->renderTemplate('menu', $params),
+                'menu' => $this->renderTemplate('menu', [
+                    'isAuth' => User::isAuth(),
+                    'username' => User::getName(),
+                    'isAdmin' => User::isAdmin(),
+                    "noauth" => $_SESSION['noauth']
+                ]),
                 'content' => $this->renderTemplate($template, $params)
             ]);
         } else {

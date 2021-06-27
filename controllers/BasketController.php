@@ -7,11 +7,10 @@ use app\models\Basket;
 final class BasketController extends Controller
 
 {
-    public function actionBasket() {
+    public function actionGoods() {
         $basket = Basket::getBasket();
-            echo $this->render('basket', [
-            'basket' => $basket,
-                "test" => 'ТЕСТ'
+        echo $this->render('basket', [
+            'basket' => $basket
         ]);
     }
 

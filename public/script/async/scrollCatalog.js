@@ -4,24 +4,9 @@
 
 let inProgress = false; // чтобь пока идёт асинхрон запово не шёл запрос
 
-
-// if (inProgress) {
-
-
-
-// }
-
-
-
-
-
 window.addEventListener('scroll', (e) => {
 
-
-
-
-
-    // Максимальная высота экрана
+   // Максимальная высота экрана
     let scrollHeight = Math.max(
         document.body.scrollHeight, document.documentElement.scrollHeight,
         document.body.offsetHeight, document.documentElement.offsetHeight,
@@ -30,14 +15,11 @@ window.addEventListener('scroll', (e) => {
 
     const scrollable = scrollHeight - window.innerHeight;
     const scrolled = window.scrollY + 400; // 400 - чтобы заранее было
+    // const scrolled2 = window.scrollY; //
 
 
+   if (Math.ceil(scrolled) >= scrollable && !inProgress) {
 
-
-
-
-
-    if (Math.ceil(scrolled) >= scrollable && !inProgress) {
         let count = document.getElementById('count')
         let txt = count.innerText;
 
@@ -45,8 +27,11 @@ window.addEventListener('scroll', (e) => {
             inProgress = true;
 
 
-            const response = await fetch(`/?c=async&a=catalog&page=two&count=${txt}`);
-            const answer = await response.json().then(start());
+
+            const response = await fetch(`/async/catalog/?page=two&count=${txt}`);
+            const answer = await response.json();
+
+            start()
 
             document.getElementById('count').innerText = `${answer.count}`;
 
@@ -87,10 +72,13 @@ window.addEventListener('scroll', (e) => {
                 `);
                 inProgress = false;
             })
-
         })();
     }
 })
+
+
+// let goodsBtn = document.querySelectorAll('.goods__btn')
+start()
 
 function start() {
 
@@ -102,10 +90,12 @@ function start() {
             let price = elem.getAttribute('data-price');
             (async () => {
                 // const response = await fetch(`/async/?action=buy&price=${price}&id=${id}`);
-                const response = await fetch(`/?c=async&a=buy&price=${price}&id=${id}`);
+                const response = await fetch(`/async/buy/?price=${price}&id=${id}`);
                 const answer = await response.json();
 
-                console.log('ssd');
+
+                console.log('ssd')
+
 
                 // if (inProgress) {
                 //     let goodsBtn = document.querySelectorAll('.goods__btn')
@@ -127,5 +117,3 @@ function start() {
     })
 
 }
-
-

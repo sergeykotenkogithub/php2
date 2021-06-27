@@ -1,10 +1,18 @@
 <?php
+
+//password_hash("123", PASSWORD_DEFAULT);
+//password_verify("123", 'тут хэш');
+
+//................Старт сессии................
+
+session_start();
+
 //................Псевдонимы................
 
 use app\models\{Basket, Feedback, Gallery, Headline, Order, Product, User};
-use app\interfaces\IModel;
 use app\engine\Render;
 use app\engine\TwigRender;
+use app\engine\Autoload;
 
 //.....Конфигурационый файл.....................
 
@@ -13,20 +21,25 @@ include dirname( __DIR__ ) . "/config/config.php";
 //................Автозагрузка и Db...............
 
 include ROOT . "/engine/Autoload.php";
-require_once '../vendor/autoload.php'; // Twig Автозагрузка
-spl_autoload_register( [new app\engine\Autoload(), 'loadClass']);
+include ROOT . '/vendor/autoload.php'; // Twig Автозагрузка
+spl_autoload_register( [new Autoload(), 'loadClass']);
 
+//................ЧПУ.............................
+
+// 1 - имя контролера(страницы к примеру Каталог), 2 - action, который у нас на 'a' был
+
+$url = explode('/', $_SERVER['REQUEST_URI']);
+$controllerName = $url[1] ?: 'product'; // ?: - краткий if
+$actionName = $url[2];
 
 //..................Роутер.........................
 
-$controllerName = $_GET['c'] ?: 'product'; // ?: - краткий if
-$actionName = $_GET['a'];
 
 $controllerClass = CONTROLLER_NAMESPACE . ucfirst($controllerName) . "Controller";
 
 if (class_exists($controllerClass)) {
-//    $controller = new $controllerClass(new Render()); // - старый контроллер
-    $controller = new $controllerClass(new TwigRender()) ;
+    $controller = new $controllerClass(new Render()); // - свой рендер
+//    $controller = new $controllerClass(new TwigRender()) ; // - twig render
     $controller->runAction($actionName);
 } else {
     echo "404";

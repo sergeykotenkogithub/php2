@@ -7,7 +7,7 @@ use app\interfaces\IDb;
 use app\traits\TSingletone;
 use http\Params;
 
-class Db implements IDb
+final class Db implements IDb
 {
     protected $config = [
         'driver' => 'mysql',
@@ -79,8 +79,7 @@ class Db implements IDb
     }
 
     public function queryOneObject($sql, $params, $class) {
-        //Statement - $stmt
-        $stmt = $this->query($sql, $params);
+        $stmt = $this->query($sql, $params); //Statement - $stmt
         $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE , $class);
         return $stmt->fetch();
     }

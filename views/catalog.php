@@ -6,7 +6,7 @@
     <div id="addAsyncCatalog" class="goods">
 
         <div class="goods__item">
-            <a href="/?c=product&a=card&id=<?=$item->id?>">
+            <a href="/product/card/?id=<?=$item->id?>">
                 <img class="goods__img" src="/img/goods/<?=$item->image?>" alt="">
             </a>
 
@@ -16,7 +16,7 @@
             </div>
         </div>
 
-        <a href="/?c=product&a=card&id=<?=$item->id?>">
+        <a href="/product/card/?id=<?=$item->id?>">
             <div>
                 <div class="goods__description">
                     <p class="goods__name"> <?=$item->name?> </p>

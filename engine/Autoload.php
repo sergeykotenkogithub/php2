@@ -4,7 +4,7 @@
 
 namespace app\engine;
 
-class Autoload
+final class Autoload
 {
     function loadClass($className)
     {

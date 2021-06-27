@@ -4,7 +4,7 @@ namespace app\controllers;
 
 final class FeedbackController extends Controller
 {
-    public function actionFeedback() {
+    public function actionAll() {
         echo $this->render('feedback');
     }
 }
