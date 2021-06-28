@@ -1,7 +1,8 @@
-<div class="container">
-    Товаров в корзине: <?=$count?>
-    <br>
-    <br>
+<div class="wrapperBasket">
+    <div class="centerBasket">
+        Товаров в корзине: <?=$count?>
+    </div>
+
     <?php foreach ($basket as $item): ?>
         <div class="basket">
             <div class="basket__name"><?=$item['name']?> </div>
@@ -21,6 +22,6 @@
             </div>
         </div>
     <?php endforeach;?>
-    <div class="rub total">Итого: <?=$summ['summ']?> </div>
-    <div class="order"><a href="/order">Оформить заказ</a></div>
+    <div class="rub total centerBasket">Итого: <?=$summ['summ']?> </div>
+    <div class="order centerBasket"><a href="/order">Оформить заказ</a></div>
 </div>

@@ -1,8 +1,13 @@
+// Общие стили
+
 @import "menu";
 @import "main";
 @import "catalog";
 @import "null";
 @import "basket";
+@import "login";
+@import "myorders";
+@import "registration";
 
 body {
   margin: 0px;

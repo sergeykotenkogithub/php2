@@ -1,26 +1,16 @@
-<?php if ($isAuth): ?>
-    Добро пожаловать <?= $username ?> <a href="/auth/logout">[Выход]</a>
-<?php else: ?>
-<form action="/auth/login/" method="post">
-    <input type="text" name="login" placeholder="Логин">
-    <input type="text" name="pass" placeholder="Пароль">
-<!--    <div class="save">-->
-<!--        <div>Save</div><input class="login__checkbox" type="checkbox" name="save">-->
-        Save<input class="login__checkbox" type="checkbox" name="save">
-<!--    </div>-->
-    <input type="submit" name="submit" value="Войти">
-</form>
-<?php endif; ?>
-
-<?= $noAuth ?>
-
-<?php if ($isAdmin): ?>
-Это точно Админ
-<?php endif;?>
 <div class="menu">
     <a href="/">Главная</a>
     <a href="/product/catalog">Каталог</a>
     <a href="/feedback/all">Отзывы</a>
-    <a class="menu__basket" href="/basket/goods"><img class="shopping" src="/img/icon/shopping_cart.svg" alt="shopping_cart"><span class="menu__span" >(0)</span></a>
+    <div>
+        <? if ($isAuth): ?>
+            <a href="/myorders/all/?id=<?=$myOrders?>"><?= $username ?></a>
+            <a href="/auth/logout""><img class="menu__icon" src="/img/icon/logout.svg" alt="logout"></a>
+        <?else: ?>
+        <a class="menu__basket" href="/login/enter"><img src="" alt=""></span> <img class="menu__icon"  src="/img/icon/login.svg" alt="login"></a>
+        <?endif; ?>
+    </div>
+
+    <a class="menu__basket" href="/basket/goods"><img class="menu__icon" src="/img/icon/shopping_cart.svg" alt="shopping_cart"><span class="menu__span" >(0)</span></a>
 </div>
 

@@ -25,20 +25,12 @@ window.addEventListener('scroll', (e) => {
 
         (async () => {
             inProgress = true;
-
-
-
             const response = await fetch(`/async/catalog/?page=two&count=${txt}`);
             const answer = await response.json();
-
-            start()
-
+            // start()
             document.getElementById('count').innerText = `${answer.count}`;
-
             // Добавление в DOM
-
             $answerCatalog = answer.catalog;
-
             $answerCatalog.forEach(function(item) {
                 let addCatalog = document.getElementById('addCatalog')
                 addCatalog.insertAdjacentHTML('beforeend',
@@ -94,20 +86,22 @@ function start() {
                 const answer = await response.json();
 
 
-                console.log('ssd')
+                // console.log('ssd')
 
-
+                //
                 // if (inProgress) {
                 //     let goodsBtn = document.querySelectorAll('.goods__btn')
                 //     goodsBtn.forEach((elem) => {
-                //         elem.addEventListener('click', handle );
+                //         elem.addEventListener('click', handle);
                 //     })
+                //
                 //     function handle() {
                 //         // console.log(e.currentTarget)
                 //         console.log('Сработало')
                 //     }
-
-                // document.getElementById('countBasket').innerText = `(${answer.count})`;
+                //
+                //     document.getElementById('countBasket').innerText = `(${answer.count})`;
+                // }
 
 
             })();

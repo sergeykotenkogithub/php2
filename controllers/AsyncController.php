@@ -4,6 +4,7 @@
 namespace app\controllers;
 
 
+use app\models\Basket;
 use app\models\Product;
 
 class AsyncController extends Controller
@@ -26,6 +27,9 @@ class AsyncController extends Controller
             $id = $_GET['id'];
             $price = $_GET['price'];
         }
+        $session = session_id();
+        Basket::addBasket($session, $id, $price);
+
         //  Product:
         echo json_encode(['count' => $id], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     }

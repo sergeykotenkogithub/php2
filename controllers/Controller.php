@@ -38,7 +38,8 @@ abstract class Controller
                     'isAuth' => User::isAuth(),
                     'username' => User::getName(),
                     'isAdmin' => User::isAdmin(),
-                    "noAuth" => $_SESSION['noAuth']
+                    "noAuth" => $_SESSION['noAuth'],
+                    "myOrders" => $_SESSION['id']
                 ]),
                 'content' => $this->renderTemplate($template, $params)
             ]);

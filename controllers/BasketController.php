@@ -8,7 +8,9 @@ final class BasketController extends Controller
 
 {
     public function actionGoods() {
-        $basket = Basket::getBasket();
+        $session =  session_id();
+        $basket = Basket::getBasket($session);
+
         echo $this->render('basket', [
             'basket' => $basket
         ]);

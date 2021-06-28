@@ -4,11 +4,14 @@
 namespace app\controllers;
 
 use app\models\Product;
+use app\models\User;
 
 final class ProductController extends Controller
 {
     public function actionIndex() {
-        echo $this->render('index');
+        echo $this->render('index', [
+            'username' => User::getName()
+        ]);
     }
 
     // Если надо с кнопкой ещё
