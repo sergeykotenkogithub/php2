@@ -23,12 +23,12 @@ class AsyncController extends Controller
     }
 
     public function actionBuy() {
-        if($_GET['a'] == 'buy') {
-            $id = $_GET['id'];
-            $price = $_GET['price'];
-        }
+        $id = $_GET['id'];
+        $price = $_GET['price'];
         $session = session_id();
-        Basket::addBasket($session, $id, $price);
+//        Basket::addBasket($session, $id, $price);
+//        (new Basket($id, "$session", $price, $price))->save();
+        (new Basket($id, "$session", $price, $price, 1))->save();
 
         //  Product:
         echo json_encode(['count' => $id], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);

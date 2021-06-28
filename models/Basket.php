@@ -9,22 +9,22 @@ final class Basket extends DBModel
     protected $id;
     protected $goods_id;
     protected $session_id;
-    protected $quantity;
     protected $price;   //общая стоимость цены
     protected $price_origin;
+    protected $quantity;
 
     protected $props = [
         'goods_id' => false,
         'session_id' => false,
-        'quantity' => false,
         'price' => false,
         'price_origin' => false,
+        'quantity' => false,
     ];
 
 
     //...............................................................................................
 
-    public function __construct($goods_id = null, $session_id = null, $quantity = null, $price = null, $price_origin = null)
+    public function __construct($goods_id = null, $session_id = null, $price = null, $price_origin = null, $quantity = null)
     {
         $this->goods_id = $goods_id;
         $this->session_id = $session_id;
@@ -35,18 +35,13 @@ final class Basket extends DBModel
 
     public static function getBasket($session) {
 //        $sql =  "SELECT basket.id as basket_id, goods.id as goods_id, goods.name as name, basket.price as price, basket.session_id as session_id, goods.image as image, basket.quantity FROM basket, goods WHERE basket.goods_id=goods.id AND session_id='d7gu0h0qcqro5852kmr432lm9bvifusg'";
-        $sql =  "SELECT basket.id as basket_id, goods.id as goods_id, goods.name as name, basket.price as price, basket.session_id as session_id, goods.image as image, basket.quantity FROM basket, goods WHERE basket.goods_id=goods.id AND session_id={$session}";
+        $sql =  "SELECT basket.id as basket_id, goods.id as goods_id, goods.name as name, basket.price as price, basket.session_id as session_id, goods.image as image, basket.quantity FROM basket, goods WHERE basket.goods_id=goods.id AND session_id='{$session}'";
         // return Db::getInstance()->queryAll($sql, static::class);
         return Db::getInstance()->queryAllArray($sql);
     }
 
     protected static function getTableName() {
         return 'basket';
-    }
-
-    public static function addBasket($session, $id, $price) {
-        $sql = "INSERT INTO basket (session_id, goods_id, price, price_origin) VALUE ('{$session}', '{$id}', '{$price}', '{$price}') ";
-        return Db::getInstance()->executeSql($sql);
     }
 
 }

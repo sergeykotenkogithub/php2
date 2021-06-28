@@ -11,7 +11,7 @@ class RegistrationController extends Controller
         $login = $_POST['login'];
         $pass = $_POST['pass'];
         $pass_hash = password_hash($pass,PASSWORD_DEFAULT); // Создаёт хэшированный пароль
-        $check = User::getOneWhere('login', $login); // проверка существует ли такой логин
+        $check = User::getOneWhere('login', $login); // Проверка существует ли такой логин
         $message = Registration::registration($login, $pass, $pass_hash, $check); // Добавляет пользователя, возращает сообщение
 
         echo $this->render('registration', [

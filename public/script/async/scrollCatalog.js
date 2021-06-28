@@ -70,9 +70,9 @@ window.addEventListener('scroll', (e) => {
 
 
 // let goodsBtn = document.querySelectorAll('.goods__btn')
-start()
+// start()
 
-function start() {
+// function start() {
 
     let goodsBtn = document.querySelectorAll('.goods__btn')
     goodsBtn.forEach((elem) => {
@@ -86,7 +86,7 @@ function start() {
                 const answer = await response.json();
 
 
-                // console.log('ssd')
+                console.log(answer.count)
 
                 //
                 // if (inProgress) {
@@ -110,4 +110,4 @@ function start() {
 
     })
 
-}
+// }
