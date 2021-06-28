@@ -34,16 +34,11 @@ final class Basket extends DBModel
     }
 
     public static function getBasket($session) {
-//        $sql =  "SELECT basket.id as basket_id, goods.id as goods_id, goods.name as name, basket.price as price, basket.session_id as session_id, goods.image as image, basket.quantity FROM basket, goods WHERE basket.goods_id=goods.id AND session_id='d7gu0h0qcqro5852kmr432lm9bvifusg'";
         $sql =  "SELECT basket.id as basket_id, goods.id as goods_id, goods.name as name, basket.price as price, basket.session_id as session_id, goods.image as image, basket.quantity FROM basket, goods WHERE basket.goods_id=goods.id AND session_id='{$session}'";
         // return Db::getInstance()->queryAll($sql, static::class);
         return Db::getInstance()->queryAllArray($sql);
     }
 
-    public static function countGoodsBasketItem($session) {
-        $sql = "SELECT sum(quantity) as `count` FROM basket WHERE session_id = '{$session}' ";
-        return Db::getInstance()->queryOne($sql);
-    }
 
     protected static function getTableName() {
         return 'basket';

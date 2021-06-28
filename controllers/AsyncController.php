@@ -29,9 +29,9 @@ class AsyncController extends Controller
         $id = $_GET['id'];
         $price = $_GET['price'];
         $session = session_id();
-        $count = Basket::countGoodsBasketItem($session);
+        $count = Basket::countSum('quantity', 'session_id', $session);
         (new Basket($id, "$session", $price, $price, 1))->save();
-        echo json_encode(['count' => $count['count'] + 1], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+        echo json_encode(['count' => $count + 1], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     }
 
     // В Корзине: при нажатие кнопки удалить - удаляет полностью
@@ -39,7 +39,8 @@ class AsyncController extends Controller
         $id = $_GET['id'];
         $session = session_id();
         Basket::getOne($id)->delete();
-        $count = Basket::countGoodsBasketItem($session);
-        echo json_encode(['count' => $count['count']], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+        $count = Basket::countSum('quantity', 'session_id', $session);
+        $sum = Basket::countSum('price', 'session_id', $session);
+        echo json_encode(['count' => $count, 'sum' => $sum], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     }
 }

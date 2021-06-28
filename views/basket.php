@@ -5,7 +5,7 @@
     </div>
     <?php else: ?>
     <div class="centerBasket">
-        Товаров в корзине: <?=$count?>
+        Товаров в корзине: <?=$count['count']?>
     </div>
     <?php foreach ($basket as $item): ?>
         <div class="basket" id="item<?=$item['basket_id']?>">
@@ -26,7 +26,7 @@
             </div>
         </div>
     <?php endforeach;?>
-    <div class="rub total centerBasket">Итого: <?=$summ['summ']?> </div>
+    <div class="rub total centerBasket">Итого: <?=$sum?> </div>
     <div class="order centerBasket"><a href="/order">Оформить заказ</a></div>
     <?endif; ?>
 </div>

@@ -34,8 +34,7 @@ abstract class Controller
 
     public function render($template, $params = []) {
         $session = session_id();
-        $countBasket = Basket::countGoodsBasketItem($session);
-        $countBasketNumber = $countBasket['count'];
+        $countBasket = Basket::countSum('quantity', 'session_id', $session);
         if ($this->useLayout) {
             return $this->renderTemplate("layouts/{$this->layout}", [
                 'menu' => $this->renderTemplate('menu', [
@@ -44,7 +43,7 @@ abstract class Controller
                     'isAdmin' => User::isAdmin(),
                     "noAuth" => $_SESSION['noAuth'],
                     "myOrders" => $_SESSION['id'],
-                    'countBasket' => $countBasketNumber
+                    'countBasket' => $countBasket
                 ]),
                 'content' => $this->renderTemplate($template, $params)
             ]);

@@ -64,9 +64,11 @@ abstract class DBModel extends Model
 
     //...................... Cумма. С условием .....................................................
 
-    public static function countGoodsBasketItem($session) {
-        $sql = "SELECT sum(quantity) as `count` FROM basket WHERE session_id = '{$session}' ";
-        return Db::getInstance()->queryOne($sql);
+    public static function countSum($sum, $table ,$value) {
+        $tableName = static::getTableName();
+//        $sql = "SELECT sum($sum) as `count` FROM {$tableName} WHERE '{$table}' = :value ";
+        $sql = "SELECT sum($sum) as `count` FROM {$tableName} WHERE `{$table}` =  '$value'";
+        return Db::getInstance()->queryOne($sql, ['value' => $value])['count'];
     }
 
     //......................Вставка значения............................................

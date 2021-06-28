@@ -1,5 +1,16 @@
 // Общие стили
 
+$color: #6495ed;
+$colorHover: blue;
+
+%hover {
+  transition:color 0.3s;
+  &:hover {
+    color: $colorHover;
+  }
+}
+
+
 @import "menu";
 @import "main";
 @import "catalog";
