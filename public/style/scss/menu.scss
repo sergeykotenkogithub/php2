@@ -1,10 +1,12 @@
 // Меню
 
 .menu {
-  padding: 30px 0 50px 0px;
+  padding-top: 30px;
+  margin-bottom: 30px;
   display: flex;
   justify-content: space-evenly;
   font-size: 25px;
+  align-items: flex-end;
   a {
     padding-right: 30px;
     color:  cornflowerblue;
@@ -18,11 +20,8 @@
 
 .menu__basket {
   position: relative;
-  a {
-    &:hover {
-      color: $colorHover;
-    }
-  }
+  transition: 0s;
+  @extend %hover;
 }
 
 .menu__span {
@@ -35,7 +34,6 @@
   width: 30px;
   height: 30px;
   background: url("/img/icon/login.svg");
-  transition:0.5s;
   &:hover {
     background: url("/img/icon/login_blue.svg");
   }
@@ -44,9 +42,19 @@
 .menu__iconCart {
   width: 30px;
   height: 30px;
-  transition: 0.3s;
   background: url("/img/icon/shopping_cart.svg");
   &:hover {
     background: url("/img/icon/shopping_cart_blue.svg");
   }
+}
+.menu__iconLogout {
+  width: 30px;
+  height: 20px;
+  background: url("/img/icon/logout.svg");
+  &:hover {
+    background: url("/img/icon/logout_blue.svg");
+  }
+}
+.menu__logout {
+  display: flex;
 }

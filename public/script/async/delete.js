@@ -18,9 +18,11 @@ goodsBtn.forEach((elem) => {
                     </div>
                 `)
                 answer.count = 0 // Чтобы не отображало null когда последний товар удаляешь
+            } else {
+                document.querySelector('.total').textContent = answer.sum
             }
+
             document.getElementById('countBasket').innerText = `(${answer.count})`
-            document.querySelector('.total').textContent = answer.sum
         })();
     })
 })
