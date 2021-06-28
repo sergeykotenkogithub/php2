@@ -4,9 +4,15 @@ goodsBtn.forEach((elem) => {
         e.preventDefault();
         let id = elem.getAttribute('data-id');
         (async () => {
-            const response = await fetch(`/async/delete/?id=${id}`);
+            // const response = await fetch(`/async/delete/?id=${id}`); // Без POST
+            const response = await fetch('/async/delete',{
+                method: 'POST',
+                headers: {'Content-Type': 'application/json;charset=utf-8'},
+                body: JSON.stringify({
+                    id: id
+                })
+            });
             const answer = await response.json();
-
             document.getElementById(`item${id}`).remove();
 
             if (!answer.count) {
