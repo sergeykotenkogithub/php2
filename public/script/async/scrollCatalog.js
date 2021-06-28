@@ -70,9 +70,9 @@ window.addEventListener('scroll', (e) => {
 
 
 // let goodsBtn = document.querySelectorAll('.goods__btn')
-// start()
+start()
 
-// function start() {
+function start() {
 
     let goodsBtn = document.querySelectorAll('.goods__btn')
     goodsBtn.forEach((elem) => {
@@ -84,30 +84,10 @@ window.addEventListener('scroll', (e) => {
                 // const response = await fetch(`/async/?action=buy&price=${price}&id=${id}`);
                 const response = await fetch(`/async/buy/?price=${price}&id=${id}`);
                 const answer = await response.json();
-
-
-                console.log(answer.count)
-
-                //
-                // if (inProgress) {
-                //     let goodsBtn = document.querySelectorAll('.goods__btn')
-                //     goodsBtn.forEach((elem) => {
-                //         elem.addEventListener('click', handle);
-                //     })
-                //
-                //     function handle() {
-                //         // console.log(e.currentTarget)
-                //         console.log('Сработало')
-                //     }
-                //
-                //     document.getElementById('countBasket').innerText = `(${answer.count})`;
-                // }
-
-
+                let count = document.getElementById('countBasket')
+                count.innerText = `(${answer.count})`
             })();
-
         })
-
     })
 
-// }
+}

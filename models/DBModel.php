@@ -62,6 +62,13 @@ abstract class DBModel extends Model
         return Db::getInstance()->queryLimitAjax($sql,$before, $after);
     }
 
+    //...................... Cумма. С условием .....................................................
+
+    public static function countGoodsBasketItem($session) {
+        $sql = "SELECT sum(quantity) as `count` FROM basket WHERE session_id = '{$session}' ";
+        return Db::getInstance()->queryOne($sql);
+    }
+
     //......................Вставка значения............................................
 
     public function insert() {

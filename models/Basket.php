@@ -40,6 +40,11 @@ final class Basket extends DBModel
         return Db::getInstance()->queryAllArray($sql);
     }
 
+    public static function countGoodsBasketItem($session) {
+        $sql = "SELECT sum(quantity) as `count` FROM basket WHERE session_id = '{$session}' ";
+        return Db::getInstance()->queryOne($sql);
+    }
+
     protected static function getTableName() {
         return 'basket';
     }

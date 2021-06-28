@@ -10,7 +10,9 @@
         <a class="menu__basket" href="/login/enter"><img src="" alt=""></span> <img class="menu__icon"  src="/img/icon/login.svg" alt="login"></a>
         <?endif; ?>
     </div>
-
-    <a class="menu__basket" href="/basket/goods"><img class="menu__icon" src="/img/icon/shopping_cart.svg" alt="shopping_cart"><span class="menu__span" >(0)</span></a>
+    <a class="menu__basket" href="/basket/goods">
+        <img class="menu__icon" src="/img/icon/shopping_cart.svg" alt="shopping_cart">
+        <span class="menu__span" id="countBasket">(<?= $countBasket ?: 0 ?>)</span>
+    </a>
 </div>
 

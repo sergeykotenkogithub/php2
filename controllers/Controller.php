@@ -5,6 +5,7 @@ namespace app\controllers;
 
 use app\engine\TwigRender;
 use app\interfaces\IRenderer;
+use app\models\Basket;
 use app\models\User;
 
 abstract class Controller
@@ -32,6 +33,9 @@ abstract class Controller
     }
 
     public function render($template, $params = []) {
+        $session = session_id();
+        $countBasket = Basket::countGoodsBasketItem($session);
+        $countBasketNumber = $countBasket['count'];
         if ($this->useLayout) {
             return $this->renderTemplate("layouts/{$this->layout}", [
                 'menu' => $this->renderTemplate('menu', [
@@ -39,7 +43,8 @@ abstract class Controller
                     'username' => User::getName(),
                     'isAdmin' => User::isAdmin(),
                     "noAuth" => $_SESSION['noAuth'],
-                    "myOrders" => $_SESSION['id']
+                    "myOrders" => $_SESSION['id'],
+                    'countBasket' => $countBasketNumber
                 ]),
                 'content' => $this->renderTemplate($template, $params)
             ]);

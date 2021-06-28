@@ -1,10 +1,14 @@
 <div class="wrapperBasket">
+    <?php if (empty($basket)): ?>
+    <div class="wrapperBasket__empty">
+        Нет добавленных товаров
+    </div>
+    <?php else: ?>
     <div class="centerBasket">
         Товаров в корзине: <?=$count?>
     </div>
-
     <?php foreach ($basket as $item): ?>
-        <div class="basket">
+        <div class="basket" id="item<?=$item['basket_id']?>">
             <div class="basket__name"><?=$item['name']?> </div>
             <div>
                 <img src="/img/goods/<?= $item['image'] ?>" width="100">
@@ -12,7 +16,7 @@
             <div class="rub basket__price"><?=$item['price']?></div>
             <div class="basket__quantity">Кол-во:<?=$item['quantity']?></div>
             <div class="basket__del" >
-                <a class="buy" href="/basket/?action=delete&id=<?=$item['basket_id']?>">Удалить</a>
+                <button class="basket__delete" data-id="<?=$item['basket_id']?>">Удалить</button>
             </div>
             <div class="basket__del">
                 <a class="buy" href="/basket/?action=add&id=<?=$item['basket_id']?>">+</a>
@@ -24,4 +28,7 @@
     <?php endforeach;?>
     <div class="rub total centerBasket">Итого: <?=$summ['summ']?> </div>
     <div class="order centerBasket"><a href="/order">Оформить заказ</a></div>
+    <?endif; ?>
 </div>
+
+<script src="/script/async/delete.js?<?php echo uniqid();?>"></script>

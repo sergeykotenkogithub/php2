@@ -99,7 +99,7 @@ final class Db implements IDb
         return $stmt->fetchAll();
     }
 
-    public function executeSql($sql, $params) {
+    public function executeSql($sql, $params = []) {
         // UPDATE, INSERT, DELETE
 
         $stmt = $this->query($sql, $params);
