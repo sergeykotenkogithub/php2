@@ -11,7 +11,6 @@ class AuthController extends Controller
         $login = $_POST['login'];
         $pass = $_POST['pass'];
 
-
         if (User::auth($login, $pass)) {
           if (isset($_POST['save'])) {
               $hash = uniqid(rand(), true);
@@ -34,7 +33,7 @@ class AuthController extends Controller
         setcookie("hash", "", time()-1, "/" );
         session_regenerate_id(); // чтобы корзина сбросилась
         session_destroy();
-//        header("Location:" . $_SERVER['HTTP_REFERER']);
+        // header("Location:" . $_SERVER['HTTP_REFERER']);
         header("Location: /");
         die();
     }

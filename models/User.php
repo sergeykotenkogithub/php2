@@ -2,6 +2,8 @@
 
 namespace app\models;
 
+use app\interfaces\IDb;
+
 final class User extends DBModel
 {
     public $id;
