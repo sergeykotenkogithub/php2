@@ -1,0 +1,49 @@
+// Корзина
+
+
+
+.wrapperBasket {
+  font-size: 20px;
+}
+
+.wrapperBasket__empty {
+    text-align: center;
+    font-size: 25px;
+}
+
+.basket {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  justify-content: space-evenly;
+  &__delete {
+    @extend %hover;
+    background: none;
+    color: $color;
+    font-size: 18px;
+  }
+}
+
+.basket div {
+  padding-right: 10px;
+}
+
+.basket__name {
+  width: 90px;
+}
+
+.centerBasket {
+  text-align: center;
+}
+
+.total {
+  padding-bottom: 30px;
+}
+
+.order a {
+  font-size: 32px;
+  color: $color;
+  transition: 0.5s;
+  @extend %hover ;
+}
+

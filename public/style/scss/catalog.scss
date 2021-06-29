@@ -1,0 +1,51 @@
+// Каталог
+
+.goods {
+  display: flex;
+  padding: 20px;
+  div {
+    padding-bottom: 15px;
+  }
+  &__name {
+    font-size: 25px;
+    padding-bottom: 15px;
+  }
+  &__img {
+    width: 300px;
+    padding-bottom: 15px;
+  }
+  &__buy {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  &__iconBuy img {
+    width: 40px;
+  }
+  &__price {
+    font-size: 20px;
+  }
+  &__description {
+    color: black;
+    padding-left: 15px;
+    text-align: justify
+  }
+  &__description {
+    height: 100px;
+    p {
+      display: -webkit-box;
+      -webkit-line-clamp: 9;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-height: 25px;
+    }
+  }
+  &__btn {
+    background: none;
+    img {
+      width: 45px;
+    }
+  }
+}
+
+
