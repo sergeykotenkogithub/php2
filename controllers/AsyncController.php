@@ -4,6 +4,7 @@
 namespace app\controllers;
 
 
+use app\engine\Request;
 use app\models\Basket;
 use app\models\Product;
 
@@ -42,8 +43,8 @@ class AsyncController extends Controller
         // $id = $_GET['id'];
 
         // Через POST
-        $data = json_decode(file_get_contents('php://input'));
-        $id = $data->id;
+
+        $id = (new Request())->getParams()['id'];
         Basket::getOne($id)->delete();
 
         $response = [
@@ -53,7 +54,12 @@ class AsyncController extends Controller
 
         echo json_encode($response, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 
-        // Второй вариант:
+        // Второй вариант через глобальный:
+
+        //        $data = json_decode(file_get_contents('php://input'));
+        //        $id = $data->id;
+
+        // и такая запись для передачи:
 
         //        $count = Basket::countSum('quantity', 'session_id', $session);
         //        $sum = Basket::countSum('price', 'session_id', $session);

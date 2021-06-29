@@ -29,7 +29,7 @@ final class ProductController extends Controller
         $id = $_GET['id'];
         $good = Product::getOne($id);
         echo $this->render('card', [
-                'good' => $good
+            'good' => $good
         ]);
     }
 

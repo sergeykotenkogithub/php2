@@ -13,6 +13,7 @@ use app\models\{Basket, Feedback, Gallery, Headline, Order, Product, User};
 use app\engine\Render;
 use app\engine\TwigRender;
 use app\engine\Autoload;
+use app\engine\Request;
 
 //.....Конфигурационый файл.....................
 
@@ -28,9 +29,10 @@ spl_autoload_register( [new Autoload(), 'loadClass']);
 
 // 1 - имя контролера(страницы к примеру Каталог), 2 - action, который у нас на 'a' был
 
-$url = explode('/', $_SERVER['REQUEST_URI']);
-$controllerName = $url[1] ?: 'product'; // ?: - краткий if
-$actionName = $url[2];
+$request = new Request();
+
+$controllerName = $request->getControllerName() ?: 'product'; // ?: - краткий if
+$actionName = $request->getActionName();
 
 //..................Роутер.........................
 

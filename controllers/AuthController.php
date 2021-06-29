@@ -3,13 +3,14 @@
 
 namespace app\controllers;
 
+use app\engine\Request;
 use app\models\User;
 
 class AuthController extends Controller
 {
     public function actionLogin() {
-        $login = $_POST['login'];
-        $pass = $_POST['pass'];
+        $login = (new Request())->getParams()['login'];
+        $pass = (new Request())->getParams()['pass'];
 
         if (User::auth($login, $pass)) {
           if (isset($_POST['save'])) {

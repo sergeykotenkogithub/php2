@@ -21,7 +21,6 @@ final class Basket extends DBModel
         'quantity' => false,
     ];
 
-
     //...............................................................................................
 
     public function __construct($goods_id = null, $session_id = null, $price = null, $price_origin = null, $quantity = null)
@@ -35,8 +34,12 @@ final class Basket extends DBModel
 
     public static function getBasket($session) {
         $sql =  "SELECT basket.id as basket_id, goods.id as goods_id, goods.name as name, basket.price as price, basket.session_id as session_id, goods.image as image, basket.quantity FROM basket, goods WHERE basket.goods_id=goods.id AND session_id='{$session}'";
-        // return Db::getInstance()->queryAll($sql, static::class);
         return Db::getInstance()->queryAllArray($sql);
+    }
+
+    public static function getBasketObject($session) {
+        $sql =  "SELECT basket.id as basket_id, goods.id as goods_id, goods.name as name, basket.price as price, basket.session_id as session_id, goods.image as image, basket.quantity FROM basket, goods WHERE basket.goods_id=goods.id AND session_id='{$session}'";
+         return Db::getInstance()->queryAll($sql, static::class);
     }
 
 

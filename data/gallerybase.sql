@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3307
--- Время создания: Июн 22 2021 г., 05:31
+-- Время создания: Июн 29 2021 г., 02:30
 -- Версия сервера: 8.0.19
 -- Версия PHP: 7.4.5
 
@@ -144,7 +144,14 @@ INSERT INTO `basket` (`id`, `goods_id`, `session_id`, `quantity`, `price`, `pric
 (285, 3, '', 3, 594, 198),
 (303, 2, '55e8l49aj2ocqq4gf0thh8euagqcnrco', 1, 452, 452),
 (304, 3, '55e8l49aj2ocqq4gf0thh8euagqcnrco', 2, 396, 198),
-(305, 1, '55e8l49aj2ocqq4gf0thh8euagqcnrco', 2, 1240, 620);
+(305, 1, '55e8l49aj2ocqq4gf0thh8euagqcnrco', 2, 1240, 620),
+(314, 1, '8rqjmr7alsaj25le0dqcoo4g6nr6u5dg', 1, 620, 620),
+(315, 1, '8rqjmr7alsaj25le0dqcoo4g6nr6u5dg', 1, 620, 620),
+(319, 1, '8rqjmr7alsaj25le0dqcoo4g6nr6u5dg', 1, 620, 620),
+(320, 1, '8rqjmr7alsaj25le0dqcoo4g6nr6u5dg', 1, 620, 620),
+(368, 1, 'tbv7b5q3d1l6jk7h4ppqjsmke43k40hj', 1, 620, 620),
+(369, 1, 'tbv7b5q3d1l6jk7h4ppqjsmke43k40hj', 1, 620, 620),
+(370, 2, 'tbv7b5q3d1l6jk7h4ppqjsmke43k40hj', 1, 452, 452);
 
 -- --------------------------------------------------------
 
@@ -246,7 +253,7 @@ INSERT INTO `goods` (`id`, `name`, `description`, `price`, `image`) VALUES
 (1, 'Кофе', 'Кофе в зернах - сбалансированный и ароматный кофе, средняя обжарка. Богатый вкус с приятным послевкусием для настоящих мужчин', 620, 'coffee.jpg'),
 (2, 'Чай', 'Травяной чай в пакетиках Милфорд Иммунити с эхинацеей и имбирем 3 упаковки по 20 пакетиков по 1,75 гр (35 грамм). Чайный напиток Милфорд - 100% натуральный продукт с уникальной рецептурой, отличным вкусом и ароматом чая. Чай создан на основе шиповника, корня имбиря, эхинацеи и корня элеутерококка. Польза чайного напитка заключается в его составе: Шиповник - источник витамина С Эхинацея укрепляет иммунитет, оказывает тонизирующее влияние, подавляет симптомы стресса. Отличное средство для повышения защитных сил организма Корень имбиря - в составе, в котором содержится множество биологически активных компонентов (около 400 соединений), предопределяющих лечебные свойства имбиря. Химический состав имбирного корня богат на содержание витамин С - главного \"борца\" с различного рода ОРЗ и ОРВИ Состав чайного напитка: сорго лимонное, листья ежевики, шиповник, корень имбиря, трава эхинацеи, ройбуш, цедра апельсина, корица, корень элеутерококка, корень эхинацеи.', 452, 'tea.jpg'),
 (3, 'Яблоко', 'Яблоки Роял Гала среднего размера имеют красноватую кожуру с характерными немногочисленными вертикальными полосками желтого или желто-зеленого цвета. Хрустящая сочная мякоть этих плодов отличается приятным десертным вкусом.', 198, 'apple.jpg'),
-(42, 'Кофе', 'Хороший', 500, 'coffee.jpg'),
+(42, 'Кофе', 'Хороший', 1500, 'coffee.jpg'),
 (43, 'Кофе', 'Хороший', 500, 'coffee.jpg'),
 (44, 'Кофе', 'Хороший', 500, 'coffee.jpg'),
 (45, 'Кофе', 'Хороший', 500, 'coffee.jpg'),
@@ -370,24 +377,25 @@ CREATE TABLE `users` (
   `id` int NOT NULL,
   `login` text NOT NULL,
   `pass` text NOT NULL,
-  `hash` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci
+  `hash` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `role` varchar(255) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `login`, `pass`, `hash`) VALUES
-(1, 'admin', '$2y$10$7MPBsjZJQvTdH2YQh6RLg.ql7roG.LsoRuSrmTtQjXs//VstSR5j2', '57762278460bb81bf01df73.04760971'),
-(2, 'lop', '$2y$10$h8VYBRsfOf/vh/n97OYUh..iDm8ZDMnlW/hYtg3zyx7jlbvEx92lS', '62656287460bb81cb726773.74618670'),
-(3, 'two', '$2y$10$yQtBYEdFGNIzjULV4GepcOgRAckGDbrbbmKIu85ybNyKxjAvNKWT.', NULL),
-(4, 'one', '$2y$10$MewJ.hJtznVH8EvYfJTpaOv/NN/5zou/nOs3T2WtCPlOe6bSAh6v2', '3074121460c2d89224b3a5.25371529'),
-(5, 'tree', '$2y$10$SreEqZGrAmGfIsONzen5rOQrpsio3Ppm4Zc1eUMDQwOsxg/2r6g.u', NULL),
-(6, 'for', '$2y$10$xGWA.MLdQaoICxQCdnuw.ub6wTJzqQQ1zFtYWFZa5dyNx3qst134W', NULL),
-(7, 'five', '$2y$10$CgWVbEcTbiYiprUjt9Knv.7XQM1KRhqIALrapoqIgpB1c0lFDefcy', NULL),
-(8, 'six', '$2y$10$ls2uK.Fpfg.GcsX.k/dj3Oaz78FrLnVaOQtztL3kIMAtlpuHAW8cK', NULL),
-(9, 'seven', '$2y$10$x92TdV6gMiZbBF9dKN5YBuhxH1slTuylFAMzguSxEqORgZcpyISdS', NULL),
-(10, 'nina', '$2y$10$T08t9pCO8zLh2zOoczQG.ut8aPvX/gaR2CZvrmarKnha1UMYzPZd6', NULL);
+INSERT INTO `users` (`id`, `login`, `pass`, `hash`, `role`) VALUES
+(1, 'admin', '$2y$10$7MPBsjZJQvTdH2YQh6RLg.ql7roG.LsoRuSrmTtQjXs//VstSR5j2', '2198757360d837357efee8.82799781', 'admin'),
+(2, 'lop', '$2y$10$h8VYBRsfOf/vh/n97OYUh..iDm8ZDMnlW/hYtg3zyx7jlbvEx92lS', '62656287460bb81cb726773.74618670', 'user'),
+(3, 'two', '$2y$10$yQtBYEdFGNIzjULV4GepcOgRAckGDbrbbmKIu85ybNyKxjAvNKWT.', NULL, 'user'),
+(4, 'one', '$2y$10$MewJ.hJtznVH8EvYfJTpaOv/NN/5zou/nOs3T2WtCPlOe6bSAh6v2', '68718625260da413440c804.92060341', 'user'),
+(5, 'tree', '$2y$10$SreEqZGrAmGfIsONzen5rOQrpsio3Ppm4Zc1eUMDQwOsxg/2r6g.u', NULL, 'user'),
+(6, 'for', '$2y$10$xGWA.MLdQaoICxQCdnuw.ub6wTJzqQQ1zFtYWFZa5dyNx3qst134W', NULL, 'user'),
+(7, 'five', '$2y$10$CgWVbEcTbiYiprUjt9Knv.7XQM1KRhqIALrapoqIgpB1c0lFDefcy', '202473440360d82f2a29f2f8.09573957', 'user'),
+(8, 'six', '$2y$10$ls2uK.Fpfg.GcsX.k/dj3Oaz78FrLnVaOQtztL3kIMAtlpuHAW8cK', '133683137460d82fca2aa547.63467884', 'user'),
+(9, 'seven', '$2y$10$x92TdV6gMiZbBF9dKN5YBuhxH1slTuylFAMzguSxEqORgZcpyISdS', NULL, 'user'),
+(10, 'yan', '$2y$10$7MPBsjZJQvTdH2YQh6RLg.ql7roG.LsoRuSrmTtQjXs//VstSR5j2', NULL, 'user');
 
 --
 -- Индексы сохранённых таблиц
@@ -445,7 +453,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `basket`
 --
 ALTER TABLE `basket`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=314;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=445;
 
 --
 -- AUTO_INCREMENT для таблицы `feedback`
@@ -463,7 +471,7 @@ ALTER TABLE `gallery`
 -- AUTO_INCREMENT для таблицы `goods`
 --
 ALTER TABLE `goods`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT для таблицы `news`
@@ -481,7 +489,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
