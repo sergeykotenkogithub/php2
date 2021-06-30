@@ -47,7 +47,7 @@ class AsyncController extends Controller
         // Через POST
 
         $id = (new Request())->getParams()['id'];
-        Basket::getOne($id)->delete();
+        Basket::getOneAndWhere('id', $id, 'session_id', $session)->delete();
 
         $response = [
             'count' => Basket::countSum('quantity', 'session_id', $session),

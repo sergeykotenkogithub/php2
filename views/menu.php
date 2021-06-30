@@ -2,7 +2,6 @@
 <!--    --><?php //var_dump($countBasket); ?>
     <a href="/">Главная</a>
     <a href="/product/catalog">Каталог</a>
-    <a href="/basket/object">КорзинаОбъект</a>
     <a href="/feedback/all">Отзывы</a>
     <? if ($isAuth): ?>
         <div class="menu__logout">

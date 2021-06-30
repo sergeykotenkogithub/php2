@@ -18,13 +18,4 @@ final class BasketController extends Controller
         ]);
     }
 
-    // Для того чтобы узнать как получить объект 2х классов
-    public function actionObject() {
-        $session =  session_id();
-        $basket = Basket::getBasketObject($session);
-        echo $this->render('basketobject', [
-            'basket' => $basket,
-        ]);
-    }
-
 }
