@@ -91,7 +91,6 @@ abstract class DBModel extends Model
         DB::getInstance()->executeSql($sql, $params);
         $this->id = DB::getInstance()->lastInsertId();
 
-        return $this;
     }
 
     //......................Обновление значения............................................
@@ -133,11 +132,10 @@ abstract class DBModel extends Model
 
     public function save() {
         if (is_null($this->id)) {
-            return $this->insert();
+            $this->insert();
         } else {
-            return $this->update();
+            $this->update();
         }
-        return $this;
     }
 
 }

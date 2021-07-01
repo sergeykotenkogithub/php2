@@ -81,7 +81,13 @@ final class Db implements IDb
     public function queryOneObject($sql, $params, $class) {
         $stmt = $this->query($sql, $params); //Statement - $stmt
         $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE , $class);
-        return $stmt->fetch();
+        $obj = $stmt->fetch();
+
+//        if (!$obj) {
+//            throw new \Exception("Продукт не найден", 404);
+//        }
+
+        return $obj;
     }
 
     public function queryOne($sql, $params = []) {

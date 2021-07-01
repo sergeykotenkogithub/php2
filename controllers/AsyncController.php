@@ -43,32 +43,18 @@ class AsyncController extends Controller
     //.......В Корзине: при нажатие кнопки удалить - удаляет полностью.....................................
 
     public function actionDelete() {
-        $session = (new Session())->getId();
+        $session_id = (new Session())->getId();
 
         // Через POST
 
         $id = (new Request())->getParams()['id'];
-        Basket::getOneAndWhere('id', $id, 'session_id', $session)->delete();
+        Basket::getOneAndWhere('id', $id, 'session_id', $session_id)->delete();
 
         $response = [
-            'count' => Basket::countSum('quantity', 'session_id', $session),
-            'sum' => Basket::countSum('price', 'session_id', $session)
+            'count' => Basket::countSum('quantity', 'session_id', $session_id),
+            'sum' => Basket::countSum('price', 'session_id', $session_id)
         ];
 
         echo json_encode($response, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-
-        // Через GET
-        // $id = $_GET['id'];
-
-        // Второй вариант через глобальный:
-
-        //        $data = json_decode(file_get_contents('php://input'));
-        //        $id = $data->id;
-
-        // и такая запись для передачи:
-
-        //        $count = Basket::countSum('quantity', 'session_id', $session);
-        //        $sum = Basket::countSum('price', 'session_id', $session);
-        //        echo json_encode(['count' => $count, 'sum' => $sum], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     }
 }
