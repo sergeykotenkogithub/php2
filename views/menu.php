@@ -8,7 +8,6 @@
             <a href="/myorders/all/?id=<?=$myOrders?>"><?= $username ?></a>
             <a href="/auth/logout""><div class="menu__iconLogout"></div></a>
         </div>
-
     <?else: ?>
     <a class="menu__basket" href="/login/enter">
         <div class="menu__iconLogin"></div>

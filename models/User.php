@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use app\interfaces\IDb;
+use app\engine\Session;
 
 final class User extends DBModel
 {
@@ -35,8 +35,8 @@ final class User extends DBModel
     public static function auth($login, $pass) {
         $user = User::getOneWhere('login', $login);
         if (password_verify($pass, $user->pass )) {
-            $_SESSION['login'] = $login;
-            $_SESSION['id'] = $user->id;
+            (new Session())->set('login', $login);
+            (new Session())->set('id', $user->id);
             return true;
         }
         else {
@@ -51,20 +51,22 @@ final class User extends DBModel
             if ($result) {
                 $user = $result->login;
                 if (!empty($user)) {
-                    $_SESSION['login'] = $user;
+                    (new Session())->set('login', $user);
+//                    $_SESSION['login'] = $user;
                     return true;
                 }
             }
         }
-        return isset($_SESSION['login']);
+        $session = (new Session())->get('login');
+        return isset($session);
     }
 
     public static function isAdmin() {
-        $login = $_SESSION['login'];
+        $login = (new Session())->get('login');
         return User::getOneAndWhere('login', $login, 'role', 'admin');
     }
 
     public static function getName() {
-        return $_SESSION['login'];
+        return (new Session())->get('login');;
     }
 }

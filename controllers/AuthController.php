@@ -4,6 +4,7 @@
 namespace app\controllers;
 
 use app\engine\Request;
+use app\engine\Session;
 use app\models\User;
 
 class AuthController extends Controller
@@ -32,9 +33,8 @@ class AuthController extends Controller
 
     public function actionLogout() {
         setcookie("hash", "", time()-1, "/" );
-        session_regenerate_id(); // чтобы корзина сбросилась
-        session_destroy();
-        // header("Location:" . $_SERVER['HTTP_REFERER']);
+        (new Session())->regenerate(); // чтобы корзина сбросилась
+        (new Session())->destroy();
         header("Location: /");
         die();
     }
