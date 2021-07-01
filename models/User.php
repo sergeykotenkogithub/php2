@@ -52,7 +52,6 @@ final class User extends DBModel
                 $user = $result->login;
                 if (!empty($user)) {
                     (new Session())->set('login', $user);
-//                    $_SESSION['login'] = $user;
                     return true;
                 }
             }

@@ -5,6 +5,7 @@ namespace app\controllers;
 
 
 use app\engine\Request;
+use app\engine\Session;
 use app\models\Basket;
 use app\models\Product;
 
@@ -33,7 +34,7 @@ class AsyncController extends Controller
 
         $id = (new Request())->getParams()['id'];
         $price = (new Request())->getParams()['price'];
-        $session = session_id();
+        $session = (new Session())->getId();
         $count = Basket::countSum('quantity', 'session_id', $session);
         (new Basket($id, "$session", $price, $price, 1))->save();
         echo json_encode(['count' => $count + 1], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
@@ -42,7 +43,7 @@ class AsyncController extends Controller
     //.......В Корзине: при нажатие кнопки удалить - удаляет полностью.....................................
 
     public function actionDelete() {
-        $session = session_id();
+        $session = (new Session())->getId();
 
         // Через POST
 
