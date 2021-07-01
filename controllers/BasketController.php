@@ -2,15 +2,15 @@
 
 namespace app\controllers;
 
-use app\models\Basket;
+use app\models\repositories\BasketRepository;
 
 final class BasketController extends Controller
 
 {
     public function actionGoods() {
         $session =  session_id();
-        $basket = Basket::getBasket($session);
-        $sum = Basket::countSum('price', 'session_id', $session);
+        $basket = (new BasketRepository())->getBasket($session);
+        $sum = (new BasketRepository())->countSum('price', 'session_id', $session);
 
         echo $this->render('basket', [
             'basket' => $basket,

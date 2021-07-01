@@ -5,8 +5,8 @@ namespace app\controllers;
 
 use app\engine\TwigRender;
 use app\interfaces\IRenderer;
-use app\models\Basket;
-use app\models\User;
+use app\models\repositories\BasketRepository;
+use app\models\repositories\UserRepository;
 
 abstract class Controller
 {
@@ -34,13 +34,13 @@ abstract class Controller
 
     public function render($template, $params = []) {
         $session = session_id();
-        $countBasket = Basket::countSum('quantity', 'session_id', $session);
+        $countBasket = (new BasketRepository())->countSum('quantity', 'session_id', $session);
         if ($this->useLayout) {
             return $this->renderTemplate("layouts/{$this->layout}", [
                 'menu' => $this->renderTemplate('menu', [
-                    'isAuth' => User::isAuth(),
-                    'username' => User::getName(),
-                    'isAdmin' => User::isAdmin(),
+                    'isAuth' => (new UserRepository())->isAuth(),
+                    'username' => (new UserRepository())->getName(),
+                    'isAdmin' => (new UserRepository())->isAdmin(),
                     "noAuth" => $_SESSION['noAuth'],
                     "myOrders" => $_SESSION['id'],
                     'countBasket' => $countBasket

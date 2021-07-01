@@ -1,38 +1,14 @@
 <?php
 
-namespace app\models;
+namespace app\models\repositories;
 
 use app\engine\Session;
+use app\models\Repository;
+use app\models\User;
 
-final class User extends DBModel
+class UserRepository extends Repository
 {
-    public $id;
-    protected $login;
-    protected $pass;
-    protected $hash;
-
-    //..................Сетеры и гетеры........................
-
-    protected $props = [
-        'login' => false,
-        'pass' => false,
-        'hash' => false,
-    ];
-
-    //.................................................................
-
-    public function __construct($login = null, $pass = null, $hash = null)
-    {
-        $this->login = $login;
-        $this->pass = $pass;
-        $this->hash = $hash;
-    }
-
-    protected static function getTableName() {
-        return 'users';
-    }
-
-    public static function auth($login, $pass) {
+    public function auth($login, $pass) {
         $user = User::getOneWhere('login', $login);
         if (password_verify($pass, $user->pass )) {
             (new Session())->set('login', $login);
@@ -44,7 +20,7 @@ final class User extends DBModel
         }
     }
 
-    public static function isAuth() {
+    public function isAuth() {
         if (isset($_COOKIE['hash']) && !isset($_SESSION['login'])) {
             $hash = $_COOKIE["hash"];
             $result = User::getOneWhere('hash', $hash);
@@ -60,12 +36,21 @@ final class User extends DBModel
         return isset($session);
     }
 
-    public static function isAdmin() {
+    public function isAdmin() {
         $login = (new Session())->get('login');
-        return User::getOneAndWhere('login', $login, 'role', 'admin');
+//        return User::getOneAndWhere('login', $login, 'role', 'admin');
+        return $this->getOneAndWhere('login', $login, 'role', 'admin');
     }
 
-    public static function getName() {
+    public function getName() {
         return (new Session())->get('login');;
+    }
+
+    protected function getTableName() {
+        return 'users';
+    }
+
+    protected function getEntityClass() {
+        return User::class;
     }
 }

@@ -2,9 +2,7 @@
 
 namespace app\models;
 
-use app\engine\Db;
-
-final class Order extends DBModel
+final class Order extends Model
 {
     protected $id;
     protected $hash;
@@ -23,13 +21,6 @@ final class Order extends DBModel
         'total' => false,
     ];
 
-    public static function getMyOrders(int $id) {
-        $sql = "SELECT o.hash, g.name, o.id, b.quantity, g.image, b.price, o.status, o.total FROM orders o JOIN basket b on b.session_id = o.hash join goods g on g.id = b.goods_id WHERE o.users_id = {$id} ORDER BY o.id DESC";
-        return Db::getInstance()->queryAllArray($sql);
-    }
-
-    //......................................................................................................
-
     public function __construct($hash = null, $email = null, $date = null, $user_id = null, $status = null, $total = null)
     {
         $this->hash = $hash;
@@ -38,9 +29,5 @@ final class Order extends DBModel
         $this->user_id = $user_id;
         $this->status = $status;
         $this->total = $total;
-    }
-
-    protected static function getTableName() {
-        return 'orders';
     }
 }

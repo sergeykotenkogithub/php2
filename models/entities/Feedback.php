@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-final class Feedback extends DBModel
+final class Feedback extends Model
 {
     protected $id;
     protected $name;
@@ -28,7 +28,4 @@ final class Feedback extends DBModel
 
     }
 
-    protected static function getTableName() {
-        return 'feedback';
-    }
 }
