@@ -13,6 +13,14 @@ class ProductTest extends TestCase
         $this->assertEquals($name, $product->name);
     }
 
+    //............Проверяет что props это массив........
+
+    public function testProductPropsIsArray() {
+        $product = new Product();
+        $props = $product->props;
+        $this->assertIsArray($props);
+    }
+
     //............Проверяет есть ли такой ключ в массиве props........
 
     public function testProductProps() {
