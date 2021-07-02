@@ -3,9 +3,8 @@
 
 namespace app\controllers;
 
-use app\models\Product;
+use app\models\repositories\ProductRepository;
 use app\models\repositories\UserRepository;
-use app\models\User;
 
 final class ProductController extends Controller
 {
@@ -20,8 +19,8 @@ final class ProductController extends Controller
     public function actionCatalog() {
         $page = $_GET['page'] ?? 2;
         // $page = $_GET['page'] ?? 1; Для кнопки ещё
-        $catalog = Product::getLimit($page * 2);
-        $catalog = Product::getLimit($page * 2);
+//        $catalog = Product::getLimit($page * 2);
+        $catalog = (new ProductRepository())->getLimit($page * 2);
         echo $this->render('catalog', [
           'catalog' => $catalog,
           'page' => ++$page
@@ -30,7 +29,8 @@ final class ProductController extends Controller
 
     public function actionCard() {
         $id = $_GET['id'];
-        $good = Product::getOne($id);
+//        $good = Product::getOne($id);
+        $good = (new ProductRepository())->getOne($id);
         echo $this->render('card', [
             'good' => $good
         ]);

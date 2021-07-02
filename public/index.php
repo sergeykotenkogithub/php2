@@ -9,10 +9,10 @@ session_start();
 
 //................Псевдонимы................
 
-use app\models\{Basket, Feedback, Gallery, Headline, Order, Product, User};
+//use app\models\{Basket, Feedback, Order, Product, User};
 use app\engine\Render;
 use app\engine\TwigRender;
-use app\engine\Autoload;
+//use app\engine\Autoload; // Автозагрузчик написан в ручную, формат psr-4
 use app\engine\Request;
 
 //.....Конфигурационый файл.....................
@@ -21,12 +21,12 @@ include dirname( __DIR__ ) . "/config/config.php";
 
 //................Автозагрузка и Db...............
 
-include ROOT . "/engine/Autoload.php";
+//include ROOT . "/engine/Autoload.php";
 include ROOT . '/vendor/autoload.php'; // Twig Автозагрузка
 
 try {
 
-    spl_autoload_register( [new Autoload(), 'loadClass']);
+//    spl_autoload_register( [new Autoload(), 'loadClass']);
 
 
 
@@ -59,6 +59,8 @@ catch (\PDOException $e) {
 } catch (\Exception $e) {
     var_dump($e->getMessage());
 }
+
+die();
 
 //.........................Проверка............................................................
 

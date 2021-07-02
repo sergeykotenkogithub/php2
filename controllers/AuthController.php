@@ -6,7 +6,8 @@ namespace app\controllers;
 use app\engine\Cookie;
 use app\engine\Request;
 use app\engine\Session;
-use app\models\User;
+use app\models\repositories\UserRepository;
+use app\models\entities\User;
 
 class AuthController extends Controller
 {
@@ -14,10 +15,13 @@ class AuthController extends Controller
         $login = (new Request())->getParams()['login'];
         $pass = (new Request())->getParams()['pass'];
 
-        if (User::auth($login, $pass)) {
+//        if (User::auth($login, $pass)) {
+        if ((new UserRepository())->auth($login, $pass)) {
           if (isset($_POST['save'])) {
               $hash = uniqid(rand(), true);
-              $update = User::getOne($_SESSION['id']);
+//              $update = User::getOne($_SESSION['id']);
+//              $user = new UserRepository()
+              $update = (new UserRepository())->getOne($_SESSION['id']);
               $update->hash = $hash;
               $update->save();
               (new Cookie())->set('hash', $hash);

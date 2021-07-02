@@ -4,12 +4,14 @@ namespace app\models\repositories;
 
 use app\engine\Session;
 use app\models\Repository;
-use app\models\User;
+use app\models\entities\User;
 
 class UserRepository extends Repository
 {
     public function auth($login, $pass) {
-        $user = User::getOneWhere('login', $login);
+//        $user = User::getOneWhere('login', $login);
+//        $user = (new UserRepository())->getOneWhere('login', $login);
+        $user = $this->getOneWhere('login', $login);
         if (password_verify($pass, $user->pass )) {
             (new Session())->set('login', $login);
             (new Session())->set('id', $user->id);
@@ -23,7 +25,9 @@ class UserRepository extends Repository
     public function isAuth() {
         if (isset($_COOKIE['hash']) && !isset($_SESSION['login'])) {
             $hash = $_COOKIE["hash"];
-            $result = User::getOneWhere('hash', $hash);
+//            $result = User::getOneWhere('hash', $hash);
+//            $result = (new UserRepository())->getOneWhere('hash', $hash);
+            $result = $this->getOneWhere('hash', $hash);
             if ($result) {
                 $user = $result->login;
                 if (!empty($user)) {

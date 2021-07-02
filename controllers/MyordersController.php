@@ -4,14 +4,16 @@
 namespace app\controllers;
 
 
-use app\models\Order;
+use app\models\entities\Order;
+use app\models\repositories\OrderRepository;
 
 class MyordersController extends Controller
 {
     public function actionAll() {
         $id = $_GET['id'];
-        $order = Order::getMyOrders($id);
-        $count_orders = count(Order::getMyOrders($id)) + 1;
+//        $order = Order::getMyOrders($id);
+        $order = (new OrderRepository())->getMyOrders($id);
+        $count_orders = count((new OrderRepository())->getMyOrders($id)) + 1;
         echo $this->render('myorders', [
             'order' => $order,
             'count_orders' => $count_orders

@@ -5,7 +5,6 @@
 namespace app\engine;
 use app\interfaces\IDb;
 use app\traits\TSingletone;
-use http\Params;
 
 final class Db implements IDb
 {
@@ -82,7 +81,7 @@ final class Db implements IDb
         $stmt = $this->query($sql, $params); //Statement - $stmt
         $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE , $class);
         $obj = $stmt->fetch();
-
+//        var_dump($obj);
 //        if (!$obj) {
 //            throw new \Exception("Продукт не найден", 404);
 //        }

@@ -1,6 +1,7 @@
 <?php
 
-namespace app\models;
+namespace app\models\entities;
+use app\models\Model;
 
 final class User extends Model
 {

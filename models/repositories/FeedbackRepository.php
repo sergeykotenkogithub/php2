@@ -3,7 +3,6 @@
 
 namespace app\models\repositories;
 
-use app\models\Feedback;
 use app\models\Repository;
 
 class FeedbackRepository extends Repository

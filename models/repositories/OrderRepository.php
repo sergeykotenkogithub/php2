@@ -5,8 +5,7 @@ namespace app\models\repositories;
 
 
 use app\engine\Db;
-use app\models\Feedback;
-use app\models\Order;
+use app\models\entities\Order;
 use app\models\Repository;
 
 class OrderRepository extends Repository

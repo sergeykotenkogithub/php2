@@ -28,11 +28,13 @@ abstract class Controller
             $this->$method();
         }
         else {
-            die("action не существует");
+            throw new \Exception("action не существует", 404);
+//            die("action не существует");
         }
     }
 
     public function render($template, $params = []) {
+
         $session = session_id();
         $countBasket = (new BasketRepository())->countSum('quantity', 'session_id', $session);
         if ($this->useLayout) {
@@ -55,4 +57,6 @@ abstract class Controller
     protected function renderTemplate($template, $params = []) {
         return $this->render->renderTemplate($template, $params);
     }
+
+
 }

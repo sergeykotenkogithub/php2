@@ -3,7 +3,7 @@
 namespace app\models\repositories;
 
 use app\engine\Db;
-use app\models\Basket;
+use app\models\entities\Basket;
 use app\models\Repository;
 
 class BasketRepository extends Repository

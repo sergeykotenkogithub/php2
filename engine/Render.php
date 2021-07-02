@@ -15,7 +15,8 @@ final class Render implements IRenderer
             include $templatePath;
             return ob_get_clean();
         } else {
-            die('Шаблона нет такого');
+            throw new \Exception("Шаблона нет такого", 404);
+//            die('Шаблона нет такого');
         }
     }
 }
