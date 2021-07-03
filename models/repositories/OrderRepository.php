@@ -13,11 +13,26 @@ class OrderRepository extends Repository
         return Db::getInstance()->queryAllArray($sql);
     }
 
+    public function getAllOrder() {
+        $sql = "SELECT * FROM orders ORDER BY id DESC";
+        return Db::getInstance()->queryAll($sql, $this->getEntityClass());
+    }
+
+    public function adminOrderStatus($id) {
+        $sql = "SELECT id, status FROM orders WHERE id = {$id} ";
+        return Db::getInstance()->queryOne($sql);
+    }
+
+    public function adminOrderItem($id) {
+        $sql = "SELECT * FROM basket,orders,goods WHERE basket.session_id = orders.hash AND orders.id = '{$id}' AND basket.goods_id = goods.id";
+        return Db::getInstance()->queryAllArray($sql);
+    }
+
     protected function getEntityClass() {
         return Order::class;
     }
 
-    protected function getTableName() {
+    public function getTableName() {
         return 'orders';
     }
 

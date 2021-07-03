@@ -12,6 +12,17 @@
     color:  cornflowerblue;
     @extend %hover;
   }
+  &__iconAdmin {
+    width: 25px;
+    height: 26px;
+    background: url("/img/icon/settings.svg");
+    background-size: contain;
+  }
+
+  &__Admin {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .menu__icon {

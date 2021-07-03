@@ -25,7 +25,12 @@ class AuthController extends Controller
               (new Cookie())->set('hash', $hash); // добавляет куку
           }
         $myId = (new Session())->get('id');
-        header("Location: /myorders/all/?id={$myId}"); // Сразу перебрасывает на заказы клиента
+        if( (new UserRepository())->isAdmin()) {
+            header("Location: /admin");
+        }
+        if( !(new UserRepository())->isAdmin()) {
+            header("Location: /myorders/all/?id={$myId}"); // Сразу перебрасывает на заказы клиента
+        }
         (new Session())->unset('noAuth'); // разрушает сессию с выводом сообщения о неправильнои логине/пароле
         die();
         }  else {

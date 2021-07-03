@@ -5,8 +5,12 @@
     <a href="/feedback/all">Отзывы</a>
     <? if ($isAuth): ?>
         <div class="menu__logout">
-            <a href="/myorders/all/?id=<?=$myOrders?>"><?= $username ?></a>
-            <a href="/auth/logout""><div class="menu__iconLogout"></div></a>
+            <?if ($isAdmin) :?>
+                 <a class="menu__Admin" href="/admin""><div class="menu__iconAdmin"></div><div>Админ</div></a>
+            <?else: ?>
+                 <a href="/myorders/all/?id=<?=$myOrders?>"><?= $username ?></a>
+            <?endif; ?>
+                 <a href="/auth/logout""><div class="menu__iconLogout"></div></a>
         </div>
     <?else: ?>
     <a class="menu__basket" href="/login/enter">
