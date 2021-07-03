@@ -10,7 +10,7 @@ final class Order extends Model
     protected $tel;
     protected $email;
     protected $total;
-    protected $user_id;
+    protected $users_id;
     protected $date;
     protected $status;
 
@@ -20,19 +20,19 @@ final class Order extends Model
         'tel' => false,
         'email' => false,
         'total' => false,
-        'user_id' => false,
+        'users_id' => false,
         'date' => false,
         'status' => false,
     ];
 
-    public function __construct($hash = null, $tel = null, $email = null,  $total = null, $user_id = null, $date = null,  $status = null)
+    public function __construct($hash = null, $tel = null, $email = null,  $total = null, $users_id = null, $date = null,  $status = null)
     {
         $this->hash = $hash;
         $this->tel = $tel;
         $this->email = $email;
-        $this->total = $total;
-        $this->user_id = $user_id;
         $this->date = $date;
+        $this->users_id = $users_id;
         $this->status = $status;
+        $this->total = $total;
     }
 }

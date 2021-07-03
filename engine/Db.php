@@ -106,6 +106,9 @@ final class Db implements IDb
 
     public function executeSql($sql, $params = []) {
         // UPDATE, INSERT, DELETE
+//        var_dump($sql, $params);
+//        die();
+
 
         $stmt = $this->query($sql, $params);
 //         $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE , $class);

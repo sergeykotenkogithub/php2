@@ -17,10 +17,17 @@ class RegistrationRepository extends Repository
             }
             else {
                 unset($_SESSION['message']);
-                $user = new User($login,"{$pass_hash}");
+//                $user = new User($login, $pass_hash, 'NULLL', 'user');
+                $user = new User($login, $pass_hash, 'user', 11);
 //                (new UserRepository())->save($user);
 
+//                (new UserRepository())->insert($user);
                 (new UserRepository())->insert($user);
+
+//                $update = (new UserRepository())->getOne(2);
+//                $update->hash = 1221;
+//                (new UserRepository())->insert($update); // Изменяет хэш
+
                 $message = 'Поздравляю! Вы зарегистрировались.';
             }
         }

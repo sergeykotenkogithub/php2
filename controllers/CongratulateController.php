@@ -1,11 +1,10 @@
 <?php
 
-
 namespace app\controllers;
-
 
 use app\engine\Session;
 use app\models\entities\Order;
+use app\models\repositories\BasketRepository;
 use app\models\repositories\OrderRepository;
 
 class CongratulateController extends Controller
@@ -14,15 +13,15 @@ class CongratulateController extends Controller
 
         $id = (new Session())->get('id');
         $session = (new Session())->getId();
-        $tel = $_POST['tel'];
+        $tel = (int)$_POST['tel'];
         $email = $_POST['email'];
-//        var_dump($tel, $email, $session, $id);
+        $sum = (new BasketRepository())->countSum('price', 'session_id', $session);
+
         if (isset($tel) && isset($email)) {
-
-            $order = new Order($session, $tel, $email, 650 );
-
-            (new OrderRepository())->insert($order);
-
+// Обязательно нужно указывать все поля ПОЧЕМУ? users_id, date и status же по умолчанию есть в значениях базы данных, раньше так не надо было писать.
+                $order = new Order($session, $tel, $email, $sum, 1, '2021-06-14', 'Ожидайте звонка');
+                (new OrderRepository())->insert($order);
+                (new Session())->regenerate();
         }
 
         echo $this->render('congratulate');

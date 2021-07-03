@@ -21,6 +21,7 @@ class AuthController extends Controller
               $update = (new UserRepository())->getOne($_SESSION['id']);
               $update->hash = $hash;
               (new UserRepository())->update($update); // Изменяет хэш
+//              (new UserRepository())->insert($update); // Изменяет хэш
               (new Cookie())->set('hash', $hash); // добавляет куку
           }
         $myId = (new Session())->get('id');

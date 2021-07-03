@@ -1,8 +1,6 @@
 <?php
 
-
 namespace app\models\repositories;
-
 
 use app\engine\Db;
 use app\models\entities\Order;

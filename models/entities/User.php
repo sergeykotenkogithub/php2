@@ -9,6 +9,7 @@ final class User extends Model
     protected $login;
     protected $pass;
     protected $hash;
+    protected $role;
 
     protected $props = [
         'login' => false,
@@ -16,11 +17,12 @@ final class User extends Model
         'hash' => false,
     ];
 
-    public function __construct($login = null, $pass = null, $hash = null)
+    public function __construct($login = null, $pass = null,  $role = null, $hash = null)
     {
         $this->login = $login;
         $this->pass = $pass;
         $this->hash = $hash;
+        $this->role = $role;
     }
 
 }
