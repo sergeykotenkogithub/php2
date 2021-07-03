@@ -2,7 +2,7 @@
 
 // Асинхрон для Каталога
 
-let inProgress = false; // чтобь пока идёт асинхрон запово не шёл запрос
+let inProgress = false; // чтоб пока идёт асинхрон запово не шёл запрос
 
 window.addEventListener('scroll', (e) => {
 

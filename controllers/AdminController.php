@@ -14,11 +14,15 @@ class AdminController extends Controller
     public function actionIndex() {
 
         $isAdmin = (new UserRepository())->isAdmin();
-        $orderAll = (new OrderRepository())->getAllOrder();
+//        $orderAll = (new OrderRepository())->getAllOrder();
+        $page = $_GET['page'] ?? 3;
+        $orderAll = (new OrderRepository())->getLimitDesc($page * 2);
+//        $orderAll = (new OrderRepository())->getLimit($page * 2);
 
         echo $this->render('admin', [
             'isAdmin' => $isAdmin,
-            'orderAll' => $orderAll
+            'orderAll' => $orderAll,
+            'page' => ++$page
         ]);
     }
 

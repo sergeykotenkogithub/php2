@@ -12,7 +12,8 @@
 
             <div class="goods__buy">
                 <p class="goods__price rub">Цена: <?=$item->price?></p>
-                <button class="goods__btn" data-id="<?=$item->id?>" data-price="<?=$item->price?>"><img src="/img/icon/cart.svg" alt="cart"></button>
+                <button class="goods__btn" data-id="<?=$item->id?>" data-price="<?=$item->price?>">
+                    <img src="/img/icon/cart.svg" alt="cart"></button>
             </div>
         </div>
 

@@ -6,6 +6,7 @@ use app\engine\Request;
 use app\engine\Session;
 use app\models\entities\Basket;
 use app\models\repositories\BasketRepository;
+use app\models\repositories\OrderRepository;
 use app\models\repositories\ProductRepository;
 
 class AsyncController extends Controller
@@ -19,6 +20,21 @@ class AsyncController extends Controller
             $count = (new Request())->getParams()['count'];
             $count += PRODUCT_PER_PAGE; // Параметр в config
             $catalog = (new ProductRepository())->getLimitAjax($count, PRODUCT_PER_PAGE);  // первая - смещение,  вторая цифра - это количество записей которое показывается.
+            echo json_encode([
+               'count' => $count,
+               'catalog' => $catalog
+            ], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+            die();
+        }
+    }
+
+    public function actionAdmin() {
+
+        if((new Request())->getParams()['page'] == 'two') {
+            $count = (new Request())->getParams()['count'];
+            $count += PRODUCT_PER_PAGE; // Параметр в config
+//            $catalog = (new OrderRepository())->getLimitAjax($count, PRODUCT_PER_PAGE);  // первая - смещение,  вторая цифра - это количество записей которое показывается.
+            $catalog = (new OrderRepository())->getLimitAjaxDesc($count, PRODUCT_PER_PAGE);  // первая - смещение,  вторая цифра - это количество записей которое показывается.
             echo json_encode([
                'count' => $count,
                'catalog' => $catalog

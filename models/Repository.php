@@ -55,11 +55,23 @@ abstract class Repository
         return Db::getInstance()->queryLimit($sql, $limit, $this->getEntityClass());
     }
 
+    public function getLimitDesc($limit) {
+        $tableName = $this->getTableName();
+        $sql = "SELECT * FROM {$tableName} ORDER BY id DESC LIMIT 0, ? ";
+        return Db::getInstance()->queryLimit($sql, $limit, $this->getEntityClass());
+    }
+
             //......................С ограниченим. Сколько показывать от ограничения............//
 
     public function getLimitAjax($before, $after) {
         $tableName = $this->getTableName();
         $sql = "SELECT * FROM {$tableName} LIMIT ?, ?";
+        return Db::getInstance()->queryLimitAjax($sql,$before, $after);
+    }
+
+    public function getLimitAjaxDesc($before, $after) {
+        $tableName = $this->getTableName();
+        $sql = "SELECT * FROM {$tableName} ORDER BY id DESC LIMIT ?, ?" ;
         return Db::getInstance()->queryLimitAjax($sql,$before, $after);
     }
 

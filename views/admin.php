@@ -1,8 +1,13 @@
 <?php if($isAdmin): ?>
+
+    <div hidden id="count">4</div>
+
     <div class="admin">
          <div class="admin__title">Заказы:</div>
+
         <?php foreach ($orderAll as $item):?>
-            <a href="/admin/adminOrder/?id=<?=$item->id?>">
+
+             <a href="/admin/adminOrder/?id=<?=$item->id?>">
                 <div class="admin__order">
                     <div>Заказ №: <?=$item->id?></div>
                     <div class="admin__info">
@@ -13,10 +18,16 @@
                     </div>
                 </div>
             </a>
+
         <?php endforeach;?>
+
+        <div id="addAsyncAdmin">
+
+        </div>
+
     </div>
 <? else: ?>
    <div>Нет доступа</div>
 <?php endif;?>
 
-
+<script src="/script/async/scrollAdmin.js?<?php echo uniqid();?>"></script>

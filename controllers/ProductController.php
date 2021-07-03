@@ -19,7 +19,7 @@ final class ProductController extends Controller
     public function actionCatalog() {
         $page = $_GET['page'] ?? 2;
         // $page = $_GET['page'] ?? 1; Для кнопки ещё
-//        $catalog = Product::getLimit($page * 2);
+        // $catalog = Product::getLimit($page * 2);
         $catalog = (new ProductRepository())->getLimit($page * 2);
         echo $this->render('catalog', [
           'catalog' => $catalog,
