@@ -14,7 +14,7 @@ abstract class Repository
     //..............Запросы..........................................................................//
 
 
-    //...................Один. id................................................
+            //...................Один. id................................................//
 
     public function getOne($id) {
         $tableName = $this->getTableName();
@@ -22,7 +22,7 @@ abstract class Repository
         return Db::getInstance()->queryOneObject($sql, ['id' => $id], $this->getEntityClass());
     }
 
-    //...................Один. Где Значение равно...................................
+            //...................Один. Где Значение равно...................................//
 
     public function getOneWhere($name, $value) {
         $tableName = $this->getTableName();
@@ -30,7 +30,7 @@ abstract class Repository
         return Db::getInstance()->queryOneObject($sql, ['value' => $value], $this->getEntityClass());
     }
 
-    //...................Один. Где Значение равно и другое значение равно...........
+            //...................Один. Где Значение равно и другое значение равно...........//
 
     public function getOneAndWhere($name, $value, $name2, $value2) {
         $tableName = $this->getTableName();
@@ -39,7 +39,7 @@ abstract class Repository
     }
 
 
-    //......................Все. Объект...............................................
+            //......................Все. Объект...............................................//
 
     public function getAll() {
         $tableName = $this->getTableName();
@@ -47,7 +47,7 @@ abstract class Repository
         return Db::getInstance()->queryAll($sql, $this->getEntityClass());
     }
 
-    //......................С ограниченим...............................................
+            //......................С ограниченим...............................................//
 
     public function getLimit($limit) {
         $tableName = $this->getTableName();
@@ -55,7 +55,7 @@ abstract class Repository
         return Db::getInstance()->queryLimit($sql, $limit, $this->getEntityClass());
     }
 
-    //......................С ограниченим. Сколько показывать от ограничения............
+            //......................С ограниченим. Сколько показывать от ограничения............//
 
     public function getLimitAjax($before, $after) {
         $tableName = $this->getTableName();
@@ -63,7 +63,7 @@ abstract class Repository
         return Db::getInstance()->queryLimitAjax($sql,$before, $after);
     }
 
-    //...................... Cумма. С условием .....................................................
+            //...................... Cумма. С условием .........................................//
 
     public function countSum($sum, $table ,$value) {
         $tableName = $this->getTableName();
@@ -72,7 +72,7 @@ abstract class Repository
         return Db::getInstance()->queryOne($sql, ['value' => $value])['count'];
     }
 
-    //......................Вставка значения............................................
+            //......................Вставка значения............................................//
 
     public function insert(Model $entity) {
 
@@ -91,10 +91,9 @@ abstract class Repository
 
         DB::getInstance()->executeSql($sql, $params);
         $entity->id = DB::getInstance()->lastInsertId();
-
     }
 
-    //......................Обновление значения............................................
+            //......................Обновление значения...........................................//
 
     public function update(Model $entity) {
 

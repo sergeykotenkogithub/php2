@@ -29,16 +29,38 @@ class ProductTest extends TestCase
         $this->assertArrayHasKey('description', $props);
     }
 
-    //............Проверяет namespace..................................
+    //............Проверяет namespace без setUP() ..................................
 
     public function testProductNamespace() {
-        $product = Product::class;
-        $productExplode = explode("\\", $product); // app\models\\entities\Product
+        $product = Product::class; // Если без setUp()
+        $productExplode = explode("\\", $product); // app\models\\entities\Product   || Если без setUp()
         $product1 = $productExplode[0]; // app
         $product2 = $productExplode[1]; // models
         $product3 = $productExplode[2]; // entities
         $product4 = $productExplode[3]; // Product
         $this->assertEquals($product, "app\models\\entities\Product");
+        $this->assertEquals($product1, "app");
+        $this->assertEquals($product2, "models");
+        $this->assertEquals($product3, "entities");
+        $this->assertEquals($product4, "Product");
+    }
+
+    //............Проверяет namespace c setUp ......................................
+
+    protected $testClass;
+
+    protected function setUp(): void
+    {
+        $this->testClass = Product::class;
+    }
+
+    public function testProductNamespaceSetUp() {
+        $productExplode = explode("\\", $this->testClass);
+        $product1 = $productExplode[0]; // app
+        $product2 = $productExplode[1]; // models
+        $product3 = $productExplode[2]; // entities
+        $product4 = $productExplode[3]; // Product
+        $this->assertEquals($this->testClass, "app\models\\entities\Product");
         $this->assertEquals($product1, "app");
         $this->assertEquals($product2, "models");
         $this->assertEquals($product3, "entities");

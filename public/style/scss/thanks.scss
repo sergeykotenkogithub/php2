@@ -1,0 +1,11 @@
+.thanks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 45px 0;
+  font-size: 23px;
+  &__ok {
+    padding-bottom: 20px;
+  }
+}

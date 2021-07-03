@@ -15,11 +15,13 @@ class OrderRepository extends Repository
         return Db::getInstance()->queryAllArray($sql);
     }
 
+    protected function getEntityClass() {
+        return Order::class;
+    }
+
     protected function getTableName() {
         return 'orders';
     }
 
-    protected function getEntityClass() {
-        return Order::class;
-    }
+
 }

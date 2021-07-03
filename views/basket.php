@@ -27,7 +27,7 @@
         </div>
     <?php endforeach;?>
     <div class="rub total centerBasket">Итого: <?=$sum?> </div>
-    <div class="order centerBasket"><a href="/order">Оформить заказ</a></div>
+    <div class="order centerBasket"><a href="/orderform">Оформить заказ</a></div>
     <?endif; ?>
 </div>
 

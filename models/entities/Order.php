@@ -7,28 +7,32 @@ final class Order extends Model
 {
     protected $id;
     protected $hash;
+    protected $tel;
     protected $email;
-    protected $date;
-    protected $user_id;
-    protected $status;
     protected $total;
+    protected $user_id;
+    protected $date;
+    protected $status;
+
 
     protected $props = [
         'hash' => false,
+        'tel' => false,
         'email' => false,
-        'date' => false,
-        'user_id' => false,
-        'status' => false,
         'total' => false,
+        'user_id' => false,
+        'date' => false,
+        'status' => false,
     ];
 
-    public function __construct($hash = null, $email = null, $date = null, $user_id = null, $status = null, $total = null)
+    public function __construct($hash = null, $tel = null, $email = null,  $total = null, $user_id = null, $date = null,  $status = null)
     {
         $this->hash = $hash;
+        $this->tel = $tel;
         $this->email = $email;
-        $this->date = $date;
-        $this->user_id = $user_id;
-        $this->status = $status;
         $this->total = $total;
+        $this->user_id = $user_id;
+        $this->date = $date;
+        $this->status = $status;
     }
 }

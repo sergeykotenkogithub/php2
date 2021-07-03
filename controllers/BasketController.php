@@ -14,9 +14,6 @@ final class BasketController extends Controller
         $basket = (new BasketRepository())->getBasket($session);
         $sum = (new BasketRepository())->countSum('price', 'session_id', $session);
 
-
-
-
         echo $this->render('basket', [
             'basket' => $basket,
             'sum' => $sum

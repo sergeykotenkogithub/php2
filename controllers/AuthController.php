@@ -15,16 +15,13 @@ class AuthController extends Controller
         $login = (new Request())->getParams()['login'];
         $pass = (new Request())->getParams()['pass'];
 
-//        if (User::auth($login, $pass)) {
         if ((new UserRepository())->auth($login, $pass)) {
           if (isset($_POST['save'])) {
               $hash = uniqid(rand(), true);
-//              $update = User::getOne($_SESSION['id']);
-//              $user = new UserRepository()
               $update = (new UserRepository())->getOne($_SESSION['id']);
               $update->hash = $hash;
-              $update->save();
-              (new Cookie())->set('hash', $hash);
+              (new UserRepository())->update($update); // Изменяет хэш
+              (new Cookie())->set('hash', $hash); // добавляет куку
           }
         $myId = (new Session())->get('id');
         header("Location: /myorders/all/?id={$myId}"); // Сразу перебрасывает на заказы клиента
@@ -35,6 +32,8 @@ class AuthController extends Controller
             header("Location:" . $_SERVER['HTTP_REFERER']);
         }
     }
+
+    //.......................Вызод из аккаунта.............................................
 
     public function actionLogout() {
         (new Cookie())->destroy("hash"); // удаление куки

@@ -16,12 +16,15 @@ class RegistrationController extends Controller
 //        $check = User::getOneWhere('login', $login); // Проверка существует ли такой логин
         $check = (new UserRepository())->getOneWhere('login', $login); // Проверка существует ли такой логин
 //        $message = Registration::registration($login, $pass, $pass_hash, $check); // Добавляет пользователя, возращает сообщение
+//        $message = (new RegistrationRepository())->registration($login, $pass, $pass_hash, $check); // Добавляет пользователя, возращает сообщение
         $message = (new RegistrationRepository())->registration($login, $pass, $pass_hash, $check); // Добавляет пользователя, возращает сообщение
+//          Registration::registration($login, $pass, $pass_hash, $check);
 
         echo $this->render('registration', [
             'message' => $message,
             'check' => $check,
-            'login' => $login
+            'login' => $login,
+            'test' => 'тест'
         ]);
     }
 }

@@ -108,7 +108,7 @@ final class Db implements IDb
         // UPDATE, INSERT, DELETE
 
         $stmt = $this->query($sql, $params);
-        // $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE , $class);
+//         $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE , $class);
         return $stmt->rowCount();
     }
 

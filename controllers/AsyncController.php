@@ -1,8 +1,6 @@
 <?php
 
-
 namespace app\controllers;
-
 
 use app\engine\Request;
 use app\engine\Session;
@@ -48,21 +46,15 @@ class AsyncController extends Controller
     //.......В Корзине: при нажатие кнопки удалить - удаляет полностью.....................................
 
     public function actionDelete() {
+        //................Через POST.............................
         $session_id = (new Session())->getId();
-
-        // Через POST
-
         $id = (new Request())->getParams()['id'];
-//        Basket::getOneAndWhere('id', $id, 'session_id', $session_id)->delete();
         $basket = (new BasketRepository())->getOneAndWhere('id', $id, 'session_id', $session_id);
-
         (new BasketRepository())->delete($basket);
-
         $response = [
             'count' =>  (new BasketRepository())->countSum('quantity', 'session_id', $session_id),
             'sum' => (new BasketRepository())->countSum('price', 'session_id', $session_id)
         ];
-
         echo json_encode($response, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     }
 }
