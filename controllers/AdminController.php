@@ -39,8 +39,6 @@ class AdminController extends Controller
             header("Location: /admin/adminOrder/?id=$status_id");
         }
 
-//        $params['summ'] = adminOrderTotal($id);
-
         echo $this->render('adminOrder', [
             'isAdmin' => $isAdmin,
             'status' => $status,
