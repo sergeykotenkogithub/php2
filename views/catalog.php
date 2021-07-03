@@ -1,5 +1,6 @@
 <div hidden id="count">0</div>
 
+
 <?php foreach ($catalog as $item): ?>
 
     <div id="countBasket"></div>
@@ -35,6 +36,7 @@
 <div id="addCatalog">
 
 </div>
+
 
 <!--<a href="/?c=product&a=catalog&page=--><?//=$page?><!--">Ещё</a>-->
 

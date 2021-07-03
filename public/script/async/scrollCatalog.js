@@ -25,7 +25,7 @@ window.addEventListener('scroll', (e) => {
 
         (async () => {
             inProgress = true;
-            const response = await fetch(`/async/catalog/?page=two&count=${txt}`);
+            const response = await fetch(`/async/catalog/?page=two&count=${txt}`).then(start());
             const answer = await response.json();
             // start()
             document.getElementById('count').innerText = `${answer.count}`;
@@ -61,10 +61,10 @@ window.addEventListener('scroll', (e) => {
                                 </div>
                             </a>
                         </div>                 
-                `);
+                `) ;
                 inProgress = false;
             })
-        })();
+        })().then(start());
     }
 })
 
@@ -84,8 +84,10 @@ function start() {
                 // const response = await fetch(`/async/?action=buy&price=${price}&id=${id}`);
                 const response = await fetch(`/async/buy/?price=${price}&id=${id}`);
                 const answer = await response.json();
+
                 let count = document.getElementById('countBasket')
                 count.innerText = `(${answer.count})`
+                console.log('sad')
             })();
         })
     })
