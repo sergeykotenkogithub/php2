@@ -3,6 +3,7 @@
 
 namespace app\controllers;
 
+use app\engine\Request;
 use app\models\repositories\ProductRepository;
 use app\models\repositories\UserRepository;
 
@@ -15,53 +16,47 @@ final class ProductController extends Controller
         ]);
     }
 
-    // Если надо с кнопкой ещё
     public function actionCatalog() {
-//        $page = $_GET['page'] ?? 2;
-//        $page = (int)$_GET['page'] ?? 1; // Для кнопки ещё
-        $page = $_GET['page'] ?? 1; // Для кнопки ещё
 
-//        $page = $_GET['page'] ?? 1; // Для кнопки ещё
-//        if($page)) {
-//            die('нет такого товара');
-//        }
-//        var_dump($page);
-//        $page = ++$page;
-//         $catalog = Product::getLimit($page * 2);
-//        var_dump($page);
-        $notesOnPage = 3;
-        $from = ($page - 1) * $notesOnPage;
-//        $catalog = (new ProductRepository())->getLimit($page * 2);
-//        $catalog = (new ProductRepository())->getLimitAjaxObject(($page * 2), 2);
+        $page = (new Request())->getParams()['page'] ?? 1; // 1 - для начальной
+
+        // От и до вывод страниц
+        $notesOnPage = 3;  // Количество до
+        $from = ($page - 1) * $notesOnPage;  // Количество от
         $catalog = (new ProductRepository())->getLimitAjaxObject($from, $notesOnPage);
+
+        // Общее количество записей в товарах
         $sumRowCatalog = (new ProductRepository())->sumRowProducts()[0]['count'];
+
         // Подсчёт количества нужных страниц
         $pageCount = ceil($sumRowCatalog / $notesOnPage); // ceil - округление в большую сторону.
-//        var_dump($pageCount);
-//        var_dump($sumRowCatalog[0]['count']);
+
+        // Следующая и предыдущая страница
+        $prev = $page - 1 ?: 1;
+        $next = $page != $pageCount ? $page + 1 : $pageCount;
+
+        // Если на страницы с ?page нет товаров
         if(empty($catalog)) {
             die('Нет таких товаров');
         }
 
+
         echo $this->render('catalog', [
           'catalog' => $catalog,
           'pageCount' => $pageCount,
-          'page' => $page
-//          'page' => ++$page
+          'page' => $page,
+          'prev' => $prev,
+          'next' => $next
         ]);
 
     }
 
     public function actionCard() {
-        $id = $_GET['id'];
-//        $good = Product::getOne($id);
+//        $id = $_GET['id'];
+        $id = (new Request())->getParams()['id'];
         $good = (new ProductRepository())->getOne($id);
         echo $this->render('card', [
             'good' => $good
         ]);
-    }
-
-    public function actionAdd() {
-        echo 'add';
     }
 }

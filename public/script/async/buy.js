@@ -1,4 +1,4 @@
-let goodsBtn = document.querySelectorAll('.goods__btn')
+let goodsBtn = document.querySelectorAll('.goodsAsync')
 goodsBtn.forEach((elem) => {
     elem.addEventListener('click', (e) => {
         e.preventDefault();

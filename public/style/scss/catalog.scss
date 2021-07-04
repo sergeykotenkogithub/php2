@@ -76,6 +76,7 @@
     border: $border;
     margin-right: 15px;
     color: #a3a3d4;
+    @extend %hover;
   }
   a.active {
     color: $colorHover;
