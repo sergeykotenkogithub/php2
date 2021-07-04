@@ -73,4 +73,41 @@ class AsyncController extends Controller
         ];
         echo json_encode($response, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     }
+
+    public function actionMore() {
+//        if((new Request())->getParams()['page'] == 'two') {
+//            $count = (new Request())->getParams()['count'];
+//            $count += PRODUCT_PER_PAGE; // Параметр в config
+//            $catalog = (new ProductRepository())->getLimitAjax($count, PRODUCT_PER_PAGE);  // первая - смещение,  вторая цифра - это количество записей которое показывается.
+//            echo json_encode([
+//                'count' => $count,
+//                'catalog' => $catalog
+//            ], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+//            die();
+//        }
+
+//        $id = $_GET['id'];
+//        $productItem = Product::getOne($id);
+//        $productItem->rating++;
+//        $productItem->save();
+
+//        $productList = Product::getLimit(0, 4);
+        $data = json_decode(file_get_contents('php://input'));
+        $showFromProduct = $data->showFromProduct;
+        $showCountProduct = $data->showCountProduct;
+//        $productList = (new ProductRepository())->getLimitAjax(2, PRODUCT_PER_PAGE);
+        $productList = (new ProductRepository())->getLimit(2 * 2);
+//        $catalog = $this->render('catalog', ['productList' => $productList]);
+        $catalogs = $this->renderTemplate('aja', ['catalog' => $productList]);
+        header("Content-type: text/html; charset=utf-8;");
+        echo $catalogs;
+        die;
+//
+//        echo $this->render('product', [
+////            'productItem' => $productItem,
+////            'commentsList' => $commentsList,
+//            'catalog' => $catalog,
+//        ]);
+
+    }
 }

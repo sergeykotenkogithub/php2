@@ -77,6 +77,15 @@ final class Db implements IDb
         return $stmt->fetchAll();
     }
 
+    public function queryLimitAjaxObject($sql, $before, $after, $class) {
+        $stmt = $this->getConnection()->prepare($sql);
+        $stmt->bindValue(1, $before, \PDO::PARAM_INT); // 1 это замена ?, 2 будет указывать на второй ?
+        $stmt->bindValue(2, $after, \PDO::PARAM_INT); // 1 это замена ?, 2 будет указывать на второй ?
+        $stmt->execute();
+        $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE , $class);
+        return $stmt->fetchAll();
+    }
+
     public function queryOneObject($sql, $params, $class) {
         $stmt = $this->query($sql, $params); //Statement - $stmt
         $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE , $class);

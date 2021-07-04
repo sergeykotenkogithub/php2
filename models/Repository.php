@@ -68,6 +68,11 @@ abstract class Repository
         $sql = "SELECT * FROM {$tableName} LIMIT ?, ?";
         return Db::getInstance()->queryLimitAjax($sql,$before, $after);
     }
+    public function getLimitAjaxObject($before, $after) {
+        $tableName = $this->getTableName();
+        $sql = "SELECT * FROM {$tableName} LIMIT ?, ?";
+        return Db::getInstance()->queryLimitAjaxObject($sql,$before, $after, $this->getEntityClass());
+    }
 
     public function getLimitAjaxDesc($before, $after) {
         $tableName = $this->getTableName();

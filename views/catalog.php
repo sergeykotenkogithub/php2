@@ -1,10 +1,22 @@
-<div hidden id="count">0</div>
+<!--<div hidden id="count">0</div>-->
+
+<?//=$page?>
+
+<div class="goodsPagination">
+    <?php for ($i = 1; $i <= $pageCount; $i++): ?>
+        <? if ($page == $i) :?>
+            <a class="active" href="/product/catalog/?page=<?=$i?>"><?=$i?></a>
+        <? else: ?>
+            <a href="/product/catalog/?page=<?=$i?>"><?=$i?></a>
+        <? endif; ?>
+
+    <?php endfor; ?>
+</div>
 
 
 <?php foreach ($catalog as $item): ?>
 
-    <div id="countBasket"></div>
-    <div id="addAsyncCatalog" class="goods">
+    <div class="goods">
 
         <div class="goods__item">
             <a href="/product/card/?id=<?=$item->id?>">
@@ -32,13 +44,27 @@
 
 <?php endforeach;?>
 
+<!--<div class="goodsMoreWrapper">-->
+<!--    <button class="goodsMore">Ещё</button>-->
+<!--</div>-->
 
-<div id="addCatalog">
+<!--<div class="goodsMoreWrapper">-->
+<!--    <button class="goodsMore">Ещё</button>-->
+<!--</div>-->
+<!---->
+<!---->
+<!--<div id="addAsyncCatalog" >-->
+<!---->
+<!--</div>-->
+<!---->
+<!--<div id="catalogField">-->
+<!--</div>-->
 
-</div>
 
 
-<!--<a href="/?c=product&a=catalog&page=--><?//=$page?><!--">Ещё</a>-->
+<!--<a href="/product/catalog/?page=--><?//=$page?><!--">Ещё</a>-->
+>
 
-<script src="/script/async/scrollCatalog.js?<?php echo uniqid();?>"></script>
+<!--<script src="/script/async/scrollCatalog.js?--><?php //echo uniqid();?><!--"></script>-->
 <script src="/script/async/buy.js?<?php echo uniqid();?>"></script>
+<!--<script src="/script/async/more.js?--><?php //echo uniqid();?><!--"></script>-->
