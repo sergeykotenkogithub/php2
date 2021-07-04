@@ -1,6 +1,7 @@
 .admin {
   a {
-    color: $color
+    @extend %hover;
+    color: $color;
   }
   &__title {
     font-size: 28px;

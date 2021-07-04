@@ -18,11 +18,23 @@ class CongratulateController extends Controller
         $sum = (new BasketRepository())->countSum('price', 'session_id', $session);
 
         if (isset($tel) && isset($email)) {
-// Обязательно нужно указывать все поля ПОЧЕМУ? users_id, date и status же по умолчанию есть в значениях базы данных, раньше так не надо было писать.
-                $order = new Order($session, $tel, $email, $sum, 1, '2021-06-14', 'Ожидайте звонка');
-                (new OrderRepository())->insert($order);
-                (new Session())->regenerate();
+                // Если пользователь зарегестрировался
+                if(isset($id)) {
+                    // Обязательно нужно указывать все поля ПОЧЕМУ?
+                    // users_id, date и status же по умолчанию есть в значениях базы данных, раньше так не надо было писать.
+                    $order = new Order($session, $tel, $email, $sum, $id, '2021-06-14', 'Ожидайте звонка');
+                    (new OrderRepository())->insert($order);
+                    (new Session())->regenerate();
+                }
+                // Если не зарегестрированный
+                else {
+                    $order = new Order($session, $tel, $email, $sum, 1, '2021-06-14', 'Ожидайте звонка');
+                    (new OrderRepository())->insert($order);
+                    (new Session())->regenerate();
+                }
+
         }
+
 
         echo $this->render('congratulate');
     }

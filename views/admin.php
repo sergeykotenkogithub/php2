@@ -7,7 +7,7 @@
 
         <?php foreach ($orderAll as $item):?>
 
-             <a href="/admin/adminOrder/?id=<?=$item->id?>">
+             <a class="admin__wrapper" href="/admin/adminOrder/?id=<?=$item->id?>">
                 <div class="admin__order">
                     <div>Заказ №: <?=$item->id?></div>
                     <div class="admin__info">

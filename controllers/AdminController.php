@@ -14,10 +14,8 @@ class AdminController extends Controller
     public function actionIndex() {
 
         $isAdmin = (new UserRepository())->isAdmin();
-//        $orderAll = (new OrderRepository())->getAllOrder();
         $page = $_GET['page'] ?? 3;
         $orderAll = (new OrderRepository())->getLimitDesc($page * 2);
-//        $orderAll = (new OrderRepository())->getLimit($page * 2);
 
         echo $this->render('admin', [
             'isAdmin' => $isAdmin,
@@ -26,13 +24,15 @@ class AdminController extends Controller
         ]);
     }
 
+    //............Показывает 1 заказ и возможность изменять статус заказа...............................
+
     public function actionAdminOrder() {
 
         $id = (int)$_GET['id'];
         $isAdmin = (new UserRepository())->isAdmin();
         $status = (new OrderRepository())->adminOrderStatus($id);
         $status_id = (int)$_POST['status_id'];
-        $order = (new OrderRepository())->adminOrderItem($id);
+        $order_basket_goods = (new OrderRepository())->adminOrderItem($id);
         $adminOrder = $_POST['change'];
         $summ = (new OrderRepository())->getOne($id);
 
@@ -46,7 +46,7 @@ class AdminController extends Controller
         echo $this->render('adminOrder', [
             'isAdmin' => $isAdmin,
             'status' => $status,
-            'order' => $order,
+            'order' => $order_basket_goods,
             'summ' => $summ
         ]);
     }
