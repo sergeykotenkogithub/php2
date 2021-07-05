@@ -38,7 +38,6 @@ final class Db implements IDb
     }
 
     protected function prepareDsnString() {
-        // return "mysql:host={$this->config['host']};dbname={$this->config['database']}";
         return sprintf("%s:host=%s;dbname=%s;charset=%s",
             $this->config['driver'],
             $this->config['host'],
@@ -73,7 +72,6 @@ final class Db implements IDb
         $stmt->bindValue(1, $before, \PDO::PARAM_INT); // 1 это замена ?, 2 будет указывать на второй ?
         $stmt->bindValue(2, $after, \PDO::PARAM_INT); // 1 это замена ?, 2 будет указывать на второй ?
         $stmt->execute();
-//        $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE , $class);
         return $stmt->fetchAll();
     }
 
@@ -90,11 +88,6 @@ final class Db implements IDb
         $stmt = $this->query($sql, $params); //Statement - $stmt
         $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE , $class);
         $obj = $stmt->fetch();
-//        var_dump($obj);
-//        if (!$obj) {
-//            throw new \Exception("Продукт не найден", 404);
-//        }
-
         return $obj;
     }
 
@@ -114,13 +107,13 @@ final class Db implements IDb
     }
 
     public function executeSql($sql, $params = []) {
+
         // UPDATE, INSERT, DELETE
+
 //        var_dump($sql, $params);
 //        die();
 
-
         $stmt = $this->query($sql, $params);
-//         $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE , $class);
         return $stmt->rowCount();
     }
 

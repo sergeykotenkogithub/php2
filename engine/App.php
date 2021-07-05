@@ -42,7 +42,7 @@ class App
 
         // 1 - имя контролера(страницы к примеру Каталог), 2 - action, который у нас на 'a' был
 
-        $this->controller = $this->request->getControllerName() ?: 'product'; // вместо request будет Request, это для PHPSTORM тут request
+        $this->controller = $this->request->getControllerName() ?: 'index'; // request приходит из гетера
         $this->action = $this->request->getActionName();
 
         //................................................
