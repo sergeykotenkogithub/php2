@@ -8,5 +8,4 @@
 </div>
 <?endif; ?>
 
-<?=$test?>
 </div>

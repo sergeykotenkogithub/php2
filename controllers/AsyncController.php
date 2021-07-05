@@ -27,6 +27,7 @@ class AsyncController extends Controller
                'count' => $count,
                'catalog' => $catalog
             ], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+
             die();
         }
 

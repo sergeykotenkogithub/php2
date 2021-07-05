@@ -16,6 +16,7 @@ return [
     'controller_namespace' => "app\\controllers\\", // Для читаемого отображения
     'product_per_page' => 2,
     'views_dir' => dirname(__DIR__) . '/views/',
+    'backHttp' => $_SERVER['HTTP_REFERER'],
     'components' => [
         'db' => [
             'class' => Db::class,

@@ -17,8 +17,7 @@ class RegistrationController extends Controller
         echo $this->render('registration', [
             'message' => $message,
             'check' => $check,
-            'login' => $login,
-            'test' => 'тест'
+            'login' => $login
         ]);
     }
 }
