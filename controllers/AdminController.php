@@ -5,8 +5,6 @@ namespace app\controllers;
 
 
 use app\engine\App;
-use app\models\repositories\OrderRepository;
-use app\models\repositories\UserRepository;
 
 class AdminController extends Controller
 {
@@ -30,27 +28,37 @@ class AdminController extends Controller
 
     public function actionAdminOrder() {
 
-        $id = App::call()->request->getParams()['id'];
+        //.................GET и POST................................
+
+        $id = App::call()->request->getParams()['id']; // GET
+        $status_id = App::call()->request->getParams()['status_id']; // POST
+        $adminOrder = App::call()->request->getParams()['change']; // POST
+
+        //................Проверка это админ или нет
+
         $isAdmin = App::call()->userRepository->isAdmin();
+
+        //.................orderRepository...........................
+
         $status = App::call()->orderRepository->adminOrderStatus($id);
-        $status_id = App::call()->request->getParams()['status_id'];
-
         $order_basket_goods = App::call()->orderRepository->adminOrderItem($id);
-        $adminOrder = $_POST['change'];
-        $summ = App::call()->orderRepository->getOne($id);
+        $order = App::call()->orderRepository->getOne($id);
 
-        if (isset($_POST['status_id']) && isset($_POST['change'])) {
-            $update = App::call()->orderRepository->getOne($id);
-            $update->status = $adminOrder;
-            (new OrderRepository())->update($update);
+        //..................Обновление статуса......................
+
+        if (isset($status_id) && isset($adminOrder)) {
+            $order->status = $adminOrder;
+            App::call()->orderRepository->update($order);
             header("Location: /admin/adminOrder/?id={$status_id}");
         }
+
+        //...................Рендер.................................
 
         echo $this->render('adminOrder', [
             'isAdmin' => $isAdmin,
             'status' => $status,
             'order' => $order_basket_goods,
-            'summ' => $summ
+            'summ' => $order
         ]);
     }
 }

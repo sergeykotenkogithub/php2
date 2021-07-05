@@ -13,7 +13,7 @@ final class Db implements IDb
         'host' => 'localhost:3307',
         'login' => 'pakko',
         'password' => '123',
-        'database' => 'gallerybase',
+        'database' => 'shop',
         'charset' => 'utf8'
     ];
 
