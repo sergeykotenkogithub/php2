@@ -14,7 +14,7 @@ use \app\models\repositories\UserRepository;
 return [
     'root' => dirname(__DIR__), // Абсолютный путь для работы в Windows и Linux(nginx)
     'controller_namespace' => "app\\controllers\\", // Для читаемого отображения
-    'product_per_page' => 3,
+    'product_per_page' => 2,
     'views_dir' => dirname(__DIR__) . '/views/',
     'components' => [
         'db' => [

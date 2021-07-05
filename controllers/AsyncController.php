@@ -4,6 +4,7 @@
 
 namespace app\controllers;
 
+use app\engine\App;
 use app\engine\Request;
 use app\engine\Session;
 use app\models\entities\Basket;
@@ -20,8 +21,8 @@ class AsyncController extends Controller
 
         if((new Request())->getParams()['page'] == 'two') {
             $count = (new Request())->getParams()['count'];
-            $count += PRODUCT_PER_PAGE; // Параметр в config
-            $catalog = (new OrderRepository())->getLimitAjaxDesc($count, PRODUCT_PER_PAGE);
+            $count += App::call()->config['product_per_page'] ; // Параметр в config
+            $catalog = (new OrderRepository())->getLimitAjaxDesc($count, App::call()->config['product_per_page']);
             // первая $count - смещение,  вторая цифра PRODUCT_PER_PAGE - это количество записей которое показывается.
             echo json_encode([
                'count' => $count,

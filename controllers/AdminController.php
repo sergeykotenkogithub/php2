@@ -4,7 +4,7 @@
 namespace app\controllers;
 
 
-use app\engine\Request;
+use app\engine\App;
 use app\models\repositories\OrderRepository;
 use app\models\repositories\UserRepository;
 
@@ -15,14 +15,14 @@ class AdminController extends Controller
 
     public function actionIndex() {
 
-        $isAdmin = (new UserRepository())->isAdmin();
-        $page = (new Request())->getParams()['page'] ?? 3;
-        $orderAll = (new OrderRepository())->getLimitDesc($page * 2);
+        $isAdmin = App::call()->userRepository->isAdmin();
+        $page = App::call()->request->getParams()['page'] ?? 3;
+        $orderAll = App::call()->orderRepository->getLimitDesc($page * 2);
 
         echo $this->render('admin', [
             'isAdmin' => $isAdmin,
-            'orderAll' => $orderAll,
-            'page' => ++$page
+            'page' => ++$page,
+            'orderAll' => $orderAll
         ]);
     }
 
@@ -30,19 +30,20 @@ class AdminController extends Controller
 
     public function actionAdminOrder() {
 
-        $id = (int)$_GET['id'];
-        $isAdmin = (new UserRepository())->isAdmin();
-        $status = (new OrderRepository())->adminOrderStatus($id);
-        $status_id = (int)$_POST['status_id'];
-        $order_basket_goods = (new OrderRepository())->adminOrderItem($id);
+        $id = App::call()->request->getParams()['id'];
+        $isAdmin = App::call()->userRepository->isAdmin();
+        $status = App::call()->orderRepository->adminOrderStatus($id);
+        $status_id = App::call()->request->getParams()['status_id'];
+
+        $order_basket_goods = App::call()->orderRepository->adminOrderItem($id);
         $adminOrder = $_POST['change'];
-        $summ = (new OrderRepository())->getOne($id);
+        $summ = App::call()->orderRepository->getOne($id);
 
         if (isset($_POST['status_id']) && isset($_POST['change'])) {
-            $update = (new OrderRepository())->getOne($id);
+            $update = App::call()->orderRepository->getOne($id);
             $update->status = $adminOrder;
             (new OrderRepository())->update($update);
-            header("Location: /admin/adminOrder/?id=$status_id");
+            header("Location: /admin/adminOrder/?id={$status_id}");
         }
 
         echo $this->render('adminOrder', [
