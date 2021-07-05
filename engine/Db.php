@@ -4,26 +4,25 @@
 
 namespace app\engine;
 use app\interfaces\IDb;
-use app\traits\TSingletone;
 
 final class Db implements IDb
 {
-    protected $config = [
-        'driver' => 'mysql',
-        'host' => 'localhost:3307',
-        'login' => 'pakko',
-        'password' => '123',
-        'database' => 'shop',
-        'charset' => 'utf8'
-    ];
+    protected $config;
 
-    //........................Патерн Сингтон.......................................................
+    protected $connection = null;
 
-    use TSingletone;
+    public function __construct($driver = null, $host = null, $login = null, $password = null, $database = null, $charset = 'utf8')
+    {
+        $this->config['driver'] = $driver;
+        $this->config['host'] = $host;
+        $this->config['login'] = $login;
+        $this->config['password'] = $password;
+        $this->config['database'] = $database;
+        $this->config['charset'] = $charset;
+    }
 
     //..........................Соеденение........................................................
 
-    protected $connection = null;
 
     protected function getConnection() {
         if (is_null($this->connection)) {

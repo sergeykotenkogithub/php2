@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use app\engine\Db;
+use app\engine\App;
 
 abstract class Repository
 {
@@ -19,7 +19,7 @@ abstract class Repository
     public function getOne($id) {
         $tableName = $this->getTableName();
         $sql = "SELECT * FROM {$tableName} WHERE id = :id";
-        return Db::getInstance()->queryOneObject($sql, ['id' => $id], $this->getEntityClass());
+        return App::call()->db->queryOneObject($sql, ['id' => $id], $this->getEntityClass());
     }
 
             //...................Один. Где Значение равно...................................//
@@ -27,7 +27,7 @@ abstract class Repository
     public function getOneWhere($name, $value) {
         $tableName = $this->getTableName();
         $sql = "SELECT * FROM {$tableName} WHERE `{$name}` = :value";
-        return Db::getInstance()->queryOneObject($sql, ['value' => $value], $this->getEntityClass());
+        return App::call()->db->queryOneObject($sql, ['value' => $value], $this->getEntityClass());
     }
 
             //...................Один. Где Значение равно и другое значение равно...........//
@@ -35,7 +35,7 @@ abstract class Repository
     public function getOneAndWhere($name, $value, $name2, $value2) {
         $tableName = $this->getTableName();
         $sql = "SELECT * FROM {$tableName} WHERE `{$name}` = :value AND `{$name2}` = :value2";
-        return Db::getInstance()->queryOneObject($sql, ['value' => $value, 'value2' => $value2], $this->getEntityClass());
+        return App::call()->db->queryOneObject($sql, ['value' => $value, 'value2' => $value2], $this->getEntityClass());
     }
 
 
@@ -44,7 +44,7 @@ abstract class Repository
     public function getAll() {
         $tableName = $this->getTableName();
         $sql = "SELECT * FROM {$tableName}";
-        return Db::getInstance()->queryAll($sql, $this->getEntityClass());
+        return App::call()->db->queryAll($sql, $this->getEntityClass());
     }
 
             //......................С ограниченим...............................................//
@@ -52,13 +52,13 @@ abstract class Repository
     public function getLimit($limit) {
         $tableName = $this->getTableName();
         $sql = "SELECT * FROM {$tableName} LIMIT 0, ?";
-        return Db::getInstance()->queryLimit($sql, $limit, $this->getEntityClass());
+        return App::call()->db->queryLimit($sql, $limit, $this->getEntityClass());
     }
 
     public function getLimitDesc($limit) {
         $tableName = $this->getTableName();
         $sql = "SELECT * FROM {$tableName} ORDER BY id DESC LIMIT 0, ? ";
-        return Db::getInstance()->queryLimit($sql, $limit, $this->getEntityClass());
+        return App::call()->db->queryLimit($sql, $limit, $this->getEntityClass());
     }
 
             //......................С ограниченим. Сколько показывать от ограничения............//
@@ -66,18 +66,18 @@ abstract class Repository
     public function getLimitAjax($before, $after) {
         $tableName = $this->getTableName();
         $sql = "SELECT * FROM {$tableName} LIMIT ?, ?";
-        return Db::getInstance()->queryLimitAjax($sql,$before, $after);
+        return App::call()->db->queryLimitAjax($sql,$before, $after);
     }
     public function getLimitAjaxObject($before, $after) {
         $tableName = $this->getTableName();
         $sql = "SELECT * FROM {$tableName} LIMIT ?, ?";
-        return Db::getInstance()->queryLimitAjaxObject($sql,$before, $after, $this->getEntityClass());
+        return App::call()->db->queryLimitAjaxObject($sql,$before, $after, $this->getEntityClass());
     }
 
     public function getLimitAjaxDesc($before, $after) {
         $tableName = $this->getTableName();
         $sql = "SELECT * FROM {$tableName} ORDER BY id DESC LIMIT ?, ?" ;
-        return Db::getInstance()->queryLimitAjax($sql,$before, $after);
+        return App::call()->db->queryLimitAjax($sql,$before, $after);
     }
 
             //...................... Cумма. С условием .........................................//
@@ -86,7 +86,7 @@ abstract class Repository
         $tableName = $this->getTableName();
 //        $sql = "SELECT sum($sum) as `count` FROM {$tableName} WHERE '{$table}' = :value ";
         $sql = "SELECT sum($sum) as `count` FROM {$tableName} WHERE `{$table}` =  '$value'";
-        return Db::getInstance()->queryOne($sql, ['value' => $value])['count'];
+        return App::call()->db->queryOne($sql, ['value' => $value])['count'];
     }
 
             //......................Вставка значения............................................//
@@ -106,8 +106,8 @@ abstract class Repository
 
         $sql = "INSERT INTO `{$tableName}`({$columns}) VALUES ({$value})";
 
-        DB::getInstance()->executeSql($sql, $params);
-        $entity->id = DB::getInstance()->lastInsertId();
+        App::call()->db->executeSql($sql, $params);
+        $entity->id = App::call()->db->lastInsertId();
     }
 
             //......................Обновление значения...........................................//
@@ -134,7 +134,7 @@ abstract class Repository
             $entity->props[$key] = false;
         }
 
-        Db::getInstance()->executeSql($sql, $params);
+        App::call()->db->executeSql($sql, $params);
     }
 
     //......................Удаление значения............................................
@@ -142,7 +142,7 @@ abstract class Repository
     public function delete(Model $entity) {
         $tableName = $this->getTableName();
         $sql = "DELETE FROM {$tableName} WHERE id = :id";
-        return Db::getInstance()->executeSql($sql, ['id' => $entity->id]);
+        return App::call()->db->executeSql($sql, ['id' => $entity->id]);
     }
 
     //.................Автоматическое определение значения обновление или вставка........

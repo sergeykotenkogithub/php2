@@ -19,6 +19,7 @@ try {
 }
 
 catch (\PDOException $e) {
+    var_dump('Нет подключения к базе данных');
     var_dump($e);
 } catch (\Exception $e) {
     var_dump($e->getMessage());

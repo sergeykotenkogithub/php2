@@ -4,6 +4,7 @@
 namespace app\models\repositories;
 
 use app\models\Repository;
+use app\models\entities\Feedback;
 
 class FeedbackRepository extends Repository
 {
