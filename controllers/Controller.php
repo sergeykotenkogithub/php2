@@ -29,7 +29,6 @@ abstract class Controller
         }
         else {
             throw new \Exception("action не существует", 404);
-//            die("action не существует");
         }
     }
 

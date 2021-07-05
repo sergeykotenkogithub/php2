@@ -1,5 +1,6 @@
 <?php
 
+//..............................Каталог.................................................................................
 
 namespace app\controllers;
 
@@ -11,7 +12,6 @@ final class ProductController extends Controller
 {
     public function actionIndex() {
         echo $this->render('index', [
-//            'username' => User::getName()
             'username' => (new UserRepository())->getName()
         ]);
     }
@@ -52,7 +52,6 @@ final class ProductController extends Controller
     }
 
     public function actionCard() {
-//        $id = $_GET['id'];
         $id = (new Request())->getParams()['id'];
         $good = (new ProductRepository())->getOne($id);
         echo $this->render('card', [

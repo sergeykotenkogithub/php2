@@ -1,5 +1,6 @@
 <?php
 
+//................................Аторизация............................................................................
 
 namespace app\controllers;
 
@@ -7,7 +8,6 @@ use app\engine\Cookie;
 use app\engine\Request;
 use app\engine\Session;
 use app\models\repositories\UserRepository;
-use app\models\entities\User;
 
 class AuthController extends Controller
 {
@@ -21,13 +21,15 @@ class AuthController extends Controller
               $update = (new UserRepository())->getOne($_SESSION['id']);
               $update->hash = $hash;
               (new UserRepository())->update($update); // Изменяет хэш
-//              (new UserRepository())->insert($update); // Изменяет хэш
               (new Cookie())->set('hash', $hash); // добавляет куку
           }
         $myId = (new Session())->get('id');
+
+        // Если админ то перекидывает на страницу с алмин панелью
         if( (new UserRepository())->isAdmin()) {
             header("Location: /admin");
         }
+        // Если пользователь то показывает, его заказы
         if( !(new UserRepository())->isAdmin()) {
             header("Location: /myorders/all/?id={$myId}"); // Сразу перебрасывает на заказы клиента
         }
@@ -39,7 +41,7 @@ class AuthController extends Controller
         }
     }
 
-    //.......................Вызод из аккаунта.............................................
+    //.......................Выход из аккаунта.............................................
 
     public function actionLogout() {
         (new Cookie())->destroy("hash"); // удаление куки

@@ -4,17 +4,19 @@
 namespace app\controllers;
 
 
-use app\models\entities\Order;
+use app\engine\Request;
 use app\models\repositories\OrderRepository;
 use app\models\repositories\UserRepository;
 
 class AdminController extends Controller
 {
 
+    //................Все заказы, всех пользователей.................................................
+
     public function actionIndex() {
 
         $isAdmin = (new UserRepository())->isAdmin();
-        $page = $_GET['page'] ?? 3;
+        $page = (new Request())->getParams()['page'] ?? 3;
         $orderAll = (new OrderRepository())->getLimitDesc($page * 2);
 
         echo $this->render('admin', [

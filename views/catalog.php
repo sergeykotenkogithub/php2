@@ -30,9 +30,10 @@
 
             <div class="goods__buy">
                 <p class="goods__price rub">Цена: <?=$item->price?></p>
-                <div class="goods__btn goodsAsync" data-id="<?=$item->id?>" data-price="<?=$item->price?>">
-
-                    <img src="/img/icon/cart.svg" alt="cart"></div>
+                    <div class="goods__btn goodsAsync" data-id="<?=$item->id?>" data-price="<?=$item->price?>">
+                        <div class="goods__icon"></div>
+                    </div>
+<!--                    <img src="/img/icon/cart.svg" alt="cart"></div>-->
             </div>
         </div>
 

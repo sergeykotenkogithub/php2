@@ -42,6 +42,7 @@
   }
   &__btn {
     background: none;
+    cursor: pointer;
     img {
       width: 45px;
     }
@@ -80,5 +81,18 @@
   }
   a.active {
     color: $colorHover;
+  }
+}
+
+.goods__icon {
+  width: 45px;
+  height: 40px;
+  background: url("/img/icon/cart.svg");
+  background-size: cover;
+  &:hover {
+    width: 45px;
+    height: 40px;
+    background: url("/img/icon/cart_blue.svg");
+    background-size: cover;
   }
 }
