@@ -4,21 +4,29 @@
 
 namespace app\controllers;
 
+use app\engine\App;
 use app\engine\Request;
 use app\models\repositories\ProductRepository;
 use app\models\repositories\UserRepository;
 
 final class ProductController extends Controller
 {
+
+    //...............Начальная страница / ..............................
+
     public function actionIndex() {
+
         echo $this->render('index', [
             'username' => (new UserRepository())->getName()
         ]);
+
     }
+
+
 
     public function actionCatalog() {
 
-        $page = (new Request())->getParams()['page'] ?? 1; // 1 - для начальной
+        $page = App::call()->request->getParams()['page'] ?? 1; // 1 - для начальной
 
         // От и до вывод страниц
         $notesOnPage = 3;  // Количество до

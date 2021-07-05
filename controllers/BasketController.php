@@ -1,18 +1,21 @@
 <?php
 
+//...................Корзина................................................................
+
 namespace app\controllers;
 
-use app\models\repositories\BasketRepository;
-use app\models\entities\Product;
+use app\engine\App;
 
 final class BasketController extends Controller
 
 {
     public function actionGoods() {
 
-        $session =  session_id();
-        $basket = (new BasketRepository())->getBasket($session);
-        $sum = (new BasketRepository())->countSum('price', 'session_id', $session);
+        //..............Отображение корзины и общей суммы...................................
+
+        $session =  App::call()->session->getId();
+        $basket = App::call()->basketRepository->getBasket($session);
+        $sum = App::call()->basketRepository->countSum('price', 'session_id', $session);
 
         echo $this->render('basket', [
             'basket' => $basket,

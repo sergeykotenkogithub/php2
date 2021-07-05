@@ -14,11 +14,6 @@
         <div class="wrapperLogin__message">
             <?= $noAuth ?>
         </div>
-        <div class="wrapperLogin__message">
-            <?php if ($isAdmin): ?>
-            Это точно Админ
-            <?endif;?>
-        </div>
     </div>
 
     <div>

@@ -57,4 +57,5 @@ class AuthController extends Controller
         header("Location: /");
         die();
     }
+
 }
