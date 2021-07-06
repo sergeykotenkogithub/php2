@@ -3,8 +3,6 @@
 
 namespace app\controllers;
 
-use app\engine\TwigRender; // Если на Twig переключаться
-
 use app\interfaces\IRenderer;
 use app\engine\App;
 

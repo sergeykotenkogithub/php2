@@ -71,6 +71,31 @@
   align-items: center;
   justify-content: center;
   padding: 20px 0;
+  &__iconPrev {
+    width: 18px;
+    height: 18px;
+    padding: 10px;
+    transform: rotate(180deg);
+    background-size: cover !important;
+    background: url("/img/icon/next_prev_main.svg");
+  }
+  &__iconNext {
+    width: 18px;
+    height: 18px;
+    padding: 10px;
+    background-size: cover !important;
+    background: url("/img/icon/next_prev_main.svg");
+  }
+
+  .goodsPagination__Icon:hover {
+    .goodsPagination__iconPrev, .goodsPagination__iconNext {
+      background: url("/img/icon/next_prev_blue.svg");
+    }
+
+      //padding: 0;
+      //border: none;
+  }
+
   a {
     font-size: 18px;
     padding: 10px;

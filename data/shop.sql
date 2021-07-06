@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3307
--- Время создания: Июн 29 2021 г., 02:30
+-- Время создания: Июл 06 2021 г., 06:17
 -- Версия сервера: 8.0.19
 -- Версия PHP: 7.4.5
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `gallerybase`
+-- База данных: `shop`
 --
 
 -- --------------------------------------------------------
@@ -151,7 +151,48 @@ INSERT INTO `basket` (`id`, `goods_id`, `session_id`, `quantity`, `price`, `pric
 (320, 1, '8rqjmr7alsaj25le0dqcoo4g6nr6u5dg', 1, 620, 620),
 (368, 1, 'tbv7b5q3d1l6jk7h4ppqjsmke43k40hj', 1, 620, 620),
 (369, 1, 'tbv7b5q3d1l6jk7h4ppqjsmke43k40hj', 1, 620, 620),
-(370, 2, 'tbv7b5q3d1l6jk7h4ppqjsmke43k40hj', 1, 452, 452);
+(370, 2, 'tbv7b5q3d1l6jk7h4ppqjsmke43k40hj', 1, 452, 452),
+(551, 1, '7gp2foc8f7t8oo1lqv3mm8opmjn5q5ne', 1, 620, 620),
+(552, 2, '7gp2foc8f7t8oo1lqv3mm8opmjn5q5ne', 2, 904, 452),
+(554, 1, '3s3m0er0e0gbs7j22ku0ouuju5arkia6', 1, 620, 620),
+(555, 2, '3s3m0er0e0gbs7j22ku0ouuju5arkia6', 1, 452, 452),
+(559, 1, 'm086c3toi81jbt2bt1fhmfc0h0uf1pn7', 1, 620, 620),
+(560, 1, '1nulc0teru7o3j0i9eicb2ps11omdb7p', 1, 620, 620),
+(561, 1, '1nulc0teru7o3j0i9eicb2ps11omdb7p', 1, 620, 620),
+(562, 1, '1nulc0teru7o3j0i9eicb2ps11omdb7p', 1, 620, 620),
+(563, 2, '1nulc0teru7o3j0i9eicb2ps11omdb7p', 1, 452, 452),
+(564, 1, '48b91i20pqr095uhdmnbseatsj5vv9q3', 1, 620, 620),
+(565, 1, '48b91i20pqr095uhdmnbseatsj5vv9q3', 1, 620, 620),
+(566, 2, '48b91i20pqr095uhdmnbseatsj5vv9q3', 1, 452, 452),
+(608, 1, 'd4011qnhjjm3bml9r9b11dda50iktgqe', 1, 620, 620),
+(609, 1, 'd4011qnhjjm3bml9r9b11dda50iktgqe', 1, 620, 620),
+(610, 2, 'd4011qnhjjm3bml9r9b11dda50iktgqe', 1, 452, 452),
+(611, 1, '2jhkf5rg2sk4qqrkvkb9nmk3d9o0942b', 1, 620, 620),
+(612, 2, '2jhkf5rg2sk4qqrkvkb9nmk3d9o0942b', 1, 452, 452),
+(613, 2, '2jhkf5rg2sk4qqrkvkb9nmk3d9o0942b', 1, 452, 452),
+(614, 1, '5jakkojep4blvsrqc86d6988g2hp8gfj', 1, 620, 620),
+(615, 1, '5jakkojep4blvsrqc86d6988g2hp8gfj', 1, 620, 620),
+(616, 1, '9gkglvro7g1la0v3hjft2b7j51e4857v', 1, 620, 620),
+(617, 2, '9gkglvro7g1la0v3hjft2b7j51e4857v', 1, 452, 452),
+(618, 1, 'reqdqjsk3j1nelg6d16c5smsc1v2phk8', 1, 620, 620),
+(619, 2, 'reqdqjsk3j1nelg6d16c5smsc1v2phk8', 1, 452, 452),
+(620, 2, 'reqdqjsk3j1nelg6d16c5smsc1v2phk8', 1, 452, 452),
+(677, 1, 'ss55tvoh8h5b1kfrcsr7505jdsin5fr0', 1, 620, 620),
+(678, 2, 'ss55tvoh8h5b1kfrcsr7505jdsin5fr0', 1, 452, 452),
+(679, 1, 'in1c9mr62mgk6vturpscuk3ia8v3neo2', 1, 620, 620),
+(680, 2, 'in1c9mr62mgk6vturpscuk3ia8v3neo2', 1, 452, 452),
+(681, 1, 'in1c9mr62mgk6vturpscuk3ia8v3neo2', 1, 620, 620),
+(682, 1, 'i7nci1j2frp171tcnkk745b8ib0od1qa', 1, 620, 620),
+(683, 2, 'i7nci1j2frp171tcnkk745b8ib0od1qa', 1, 452, 452),
+(684, 2, 'i7nci1j2frp171tcnkk745b8ib0od1qa', 1, 452, 452),
+(685, 1, 'pveqvj3ibe1atjvebqhca81lcfvq0duj', 1, 620, 620),
+(686, 1, 'alhpuj06ubrp3jm8eperclmtfm5tcok4', 1, 620, 620),
+(687, 1, 'ifmsqm0hr0dfasvmgro3ijo3uh1tvb5b', 1, 620, 620),
+(688, 2, '56h0gcv90dppefvp1b2p7ba5giicarhu', 1, 452, 452),
+(689, 3, 'favvhe6amtlmc7hi8hdkj8si6p14qv5o', 1, 198, 198),
+(690, 2, 'ognii5v9ff4on9n55jv8126ocab5vni5', 1, 452, 452),
+(691, 1, 'ognii5v9ff4on9n55jv8126ocab5vni5', 1, 620, 620),
+(692, 1, 'rs6opo7a7916m1lqq93ud0ge8a7g3kmj', 1, 620, 620);
 
 -- --------------------------------------------------------
 
@@ -361,11 +402,30 @@ INSERT INTO `orders` (`id`, `hash`, `tel`, `email`, `date`, `users_id`, `status`
 (61, 'e0to33sssn2hgvr7f4h6movutvk3vbup', 1221, 'as', '2021-06-05 15:21:45', 4, 'Выполнен', 2510),
 (62, 'abuqld9buqcjis1osjar4b4iehsgij1n', 8451, 'saddsa', '2021-06-06 20:08:53', 2, 'Ожидайте звонка от оператора', 3582),
 (63, 'en8e3jmn3ubf5doom5oedhd7u231e2ob', 12312, 'as', '2021-06-06 20:09:36', NULL, 'Ожидайте звонка от оператора', 2484),
-(64, 'oq647hoemhi8aa6uhb4g3htfiidqr4qh', 12, 'sa', '2021-06-06 20:19:35', 2, 'Едет в пункт выдачи', 3784),
+(64, 'oq647hoemhi8aa6uhb4g3htfiidqr4qh', 12, 'sa', '2021-06-06 20:19:35', 2, 'Передан на обработку', 3784),
 (65, 'glqatpaavputqbvaui6c94gs694lkgbt', 213, 'asd', '2021-06-06 20:21:42', 2, 'Выполнен', 2708),
 (66, '5ssq6lmv377adalhu4b3199nc9dhdsbv', 789925626, 'ываыыв', '2021-06-11 06:26:38', NULL, 'Ожидайте звонка от оператора', 3048),
 (67, 'ukp0dufjf7dbesam1pblvvihghe50mlm', 8796126, 'sdaas', '2021-06-11 06:27:30', 10, 'Подготовлен счёт на оплату', 620),
-(68, '55e8l49aj2ocqq4gf0thh8euagqcnrco', 526562, 'sdssaa', '2021-06-14 09:31:49', 4, 'Ожидайте звонка от оператора', 2088);
+(68, '55e8l49aj2ocqq4gf0thh8euagqcnrco', 526562, 'sdssaa', '2021-06-14 09:31:49', 4, 'Ожидайте звонка от оператора', 2088),
+(78, '1nulc0teru7o3j0i9eicb2ps11omdb7p', 12, 'asd', '2021-06-14 00:00:00', 111, 'Ожидайте звонка', 2312),
+(79, '1nulc0teru7o3j0i9eicb2ps11omdb7p', 1221, 'sads', '2021-06-14 00:00:00', 1, 'Ожидайте звонка', 2312),
+(80, '1nulc0teru7o3j0i9eicb2ps11omdb7p', 121, 'asd', '2021-06-14 00:00:00', 1, 'Ожидайте звонка', 2312),
+(81, '48b91i20pqr095uhdmnbseatsj5vv9q3', 121, 'sad', '2021-06-14 00:00:00', 1, 'Едет в пункт выдачи', 1692),
+(82, 'd4011qnhjjm3bml9r9b11dda50iktgqe', 0, 'asdsad', '2021-06-14 00:00:00', 1, 'Ожидайте звонка', 1692),
+(83, '2jhkf5rg2sk4qqrkvkb9nmk3d9o0942b', 213, 'sad', '2021-06-14 00:00:00', 1, 'Обрабатывается', 1524),
+(84, '5jakkojep4blvsrqc86d6988g2hp8gfj', 1221, 'asd', '2021-06-14 00:00:00', 4, 'Едет в пункт выдачи', 1240),
+(85, '9gkglvro7g1la0v3hjft2b7j51e4857v', 1111, 'saddas', '2021-06-14 00:00:00', 1, 'Ожидайте звонка', 1072),
+(86, 'reqdqjsk3j1nelg6d16c5smsc1v2phk8', 812, 'sss', '2021-06-14 00:00:00', 4, 'Обрабатывается', 1524),
+(87, 'ss55tvoh8h5b1kfrcsr7505jdsin5fr0', 85510, 'sasa', '2021-06-14 00:00:00', 1, 'Ожидайте звонка', 1072),
+(88, 'in1c9mr62mgk6vturpscuk3ia8v3neo2', 0, '0', '2021-06-14 00:00:00', 1, 'Ожидайте звонка', 1692),
+(89, 'i7nci1j2frp171tcnkk745b8ib0od1qa', 0, '0', '2021-06-14 00:00:00', 1, 'Ожидайте звонка', 1524),
+(90, 'pveqvj3ibe1atjvebqhca81lcfvq0duj', 123312, '0', '2021-06-14 00:00:00', 1, 'Ожидайте звонка', 620),
+(91, 'alhpuj06ubrp3jm8eperclmtfm5tcok4', 1212, 'asdas', '2021-06-14 00:00:00', 1, 'Ожидайте звонка', 620),
+(92, 'ifmsqm0hr0dfasvmgro3ijo3uh1tvb5b', 12312, 'asd', '2021-06-14 00:00:00', 1, 'Ожидайте звонка', 620),
+(93, '56h0gcv90dppefvp1b2p7ba5giicarhu', 123123, 'asd', '2021-06-14 00:00:00', 1, 'Ожидайте звонка', 452),
+(94, 'favvhe6amtlmc7hi8hdkj8si6p14qv5o', 111122, 'rrettt', '2021-06-14 00:00:00', 1, 'Ожидайте звонка', 198),
+(95, 'ognii5v9ff4on9n55jv8126ocab5vni5', 33343432, 'ttry', '2021-06-14 00:00:00', 4, 'Ожидайте звонка', 1072),
+(96, 'rs6opo7a7916m1lqq93ud0ge8a7g3kmj', 11444, 'sadas', '2021-06-14 00:00:00', 4, 'Ожидайте звонка', 620);
 
 -- --------------------------------------------------------
 
@@ -386,16 +446,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `pass`, `hash`, `role`) VALUES
-(1, 'admin', '$2y$10$7MPBsjZJQvTdH2YQh6RLg.ql7roG.LsoRuSrmTtQjXs//VstSR5j2', '2198757360d837357efee8.82799781', 'admin'),
+(1, 'admin', '$2y$10$7MPBsjZJQvTdH2YQh6RLg.ql7roG.LsoRuSrmTtQjXs//VstSR5j2', '116707922960e34b3d10fa66.94941119', 'admin'),
 (2, 'lop', '$2y$10$h8VYBRsfOf/vh/n97OYUh..iDm8ZDMnlW/hYtg3zyx7jlbvEx92lS', '62656287460bb81cb726773.74618670', 'user'),
 (3, 'two', '$2y$10$yQtBYEdFGNIzjULV4GepcOgRAckGDbrbbmKIu85ybNyKxjAvNKWT.', NULL, 'user'),
-(4, 'one', '$2y$10$MewJ.hJtznVH8EvYfJTpaOv/NN/5zou/nOs3T2WtCPlOe6bSAh6v2', '68718625260da413440c804.92060341', 'user'),
+(4, 'one', '$2y$10$MewJ.hJtznVH8EvYfJTpaOv/NN/5zou/nOs3T2WtCPlOe6bSAh6v2', '79043460260e33c58d40243.84511113', 'user'),
 (5, 'tree', '$2y$10$SreEqZGrAmGfIsONzen5rOQrpsio3Ppm4Zc1eUMDQwOsxg/2r6g.u', NULL, 'user'),
 (6, 'for', '$2y$10$xGWA.MLdQaoICxQCdnuw.ub6wTJzqQQ1zFtYWFZa5dyNx3qst134W', NULL, 'user'),
 (7, 'five', '$2y$10$CgWVbEcTbiYiprUjt9Knv.7XQM1KRhqIALrapoqIgpB1c0lFDefcy', '202473440360d82f2a29f2f8.09573957', 'user'),
 (8, 'six', '$2y$10$ls2uK.Fpfg.GcsX.k/dj3Oaz78FrLnVaOQtztL3kIMAtlpuHAW8cK', '133683137460d82fca2aa547.63467884', 'user'),
 (9, 'seven', '$2y$10$x92TdV6gMiZbBF9dKN5YBuhxH1slTuylFAMzguSxEqORgZcpyISdS', NULL, 'user'),
-(10, 'yan', '$2y$10$7MPBsjZJQvTdH2YQh6RLg.ql7roG.LsoRuSrmTtQjXs//VstSR5j2', NULL, 'user');
+(10, 'yan', '$2y$10$7MPBsjZJQvTdH2YQh6RLg.ql7roG.LsoRuSrmTtQjXs//VstSR5j2', NULL, 'user'),
+(51, '1221', '$2y$10$jS2yr8fUFdrre7kNaxxXkehWuC4r6VCDrq6v.gyLF7.cxG/hq3kp6', '11', 'user');
 
 --
 -- Индексы сохранённых таблиц
@@ -453,7 +514,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `basket`
 --
 ALTER TABLE `basket`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=445;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=704;
 
 --
 -- AUTO_INCREMENT для таблицы `feedback`
@@ -483,13 +544,13 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

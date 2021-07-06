@@ -2,7 +2,10 @@
 
 <div class="goodsPagination">
 
-    <a href="/product/catalog/?page=<?=$prev?>"><<</a>
+    <!-- Назад   -->
+    <a class="goodsPagination__Icon" href="/product/catalog/?page=<?=$prev?>"">
+        <div class="goodsPagination__iconPrev"></div>
+    </a>
 
     <?php for ($i = 1; $i <= $pageCount; $i++): ?>
         <? if ($page == $i) :?>
@@ -13,7 +16,10 @@
 
     <?php endfor; ?>
 
-    <a href="/product/catalog/?page=<?=$next?>">>></a>
+    <!-- Вперед   -->
+    <a class="goodsPagination__Icon" href="/product/catalog/?page=<?=$next?>"">
+        <div class="goodsPagination__iconNext"></div>
+    </a>
 
 </div>
 

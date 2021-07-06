@@ -3,6 +3,7 @@
 .wrapperLogin {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
     &__name {
       padding: 20px 0;
       text-align: center;
