@@ -2,18 +2,42 @@
 
 .wrapperBasket {
   font-size: 20px;
-}
-
-.wrapperBasket__empty {
+  &__empty {
     text-align: center;
     font-size: 25px;
+  }
 }
+
+.wrapperBasket
 
 .basket {
   display: flex;
   align-items: center;
   padding: 20px;
   justify-content: space-evenly;
+
+  &__add {
+    width: 27px;
+    height: 27px;
+    background: url(/img/icon/basket_add.svg);
+    background-size: cover;
+    &:hover {
+      background: url(/img/icon/basket_add_blue.svg);
+      background-size: cover;
+    }
+  }
+
+  &__deleteOne {
+    width: 25px;
+    height: 25px;
+
+    background: url(/img/icon/basket_minus.svg);
+    background-size: cover;
+    &:hover {
+      background: url(/img/icon/basket_minus_blue.svg);
+      background-size: cover;
+    }
+  }
 }
 
 .basketBtn {
@@ -22,6 +46,9 @@
   color: $color;
   font-size: 18px;
 }
+
+
+
 
 .basketBtnSize {
   font-size: 30px;

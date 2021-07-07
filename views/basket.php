@@ -19,10 +19,10 @@
                 <button class="basket__delete basketBtn" data-id="<?=$item['basket_id']?>">Удалить</button>
             </div>
             <div>
-                <button class="basket__add basketBtn basketBtnSize" data-id="<?=$item['basket_id']?>" data-goods="<?=$item['goods_id']?>">+</button>
+                <button class="basket__add" data-id="<?=$item['basket_id']?>" data-goods="<?=$item['goods_id']?>"></button>
             </div>
             <div>
-                <button class="basket__deleteOne basketBtn basketBtnSize" data-id="<?=$item['basket_id']?>" data-goods="<?=$item['goods_id']?>">-</button>
+                <button class="basket__deleteOne" data-id="<?=$item['basket_id']?>" data-goods="<?=$item['goods_id']?>"></button>
             </div>
         </div>
     <?php endforeach;?>
