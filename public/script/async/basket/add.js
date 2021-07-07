@@ -21,6 +21,10 @@ goodsAdd.forEach((elem) => {
             // Изменяет общую сумму в корзине
             let summ = document.getElementById('basketSumm');
             summ.innerText = answer.summ;
+
+            // Изменяет количество в корзине
+            let count = document.getElementById('countBasket')
+            count.innerText = `(${answer.count})`
         })();
     })
 })

@@ -33,7 +33,9 @@ goodsBtn.forEach((elem) => {
                     summ.textContent = answer.summ
                 }
 
-                document.getElementById('countBasket').innerText = `(${answer.count})`
+                // Изменяет количество в корзине
+                let count = document.getElementById('countBasket')
+                count.innerText = `(${answer.count})`
             }
 
             catch (e) {

@@ -14,12 +14,17 @@
   align-items: center;
   padding: 20px;
   justify-content: space-evenly;
-  &__delete {
-    @extend %hover;
-    background: none;
-    color: $color;
-    font-size: 18px;
-  }
+}
+
+.basketBtn {
+  @extend %hover;
+  background: none;
+  color: $color;
+  font-size: 18px;
+}
+
+.basketBtnSize {
+  font-size: 30px;
 }
 
 .basket div {

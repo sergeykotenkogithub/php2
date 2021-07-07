@@ -16,13 +16,13 @@
             <div class="rub basket__price" id="price<?=$item['basket_id']?>"><?=$item['price']?></div>
             <div class="basket__quantity">Кол-во: <span id="quantity<?=$item['basket_id']?>"><?=$item['quantity']?></span> </div>
             <div>
-                <button class="basket__delete" data-id="<?=$item['basket_id']?>">Удалить</button>
+                <button class="basket__delete basketBtn" data-id="<?=$item['basket_id']?>">Удалить</button>
             </div>
             <div>
-                <button class="basket__add" data-id="<?=$item['basket_id']?>" data-goods="<?=$item['goods_id']?>">+</button>
+                <button class="basket__add basketBtn basketBtnSize" data-id="<?=$item['basket_id']?>" data-goods="<?=$item['goods_id']?>">+</button>
             </div>
             <div>
-                <button class="basket__deleteOne" data-id="<?=$item['basket_id']?>" data-goods="<?=$item['goods_id']?>">-</button>
+                <button class="basket__deleteOne basketBtn basketBtnSize" data-id="<?=$item['basket_id']?>" data-goods="<?=$item['goods_id']?>">-</button>
             </div>
         </div>
     <?php endforeach;?>

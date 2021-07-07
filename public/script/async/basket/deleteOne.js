@@ -54,9 +54,11 @@ goodsDel.forEach((elem) => {
                 }
 
                 //............Показывает сумму товаров в корзине............................
-
                 document.getElementById('countBasket').innerText = `(${answer.count})`
 
+                // Изменяет количество в корзине
+                let count = document.getElementById('countBasket')
+                count.innerText = `(${answer.count})`
             }
 
             catch (e) {

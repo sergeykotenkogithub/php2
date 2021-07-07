@@ -99,7 +99,7 @@ class AsyncController extends Controller
         $basket = App::call()->basketRepository->getOneAndWhere('id', $id, 'session_id', $session);
 
         $response = [
-            'count' =>  'aaasd',
+            'count' =>  App::call()->basketRepository->countSum('quantity', 'session_id', $session),
             'quantity' => $basket->quantity,
             'price' => $basket->price,
             'summ' => App::call()->basketRepository->countSum('price', 'session_id', $session)
@@ -119,13 +119,12 @@ class AsyncController extends Controller
 
         App::call()->basketRepository->changeBasketQuantityDel($goods_id, $session_id);
 
-        //......Если количество 0, но в данном случае 1, так как идёт код выше проверки то удаляется полность.......
+        //......Если количество 0, но в данном случае 1, так как идёт код выше проверки. То удаляется полность.......
 
         if ($basket->quantity == 1) {
             App::call()->basketRepository->delete($basket);
             $deleteWholly = 'yes';
         } else {
-//            App::call()->basketRepository->changeBasketQuantityDel($goods_id, $session_id);
             $deleteWholly = 'no';
         }
 
