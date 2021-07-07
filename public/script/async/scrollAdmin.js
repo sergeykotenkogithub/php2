@@ -1,6 +1,4 @@
-// const windowScrollTop = window.pageYOffset; - высота
-
-// Асинхрон для Каталога
+// Асинхрон для страницы Админ
 
 let inProgress = false; // чтоб пока идёт асинхрон запово не шёл запрос
 
@@ -34,8 +32,8 @@ window.addEventListener('scroll', (e) => {
             $answerCatalog.forEach(function(item) {
                 let addCatalog = document.getElementById('addAsyncAdmin')
                 addCatalog.insertAdjacentHTML('beforeend',
-                    `                  
-                                       
+                    `
+                 
                    <a href="/admin/adminOrder/?id=${item['id']}">
                         <div class="admin__order">
                             <div>Заказ №: ${item['id']}</div>
@@ -47,7 +45,7 @@ window.addEventListener('scroll', (e) => {
                             </div>
                         </div>
                     </a>
-                                     
+                    
                 `);
                 inProgress = false;
             })

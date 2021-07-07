@@ -14,6 +14,18 @@ class BasketRepository extends Repository
         return App::call()->db->queryAllArray($sql);
     }
 
+    //..................Изменяет количество товаров..........
+
+    public function changeBasketQuantity($id, $session) {
+        $sql = "UPDATE `basket` SET `quantity` = quantity + 1, price = price + price_origin WHERE `goods_id` = {$id} AND session_id =           '{$session}'";
+        return App::call()->db->executeSql($sql);
+    }
+
+    public function changeBasketQuantityDel($id, $session) {
+        $sql = "UPDATE `basket` SET `quantity` = quantity - 1, price = price - price_origin WHERE `goods_id` = {$id} AND session_id =           '{$session}'";
+        return App::call()->db->executeSql($sql);
+    }
+
     protected function getTableName() {
         return 'basket';
     }

@@ -13,22 +13,24 @@
             <div>
                 <img src="/img/goods/<?= $item['image'] ?>" width="100">
             </div>
-            <div class="rub basket__price"><?=$item['price']?></div>
-            <div class="basket__quantity">Кол-во:<?=$item['quantity']?></div>
-            <div class="basket__del" >
+            <div class="rub basket__price" id="price<?=$item['basket_id']?>"><?=$item['price']?></div>
+            <div class="basket__quantity">Кол-во: <span id="quantity<?=$item['basket_id']?>"><?=$item['quantity']?></span> </div>
+            <div>
                 <button class="basket__delete" data-id="<?=$item['basket_id']?>">Удалить</button>
             </div>
-            <div class="basket__del">
-                <a class="buy" href="/basket/?action=add&id=<?=$item['basket_id']?>">+</a>
+            <div>
+                <button class="basket__add" data-id="<?=$item['basket_id']?>" data-goods="<?=$item['goods_id']?>">+</button>
             </div>
-            <div class="basket__del">
-                <a class="buy" href="/basket/?action=deleteitem&quantity=<?=$item['quantity']?>&id=<?=$item['basket_id']?>">-</a>
+            <div>
+                <button class="basket__deleteOne" data-id="<?=$item['basket_id']?>" data-goods="<?=$item['goods_id']?>">-</button>
             </div>
         </div>
     <?php endforeach;?>
-    <div class="rub total centerBasket">Итого: <?=$sum?> </div>
+    <div class="rub total centerBasket">Итого: <span id="basketSumm"><?=$sum?></span></div>
     <div class="order centerBasket"><a href="/orderform">Оформить заказ</a></div>
     <?endif; ?>
 </div>
 
-<script src="/script/async/delete.js?<?php echo uniqid();?>"></script>
+<script src="/script/async/basket/deleteWholly.js?<?php echo uniqid();?>"></script>
+<script src="/script/async/basket/deleteOne.js?<?php echo uniqid();?>"></script>
+<script src="/script/async/basket/add.js?<?php echo uniqid();?>"></script>

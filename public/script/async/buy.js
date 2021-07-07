@@ -1,3 +1,5 @@
+// Асинхрон. Добавление товара со страницы каталог в корзину
+
 let goodsBtn = document.querySelectorAll('.goodsAsync')
 goodsBtn.forEach((elem) => {
     elem.addEventListener('click', (e) => {

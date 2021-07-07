@@ -48,8 +48,15 @@ class AsyncController extends Controller
         $basket = new Basket($id, "$session", $price, $price, 1);
         $count = App::call()->basketRepository->countSum('quantity', 'session_id', $session);
 
+        // ..... Если есть такой товар то добавляет количество, если нет то добавляет новый в корзину...................
+
+        $comparisonGoodsBasket = App::call()->basketRepository->getOneAndWhere('goods_id', $id, 'session_id', $session);
+        if($comparisonGoodsBasket) {
+            App::call()->basketRepository->changeBasketQuantity($id, $session);
+        } else {
+            App::call()->basketRepository->insert($basket);
 //          App::call()->basketRepository->save($basket); //!!! НЕ РАБОТАЕТ ПОЧЕМУ???
-        App::call()->basketRepository->insert($basket);
+        }
 
         echo json_encode(['count' => $count + 1], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     }
@@ -64,11 +71,73 @@ class AsyncController extends Controller
         $id = App::call()->request->getParams()['id'];
         $basket = App::call()->basketRepository->getOneAndWhere('id', $id, 'session_id', $session_id);
 
+
         App::call()->basketRepository->delete($basket);
+
 
         $response = [
             'count' =>  App::call()->basketRepository->countSum('quantity', 'session_id', $session_id),
-            'sum' => App::call()->basketRepository->countSum('price', 'session_id', $session_id)
+            'summ' => App::call()->basketRepository->countSum('price', 'session_id', $session_id)
+        ];
+
+        echo json_encode($response, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+
+    }
+
+    // Добавление товара при нажатие "+" в Корзине
+
+    public function actionAddBasket() {
+
+        $session = App::call()->session->getId();
+        $id = App::call()->request->getParams()['id'];
+        $goods_id = App::call()->request->getParams()['goods'];
+
+
+        // Добавляет количество и прибавляет сумму к товару
+        App::call()->basketRepository->changeBasketQuantity($goods_id, $session);
+
+        $basket = App::call()->basketRepository->getOneAndWhere('id', $id, 'session_id', $session);
+
+        $response = [
+            'count' =>  'aaasd',
+            'quantity' => $basket->quantity,
+            'price' => $basket->price,
+            'summ' => App::call()->basketRepository->countSum('price', 'session_id', $session)
+        ];
+
+        echo json_encode($response, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+    }
+
+    // Удаление товара при нажатие "-" в Корзине
+
+    public function actionDel() {
+
+        $session_id = App::call()->session->getId();
+        $id = App::call()->request->getParams()['id'];
+        $goods_id = App::call()->request->getParams()['goods'];
+        $basket = App::call()->basketRepository->getOneAndWhere('id', $id, 'session_id', $session_id);
+
+        App::call()->basketRepository->changeBasketQuantityDel($goods_id, $session_id);
+
+        //......Если количество 0, но в данном случае 1, так как идёт код выше проверки то удаляется полность.......
+
+        if ($basket->quantity == 1) {
+            App::call()->basketRepository->delete($basket);
+            $deleteWholly = 'yes';
+        } else {
+//            App::call()->basketRepository->changeBasketQuantityDel($goods_id, $session_id);
+            $deleteWholly = 'no';
+        }
+
+        // Уже с изменённым количеством, так как $basket имеет другое количество, до изменения.
+        $basketChange = App::call()->basketRepository->getOneAndWhere('id', $id, 'session_id', $session_id);
+
+        $response = [
+            'count' =>  App::call()->basketRepository->countSum('quantity', 'session_id', $session_id),
+            'summ' => App::call()->basketRepository->countSum('price', 'session_id', $session_id),
+            'quantity' => $basketChange->quantity,
+            'deleteWholly' => $deleteWholly,
+            'price' => $basketChange->price,
         ];
 
         echo json_encode($response, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);

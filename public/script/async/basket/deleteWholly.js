@@ -1,3 +1,5 @@
+// При нажатие кнопки "удалить" в корзине
+
 let goodsBtn = document.querySelectorAll('.basket__delete')
 goodsBtn.forEach((elem) => {
     elem.addEventListener('click', (e) => {
@@ -27,7 +29,8 @@ goodsBtn.forEach((elem) => {
                     `)
                     answer.count = 0 // Чтобы не отображало null когда последний товар удаляешь
                 } else {
-                    document.querySelector('.total').textContent = answer.sum
+                    let summ = document.getElementById('basketSumm');
+                    summ.textContent = answer.summ
                 }
 
                 document.getElementById('countBasket').innerText = `(${answer.count})`
