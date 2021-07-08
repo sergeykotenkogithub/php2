@@ -17,10 +17,9 @@
         <div class="menu__iconLogin"></div>
     </a>
     <?endif; ?>
-    <a class="menu__basket" href="/basket/goods">
-        <div class="menu__iconCart">
-            <div class="menu__span" id="countBasket">(<?= $countBasket ?: 0 ?>)</div>
-        </div>
+    <a class="basketMenu" href="/basket/goods">
+        <div class="menu__iconCart"> </div>
+        <div class="menu__span" id="countBasket"><?= $countBasket ?: 0 ?></div>
     </a>
 </div>
 

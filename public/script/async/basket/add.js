@@ -24,7 +24,7 @@ goodsAdd.forEach((elem) => {
 
             // Изменяет количество в корзине
             let count = document.getElementById('countBasket')
-            count.innerText = `(${answer.count})`
+            count.innerText = answer.count
         })();
     })
 })

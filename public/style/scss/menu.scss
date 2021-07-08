@@ -32,15 +32,34 @@
 }
 
 .menu__basket {
-  position: relative;
-  transition: 0s;
+  display: flex;
   @extend %hover;
 }
 
 .menu__span {
   position: absolute;
-  right: 0;
-  top: 0;
+  top: -8px;
+  left: 32px;
+  font-size: 17px;
+  border: 1px solid #6495ed;
+  border-radius: 50%;
+  padding: 4px 7px 4px 7px;
+
+  &:hover {
+    .menu__iconCart {
+      background: url("/img/icon/shopping_cart_blue.svg");
+    }
+  }
+}
+
+.basketMenu {
+  position: relative;
+  display: flex;
+  &:hover {
+    .menu__span {
+      border: 1px solid blue;
+    }
+  }
 }
 
 .menu__iconLogin {
@@ -53,6 +72,7 @@
 }
 
 .menu__iconCart {
+  margin-right: 5px;
   width: 30px;
   height: 30px;
   background: url("/img/icon/shopping_cart.svg");

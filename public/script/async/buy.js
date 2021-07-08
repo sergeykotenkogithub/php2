@@ -12,7 +12,7 @@ goodsBtn.forEach((elem) => {
             const answer = await response.json();
 
             let count = document.getElementById('countBasket')
-            count.innerText = `(${answer.count})`
+            count.innerText = `${answer.count}`
         })();
     })
 })
