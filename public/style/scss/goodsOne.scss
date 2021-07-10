@@ -24,5 +24,7 @@
   }
   &__btn {
     font-size: 27px;
+    color: $color;
+    @extend %hover;
   }
 }

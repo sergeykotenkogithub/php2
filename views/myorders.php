@@ -19,7 +19,7 @@
                 <div class="rub myorder__total myorder">Общая сумма: <?="{$order[$i]['total']}"?></div>
             </div>
             <?endif;?>
-            <div class="basket">
+            <div class="basket myorderBasket">
                 <div class="basket__name"><?="{$order[$i]['name']}"?> </div>
                 <div>
                     <img src="/img/goods/<?="{$order[$i]['image']}"?>" width="100">

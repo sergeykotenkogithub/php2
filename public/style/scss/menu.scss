@@ -44,6 +44,7 @@
   border: 1px solid #6495ed;
   border-radius: 50%;
   padding: 4px 7px 4px 7px;
+  transition: 0.3s;
 
   &:hover {
     .menu__iconCart {
@@ -55,6 +56,7 @@
 .basketMenu {
   position: relative;
   display: flex;
+  transition: 0.3s;
   &:hover {
     .menu__span {
       border: 1px solid blue;
@@ -66,6 +68,7 @@
   width: 30px;
   height: 30px;
   background: url("/img/icon/login.svg");
+  transition: 0.3s;
   &:hover {
     background: url("/img/icon/login_blue.svg");
   }
@@ -76,6 +79,7 @@
   width: 30px;
   height: 30px;
   background: url("/img/icon/shopping_cart.svg");
+  transition: 0.3s;
   &:hover {
     background: url("/img/icon/shopping_cart_blue.svg");
   }
