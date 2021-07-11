@@ -17,7 +17,7 @@ final class FeedbackController extends Controller
        $feedback_answer =  App::call()->request->getParams()['feedback_answer'];
        $name =  App::call()->request->getParams()['name'];
        $textarea_post =  App::call()->request->getParams()['textarea'];
-       $textarea = trim($textarea_post);
+       $textarea = trim($textarea_post); // обрезает пробелы в начале и в конце
 
         // Если выбран сайт или товар
 
