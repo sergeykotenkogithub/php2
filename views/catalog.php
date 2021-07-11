@@ -3,21 +3,24 @@
 <div class="goodsPagination">
 
     <!-- Назад   -->
-    <a class="goodsPagination__Icon" href="/product/catalog/?page=<?=$prev?>"">
+    <a class="goodsPagination__Icon _iconPrev" href="/product/catalog/?page=<?=$prev?>"">
         <div class="goodsPagination__iconPrev"></div>
     </a>
 
-    <?php for ($i = 1; $i <= $pageCount; $i++): ?>
-        <? if ($page == $i) :?>
-            <a class="active" href="/product/catalog/?page=<?=$i?>"><?=$i?></a>
-        <? else: ?>
-            <a href="/product/catalog/?page=<?=$i?>"><?=$i?></a>
-        <? endif; ?>
+    <div class="goodsPagination__numbers">
+        <?php for ($i = 1; $i <= $pageCount; $i++): ?>
+            <? if ($page == $i) :?>
+                <a class="active" href="/product/catalog/?page=<?=$i?>"><?=$i?></a>
+            <? else: ?>
+                <a href="/product/catalog/?page=<?=$i?>"><?=$i?></a>
+            <? endif; ?>
 
-    <?php endfor; ?>
+        <?php endfor; ?>
+    </div>
+
 
     <!-- Вперед   -->
-    <a class="goodsPagination__Icon" href="/product/catalog/?page=<?=$next?>"">
+    <a class="goodsPagination__Icon _iconNext" href="/product/catalog/?page=<?=$next?>"">
         <div class="goodsPagination__iconNext"></div>
     </a>
 

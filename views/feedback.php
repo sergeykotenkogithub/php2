@@ -41,7 +41,7 @@
                                     <div>
                                         <input class="inputAll feedbackTabs__tabs" type="text" name="name" placeholder="Ваше имя">
                                     </div>
-                                    <div>
+                                    <div class="feedback__select">
                                         <select class="feedbackTabs__select" name="feedback_answer">
                                             <optgroup label="&#171;Выбрать сайт&#187;">
                                                 <option value="site">О сайте</option>

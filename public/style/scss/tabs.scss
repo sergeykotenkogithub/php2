@@ -14,6 +14,15 @@
   padding: 15px;
   cursor: pointer;
   color: #8c90bb;
+  text-align: center;
+  @media (max-width: 520px) {
+    font-size: 15px;
+    padding: 10px;
+  }
+  @media (max-width: 360px) {
+    font-size: 14px;
+    padding: 4px;
+  }
 }
 
 .tabs__block {
@@ -70,6 +79,15 @@
   width: 450px;
   height: 200px;
   border: 1px solid #fff;
+  @media (max-width: 520px) {
+    width: 400px;
+  }
+  @media (max-width: 470px) {
+    width: 310px;
+  }
+  @media (max-width: 360px) {
+    width: 250px;
+  }
 }
 
 .feedback__choose {
@@ -78,6 +96,14 @@
   justify-content: space-between;
   width: 456px;
   margin-bottom: 20px;
+  @media (max-width: 520px) {
+    justify-content: center;
+  }
+  @media (max-width: 470px) {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+  }
 }
 
 .tabs__block {
@@ -101,3 +127,4 @@ select {
   transition: color 0.5s;
   box-shadow: 2px 4px 0px #ccc;
 }
+

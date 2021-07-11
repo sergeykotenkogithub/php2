@@ -6,11 +6,18 @@
   justify-content: center;
   padding-top: 100px;
   align-items: center;
+
+  @media (max-width: 601px) {
+    padding-top: 60px;
+  }
+
   div:first-child {
     font-size: 25px;
     padding-bottom: 20px;
+    text-align: center;
   }
   div:last-child {
     font-size: 22px;
+    text-align: center;
   }
 }

@@ -1,6 +1,9 @@
 .adminOrderNumber {
   font-size: 27px;
   text-align: center;
+  @media (max-width: 601px) {
+    font-size: 24px;
+  }
 }
 
 .adminOrderWrapper {
@@ -22,6 +25,9 @@
     border: 3px solid #fff;
     padding: 10px;
     margin-bottom: 25px;
+    @media (max-width: 360px) {
+        font-size: 15px;
+    }
   }
   &__btn {
     background: none;
@@ -30,6 +36,9 @@
     border: 3px solid #fff;
     padding: 14px;
     width: 215px;
+    @media (max-width: 360px) {
+      font-size: 18px;
+    }
   }
   &__form {
     display: flex;

@@ -14,11 +14,12 @@
   }
   &__img {
     max-width: 500px;
-    padding: 0 20px;
+    padding: 0 30px;
     height: auto;
     width: 100%;
   }
   &__description {
+    text-align: justify;
   }
   &__price {
   }
@@ -26,5 +27,8 @@
     font-size: 27px;
     color: $color;
     @extend %hover;
+    @media (max-width: 380px) {
+      font-size: 24px;
+    }
   }
 }
