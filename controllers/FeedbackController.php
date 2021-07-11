@@ -16,28 +16,26 @@ final class FeedbackController extends Controller
 
        $feedback_answer =  App::call()->request->getParams()['feedback_answer'];
        $name =  App::call()->request->getParams()['name'];
-       $textarea =  App::call()->request->getParams()['textarea'];
-
-
+       $textarea_post =  App::call()->request->getParams()['textarea'];
+       $textarea = trim($textarea_post);
 
         // Если выбран сайт или товар
 
-        if ($feedback_answer == 'site') {
-            App::call()->feedbackRepository->feedback_site($name, $textarea);
-            App::call()->session->set('message', 'Ваш отзыв добавлен');
-            $message = App::call()->session->get('message');
-            $unset = App::call()->session->get('message');
-            unset($unset);
-        }
+        if (!empty($feedback_answer ) & !empty($name) & !empty($textarea)) {
 
-        if  ($feedback_answer != 'site' & isset($name)) {
-            App::call()->feedbackRepository->feedback_goods($name, $textarea, $feedback_answer);
-            App::call()->session->set('message', 'Ваш отзыв добавлен');
-            $message = App::call()->session->get('message');
-            $unset = App::call()->session->get('message');
+            App::call()->session->set('message_feedback', 'Ваш отзыв добавлен');
+            $message = App::call()->session->get('message_feedback');
+            $unset = App::call()->session->get('message_feedback');
             unset($unset);
-        }
 
+            if ($feedback_answer == 'site') {
+                App::call()->feedbackRepository->feedback_site($name, $textarea);
+            }
+
+            if  ($feedback_answer != 'site' & isset($name)) {
+                App::call()->feedbackRepository->feedback_goods($name, $textarea, $feedback_answer);
+            }
+        }
 
 
         echo $this->render('feedback', [

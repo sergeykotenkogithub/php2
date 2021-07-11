@@ -35,7 +35,7 @@
                         <div class="feedbackTabs">
 
                             <form action="/feedback/all" method="post">
-                                <div><h3>Оставьте отзыв:</h3></div>
+                                <div class="feedback__title"><h1>Оставьте отзыв:</h1></div>
 
                                 <div class="feedback__choose">
                                     <div>
