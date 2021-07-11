@@ -18,8 +18,8 @@ final class BasketController extends Controller
         $sum = App::call()->basketRepository->countSum('price', 'session_id', $session);
 
 
-        $update = App::call()->basketRepository->getOne(2);
-        $comparisonGoodsBasket = App::call()->basketRepository->getOneAndWhere('id', $id, 'session_id', $session);
+//        $update = App::call()->basketRepository->getOne(2);
+//        $comparisonGoodsBasket = App::call()->basketRepository->getOneAndWhere('id', $id, 'session_id', $session);
 
 
         echo $this->render('basket', [

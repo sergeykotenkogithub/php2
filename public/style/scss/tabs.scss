@@ -1,0 +1,103 @@
+.tabs {
+  padding-bottom: 20px;
+}
+
+.tabs__items {
+  display: flex;
+  margin-bottom: 18px;
+}
+
+.tabs__item {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 17px;
+  padding: 15px;
+  cursor: pointer;
+  color: #8c90bb;
+}
+
+.tabs__block {
+  position: relative;
+  padding: 20px;
+  font-size: 18px;
+  line-height: 24px;
+  display: none;
+  color: black;
+  box-shadow: 0 0px 22px #ccc;
+  border-radius: 10px;
+  border: 1px solid white;
+}
+.tabs__item {
+  transition: color 0.3s;
+  &:hover {
+    color: black;
+  }
+}
+
+
+.tabs__item.active {
+  color: black;
+  box-shadow: 0 0px 22px #ccc;
+  border-radius: 30px;
+  border: 1px solid white;
+}
+
+/*.......................Написать отзыв.................................. */
+
+.feedbackTabs form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.feedbackTabs__tabs {
+  width: 270px;
+  margin: 10px 0;
+}
+
+.feedbackTabs__select {
+  width: 100px;
+}
+
+.feedbackTabs__textarea {
+  resize: none;
+  color: black;
+  font-size: 17px;
+  background: none;
+  box-shadow: 2px 4px 0px #ccc;
+  outline: none;
+  width: 450px;
+  height: 200px;
+  border: 1px solid #fff;
+}
+
+.feedback__choose {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 456px;
+  margin-bottom: 20px;
+}
+
+.tabs__block {
+  display: none;
+}
+
+.tabs__block.active {
+  display: block;
+}
+
+
+select {
+  background: none;
+  outline: none;
+  margin-top: 15px;
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 50px;
+  display: inline-block;
+  color: black;
+  transition: color 0.5s;
+  box-shadow: 2px 4px 0px #ccc;
+}

@@ -24,10 +24,13 @@ $border: 1px solid #ffffff;
 @import "adminOrder";
 @import "admin";
 @import "goodsOne";
+@import "tabs";
+@import "feedback";
 
 body {
   margin: 0px;
   background: url("/img/120.png");
+  //background: green;
 }
 
 .wrapper {
