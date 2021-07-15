@@ -1,0 +1,60 @@
+// Меню
+
+.menu {
+  padding-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 25px;
+  align-items: flex-end;
+  a {
+    padding-right: 30px;
+    color:  cornflowerblue;
+    @extend %hover;
+  }
+}
+
+.menu__icon {
+  width: 30px;
+}
+
+.menu__basket {
+  position: relative;
+  transition: 0s;
+  @extend %hover;
+}
+
+.menu__span {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.menu__iconLogin {
+  width: 30px;
+  height: 30px;
+  background: url("/img/icon/login.svg");
+  &:hover {
+    background: url("/img/icon/login_blue.svg");
+  }
+}
+
+.menu__iconCart {
+  width: 30px;
+  height: 30px;
+  background: url("/img/icon/shopping_cart.svg");
+  &:hover {
+    background: url("/img/icon/shopping_cart_blue.svg");
+  }
+}
+.menu__iconLogout {
+  width: 30px;
+  height: 30px;
+  background: url("/img/icon/logout.svg");
+  &:hover {
+    background: url("/img/icon/logout_blue.svg");
+  }
+}
+.menu__logout {
+  display: flex;
+}
