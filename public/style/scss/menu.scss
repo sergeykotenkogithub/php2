@@ -1,0 +1,136 @@
+// Меню
+
+.menu {
+  padding-top: 30px;
+  margin-bottom: 30px;
+  font-size: 25px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+
+  &__name {
+    padding-right: 30px;
+  }
+
+  @media (max-width: 601px) {
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 0;
+    justify-items: center;
+  }
+  
+  @media (max-width: 350px) {
+    font-size: 23px;
+  }
+
+  a {
+    padding-bottom: 15px;
+    color:  cornflowerblue;
+    @extend %hover;
+
+    @media (max-width: 601px) {
+      padding-bottom: 30px;
+    }
+
+  }
+  &__iconAdmin {
+    width: 25px;
+    height: 26px;
+    background: url("/img/icon/settings.svg");
+    background-size: contain;
+    @media (max-width: 940px) {
+        display: none;
+    }
+  }
+
+  &__Admin {
+    display: flex;
+    align-items: center;
+  }
+}
+
+
+.menu__icon {
+  width: 30px;
+}
+
+.menu__basket {
+  display: flex;
+  @extend %hover;
+  @media (max-width: 601px) {
+    justify-self: end;
+  }
+}
+
+.menu__span {
+  position: absolute;
+  top: -8px;
+  left: 32px;
+  font-size: 17px;
+  border: 1px solid #6495ed;
+  border-radius: 50%;
+  padding: 4px 7px 4px 7px;
+  transition: 0.3s;
+
+  &:hover {
+    .menu__iconCart {
+      background: url("/img/icon/shopping_cart_blue.svg");
+    }
+  }
+}
+
+.basketMenu {
+  position: relative;
+  display: flex;
+  transition: 0.3s;
+  @media (max-width: 601px) {
+    justify-self: end;
+  }
+  &:hover {
+    .menu__span {
+      border: 1px solid blue;
+    }
+  }
+}
+
+.menu__iconLogin {
+  width: 30px;
+  height: 30px;
+  background: url("/img/icon/login.svg");
+  transition: 0.3s;
+  &:hover {
+    background: url("/img/icon/login_blue.svg");
+  }
+}
+
+.menu__iconCart {
+  margin-right: 5px;
+  width: 30px;
+  height: 30px;
+  background: url("/img/icon/shopping_cart.svg");
+  transition: 0.3s;
+  &:hover {
+    background: url("/img/icon/shopping_cart_blue.svg");
+  }
+}
+.menu__iconLogout {
+  width: 30px;
+  height: 30px;
+  background: url("/img/icon/logout.svg");
+  &:hover {
+    background: url("/img/icon/logout_blue.svg");
+  }
+}
+.menu__logout {
+  display: flex;
+  width: 100px;
+  @media (max-width: 601px) {
+    justify-self: end;
+    order: 1;
+    padding-left: 40px;
+  }
+}
+
+.menu__adminName {
+  padding: 0 10px;
+}
+

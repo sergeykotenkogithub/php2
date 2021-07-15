@@ -1,0 +1,72 @@
+.feedback {
+  padding: 15px 0;
+}
+
+.feedback__noauth  {
+  padding-bottom: 15px;
+}
+
+.feedback__text {
+  color: darkgrey;
+  font-size: 15px;
+}
+
+.message {
+  margin-bottom: 20px;
+  color: darkgrey;
+  font-size: 17px;
+}
+
+.goodsItem__feedback form {
+  margin-bottom: 20px;
+}
+
+.inputAll {
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 50px;
+  display: inline-block;
+  color: black;
+  transition: color 0.5s;
+  box-shadow: 2px 4px 0px #ccc;
+  background: none;
+  outline: none;
+  margin-right: 15px;
+  @media (max-width: 360px) {
+    margin-right: 0px;
+  }
+}
+
+.btnFeedback {
+  background: none;
+}
+
+.goodsItem__feedback {
+  margin: 35px 0;
+}
+
+.feedbackName {
+  text-align: center;
+}
+
+.btnBig {
+  font-size: 18px;
+  background: none;
+  padding: 18px;
+  width: 220px;
+  margin: 35px 0;
+  border: $border;
+  border-radius: 30px;
+  box-shadow: 6px 12px 2px #ccc;
+  @media (max-width: 520px) {
+      font-size: 15px;
+      width: 200px;
+  }
+}
+
+.feedback__title h1{
+  font-size: 28px;
+  @media (max-width: 380px) {
+      font-size: 24px;
+  }
+}

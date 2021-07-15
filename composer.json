@@ -1,0 +1,14 @@
+{
+    "require": {
+      "twig/twig": "^3.3",
+      "ext-json": "*",
+      "phpunit/phpunit": "^9.5",
+      "ext-pdo": "*",
+        "robmorgan/phinx": "^0.12.7"
+    },
+  "autoload": {
+    "psr-4": {
+      "app\\": ""
+    }
+  }
+}

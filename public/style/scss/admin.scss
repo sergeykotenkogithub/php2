@@ -1,0 +1,27 @@
+.admin {
+  a {
+    @extend %hover;
+    color: $color;
+  }
+  &__title {
+    font-size: 28px;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+  &__order {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 21px;
+    padding: 20px 0;
+    border-bottom: 1px solid #ffffff;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    div {
+      padding: 5px 0;
+    }
+  }
+}

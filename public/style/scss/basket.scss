@@ -1,0 +1,129 @@
+// Корзина
+
+.wrapperBasket {
+  font-size: 20px;
+  &__empty {
+    text-align: center;
+    font-size: 25px;
+  }
+}
+
+.wrapperBasket
+
+.basket {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  justify-content: space-evenly;
+  @media (max-width: 601px) {
+    justify-content: space-between;
+    display: grid;
+    grid-template-areas:
+    'name price quantity'
+    'del plus minus';
+    border: 1px solid white;
+    margin: 15px 0;
+    align-content: center;
+    text-align: center;
+    border-radius: 30px;
+  }
+  @media (max-width: 400px) {
+    font-size: 17px;
+  }
+
+  &__img {
+    //grid-area: img;
+    @media (max-width: 780px) {
+      display: none;
+    }
+  }
+  &__price {
+    grid-area: price;
+  }
+  &__quantity {
+    grid-area: quantity;
+  }
+  &__del {
+    grid-area: del;
+  }
+  &__plus {
+    grid-area: plus;
+  }
+  &__minus {
+    grid-area: minus;
+  }
+  &__add {
+    width: 27px;
+    height: 27px;
+    background: url(/img/icon/basket_add.svg);
+    background-size: cover;
+    &:hover {
+      background: url(/img/icon/basket_add_blue.svg);
+      background-size: cover;
+    }
+  }
+
+  &__deleteOne {
+    width: 25px;
+    height: 25px;
+
+    background: url(/img/icon/basket_minus.svg);
+    background-size: cover;
+    &:hover {
+      background: url(/img/icon/basket_minus_blue.svg);
+      background-size: cover;
+    }
+  }
+}
+
+.basketBtn {
+  @extend %hover;
+  background: none;
+  color: $color;
+  font-size: 18px;
+}
+
+
+
+
+.basketBtnSize {
+  font-size: 30px;
+}
+
+.basket div {
+  padding-right: 10px;
+  @media (max-width: 601px) {
+    padding: 20px;
+  }
+  @media (max-width: 400px) {
+    padding: 10px 7px 10px 7px;
+  }
+}
+
+.basket__name {
+  width: 90px;
+  grid-area: name;
+}
+
+.centerBasket {
+  text-align: center;
+}
+
+.total {
+  padding-bottom: 30px;
+}
+
+.order a {
+  font-size: 32px;
+  color: $color;
+  transition: 0.5s;
+  @extend %hover ;
+  @media (max-width: 601px) {
+      font-size: 30px;
+      padding-bottom: 20px;
+  }
+}
+.order {
+  font-size: 26px;
+}
+

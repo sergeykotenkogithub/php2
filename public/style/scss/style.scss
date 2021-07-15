@@ -1,0 +1,59 @@
+// Общие стили
+
+$color: #6495ed;
+$colorHover: blue;
+$border: 1px solid #ffffff;
+
+%hover {
+  transition: 0.5s;
+  &:hover {
+    color: $colorHover;
+  }
+}
+
+@import "menu";
+@import "main";
+@import "catalog";
+@import "null";
+@import "basket";
+@import "login";
+@import "myorders";
+@import "registration";
+@import "orderForm";
+@import "thanks";
+@import "adminOrder";
+@import "admin";
+@import "goodsOne";
+@import "tabs";
+@import "feedback";
+
+body {
+  margin: 0px;
+  background: url("/img/120.png");
+  //background: green;
+}
+
+.wrapper {
+  padding: 0 15px;
+}
+
+// Добавляет "₽";
+
+.rub:after {
+  content: "₽";
+  padding-left: 5px;
+}
+
+// Для того чтобы если есть со скролом и без не было перескоков в меню
+
+html {
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+}
+
+.btn {
+  background: none;
+  border: 1px solid #fff;
+  padding: 10px;
+  border-radius: 15px;
+}

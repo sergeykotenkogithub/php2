@@ -1,0 +1,31 @@
+// Мои заказы
+
+.wrapperMyorder {
+  display: flex;
+  flex-direction: column;
+  font-size: 19px;
+      &__order {
+        text-align: center;
+        padding: 20px 0;
+      }
+      &__title {
+        text-align: center;
+        font-size: 25px;
+      }
+      &__empty {
+        text-align: center;
+        padding-top: 80px;
+        font-size: 26px;
+      }
+}
+
+.myorder {
+  padding-bottom: 10px
+}
+
+.myorderBasket {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  justify-content: space-evenly;
+}

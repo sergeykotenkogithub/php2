@@ -1,0 +1,53 @@
+// Авторизация, Регистрация
+
+.wrapperLogin {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+    &__name {
+      padding: 20px 0;
+      text-align: center;
+    }
+    &__message {
+      text-align: center;
+      color: blue;
+    }
+}
+.login {
+  display: flex;
+    &__form {
+      display: flex;
+      flex-direction: column;
+    }
+    &__text {
+      width: 252px;
+      height: 40px;
+      background: transparent;
+      color: #6495ed;
+      font-size: 22px;
+      border: 1px solid white;
+      padding: 5px 25px;
+      margin: 8px;
+    }
+    &__submit {
+      width: 252px;
+      height: 40px;
+      background: transparent;
+      color: black;
+      font-size: 16px;
+      border: 1px solid white;
+      margin: 8px;
+    }
+}
+
+.save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+    &__checkbox {
+      width: 45px;
+      padding: 28px;
+      height: 25px;
+    }
+}
